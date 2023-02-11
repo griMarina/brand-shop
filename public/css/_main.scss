@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+}
+
+summary {
+    display: block;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+}
+
+.hidden {
+    position: absolute;
+    left: -999999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* 
+// Centering using padding
+.center {
+    padding: 0 calc(50% - 570px);
+}
+
+// Adaptive design
+// tablet
+@media (max-width: 1180px) {
+    .container {
+        max-width: 736px;
+    }
+}
+
+// mobile
+@media (max-width: 768px) {
+    .container {
+        max-width: 344px;
+    }
+} 
+*/
+
+// Responsive design
+@media (max-width: 1192px
+
+    /* 1140 + 20 + 16*2 */
+) {
+    .container {
+        padding: 0 16px;
+    }
+}
+
+@media (max-width: 788px
+
+    /* 768 + 20 */
+) {
+    .container {
+        padding: 0 8px;
+    }
+}

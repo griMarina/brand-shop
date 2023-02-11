@@ -1,0 +1,384 @@
+.promo {
+    background-color: #f1e4e6;
+
+    &-container {
+        background-image: url(../img/promo-bg-big.png);
+        background-repeat: no-repeat;
+        background-position-x: -226px;
+        background-position-y: bottom;
+        min-height: 764px;
+        @include flex(flex-end);
+    }
+
+    &-heading {
+        width: 41%;
+        padding-left: 16px;
+        border-left: 12px solid $main-color;
+
+        &-brand {
+            font-weight: 900;
+            font-size: 48px;
+            line-height: 58px;
+        }
+
+        &-lux {
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 38px;
+        }
+
+        &-fashion {
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 38px;
+            color: $main-color;
+        }
+    }
+}
+
+.categories {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 65px;
+    padding-bottom: 96px;
+
+    &-card {
+        background-color: #c4c4c4;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 31.6%;
+        min-height: 260px;
+        color: #ffffff;
+        @include flex();
+        flex-direction: column;
+        border-radius: 5px;
+        transition-duration: 0.5s;
+
+        &:hover {
+            transform: translate(0px, -10px);
+        }
+    }
+
+    &-women {
+        background-image: url(../img/category-women.png);
+    }
+
+    &-men {
+        background-image: url(../img/category-men.png);
+    }
+
+    &-kids {
+        background-image: url(../img/category-kids.png);
+    }
+
+    &-accs {
+        background-image: url(../img/category-accs.png);
+        width: 100%;
+        min-height: 180px;
+        margin-top: 30px;
+    }
+
+    &-text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+    }
+
+    &-big-text {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 28px;
+        color: $main-color;
+    }
+}
+
+.products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-heading {
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 36px;
+    }
+
+    &-text {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+        color: #9f9f9f;
+        margin-top: 6px;
+        margin-bottom: 48px;
+    }
+
+    &-items {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    &-card {
+        display: flex;
+        flex-direction: column;
+        width: 360px;
+        margin-bottom: 30px;
+        margin-right: 30px;
+        background-color: #f8f8f8;
+        transition: 0.5s;
+
+        &:nth-child(3n) {
+            margin-right: 0;
+        }
+
+        &:hover {
+            box-shadow: $shadow;
+
+            .products-card-overlay {
+                opacity: 1;
+            }
+        }
+
+        &-image {
+            position: relative;
+            z-index: 0;
+            display: flex;
+            overflow: hidden;
+        }
+
+        &-overlay {
+            position: absolute;
+            @include flex();
+            background-color: rgba(58, 56, 56, 0.86);
+            width: 100%;
+            height: 100%;
+            top: 0;
+            opacity: 0;
+            transition: 0.5s;
+
+            &-button {
+                border: 1px solid #ffffff;
+                display: flex;
+                align-items: center;
+                background-color: transparent;
+                padding: 8px 13px;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 17px;
+                color: #ffffff;
+                fill: #ffffff;
+                cursor: pointer;
+                transition-duration: 0.4s;
+
+                &:hover {
+                    background-color: $main-color;
+                    border: 1px solid $main-color;
+                }
+            }
+
+            &-icon {
+                margin-right: 11px;
+            }
+        }
+
+        &-info {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        &-link {
+            flex-grow: 1;
+            text-decoration: none;
+
+            &-heading {
+                font-weight: 400;
+                font-size: 13px;
+                line-height: 16px;
+                color: #000000;
+                margin-bottom: 13px;
+            }
+
+            &-text {
+                font-weight: 300;
+                font-size: 14px;
+                line-height: 17px;
+                color: #5d5d5d;
+                margin-bottom: 18px;
+            }
+        }
+
+        &-pricetag {
+            font-size: 16px;
+            line-height: 19px;
+            color: $main-color;
+        }
+    }
+
+    &-all {
+        padding: 13px 37px;
+        border: 1px solid #ff6a6a;
+        color: #f26376;
+        text-decoration: none;
+        font-size: 16px;
+        line-height: 19px;
+        margin-top: 18px;
+        transition-duration: 0.4s;
+
+        &:hover {
+            background-color: $main-color;
+            color: #ffffff;
+            fill: #ffffff;
+        }
+    }
+}
+
+@media (max-width: 1192px) {
+    .promo {
+        &-container {
+            background-image: url(../img/promo-bg-small.png);
+            min-height: 368px;
+            background-size: contain;
+            background-position-x: -30px;
+        }
+
+        &-heading {
+            &-brand {
+                font-weight: 900;
+                font-size: 44px;
+                line-height: 53px;
+            }
+
+            &-lux {
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 28px;
+            }
+
+            &-fashion {
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 28px;
+                color: $main-color;
+            }
+        }
+    }
+
+    .categories {
+        padding-top: 20px;
+        padding-bottom: 150px;
+
+        &-card {
+            min-height: 167px;
+        }
+
+        &-accs {
+            min-height: 116px;
+            margin-top: 20px;
+        }
+    }
+
+    .products {
+        &-text {
+            margin-top: 3px;
+            margin-bottom: 74px;
+        }
+
+        &-items {
+            margin: 0 16px;
+        }
+
+        &-card {
+            margin-bottom: 15px;
+            margin-right: 15px;
+
+            &:nth-child(3n) {
+                margin-right: 15px;
+            }
+
+            &:nth-child(2n) {
+                margin-right: 0px;
+            }
+        }
+
+        &-all {
+            margin-top: 25px;
+        }
+    }
+}
+
+@media (max-width: 815px) {
+    .products {
+        &-items {
+            margin: 0;
+        }
+    }
+}
+
+@media (max-width: 788px) {
+    .promo {
+        &-container {
+            background-image: none;
+            justify-content: center;
+        }
+
+        &-heading {
+            width: initial;
+
+            &-brand {
+                font-weight: 900;
+                font-size: 38px;
+                line-height: 46px;
+            }
+
+            &-lux {
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 24px;
+            }
+
+            &-fashion {
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 24px;
+                color: $main-color;
+            }
+        }
+    }
+
+    .categories {
+        padding-top: 32px;
+        padding-bottom: 64px;
+
+        &-card {
+            width: 100%;
+            margin-top: 32px;
+            min-height: 250px;
+        }
+
+        &-accs {
+            min-height: 112px;
+        }
+    }
+
+    .products {
+        &-items {
+            margin: 0 30px;
+        }
+
+        &-text {
+            margin-bottom: 64px;
+        }
+
+        &-card {
+            margin-right: 0;
+
+            &:nth-child(3n) {
+                margin-right: 0px;
+            }
+        }
+    }
+}

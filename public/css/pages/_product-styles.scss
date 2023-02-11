@@ -1,0 +1,220 @@
+.product-slider {
+    position: relative;
+    background-color: #f7f7f7;
+    padding-bottom: 64px;
+    @include flex();
+    z-index: 0;
+
+    &-button {
+        background-color: rgba(42, 42, 42, 0.15);
+        padding: 11px 17px;
+        border: none;
+        transition-duration: 0.4s;
+
+        &-left {
+            position: absolute;
+            left: 0;
+        }
+
+        &-right {
+            position: absolute;
+            right: 0;
+        }
+
+        &:hover {
+            fill: $main-color;
+            background-color: #ffffff;
+            cursor: pointer;
+            transform: scale(1.2);
+        }
+    }
+}
+
+.description {
+    background-color: #ffffff;
+    border: 1px solid #eaeaea;
+    padding: 64px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -64px;
+    margin-bottom: 130px;
+    position: relative;
+
+    &-type {
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 17px;
+        color: $main-color;
+    }
+
+    &-top-line {
+        width: 63px;
+        height: 3px;
+        border-width: 0;
+        background-color: #ef5b70;
+        margin-top: 12px;
+    }
+
+    &-title {
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 22px;
+        color: #4d4d4d;
+        margin-top: 12px;
+    }
+
+    &-text {
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 17px;
+        color: #5e5e5e;
+        text-align: center;
+        margin-top: 48px;
+        max-width: 555px;
+    }
+
+    &-pricetag {
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 29px;
+        color: #ef5b70;
+        margin-top: 32px;
+    }
+
+    &-bottom-line {
+        width: 641px;
+        height: 1px;
+        border-width: 0;
+        background-color: #eaeaea;
+        margin: 65px 0;
+    }
+
+    &-cart-button {
+        display: flex;
+        align-items: center;
+        background-color: #ffffff;
+        border: 1px solid #ff6a6a;
+        padding: 7px 36px;
+        margin-top: 48px;
+        color: #f26376;
+        fill: #ef5b70;
+        font-size: 16px;
+        line-height: 19px;
+        text-decoration: none;
+        transition-duration: 0.4s;
+
+        &-icon {
+            margin-right: 23px;
+        }
+
+        &:hover {
+            background-color: $main-color;
+            color: #ffffff;
+            fill: #ffffff;
+            cursor: pointer;
+        }
+    }
+}
+
+.items {
+    .products {
+        &-card {
+            &:nth-child(2) {
+                margin-right: 30px;
+            }
+        }
+    }
+}
+
+.product-feedback {
+    margin-top: 100px;
+}
+
+@media (max-width: 1192px) {
+    .sorting {
+        &-type {
+            &-size {
+                padding: 0 24px;
+            }
+        }
+    }
+
+    .items {
+        .products {
+            &-items {
+                flex-direction: row-reverse;
+            }
+
+            &-card {
+                &:nth-child(1) {
+                    margin-right: 0px;
+                }
+
+                &:nth-child(2) {
+                    margin-right: 15px;
+                }
+
+                &:nth-child(3) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .product-feedback {
+        margin-top: 115px;
+    }
+}
+
+@media (max-width: 788px) {
+    .description {
+        margin-bottom: 64px;
+
+        &-text {
+            padding: 0 25px;
+            line-height: 20px;
+        }
+
+        &-bottom-line {
+            width: 175px;
+            margin-top: 32px;
+            margin-bottom: 50px;
+        }
+
+        .sorting {
+            &-type {
+                &-size {
+                    padding: 0 23px;
+                }
+            }
+
+            &-title {
+                font-size: 10px;
+                line-height: 12px;
+            }
+        }
+    }
+
+    .items {
+        .products {
+            &-items {
+                flex-direction: row-reverse;
+            }
+
+            &-card {
+                &:nth-child(2) {
+                    display: none;
+                }
+
+                &:nth-child(3) {
+                    display: flex;
+                }
+            }
+        }
+    }
+
+    .product-feedback {
+        margin-top: 50px;
+    }
+}
