@@ -3,8 +3,9 @@
 function autoload($class)
 {
     $sources = array(
-        ROOT . '/models/entities/' . $class . '.php',
-        ROOT . '/models/databaseEntities/' . $class . '.php'
+        CONTROLLERS_DIR . $class . '.php',
+        MODELS_DIR . 'entities/' . $class . '.php',
+        MODELS_DIR . 'databaseEntities/' . $class . '.php'
     );
 
     foreach ($sources as $source) {

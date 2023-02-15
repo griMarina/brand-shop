@@ -14,10 +14,10 @@ if ($url_array[1] == '') {
 $params['layout'] = 'main';
 
 // define controller
-$controller = $page . '_controller';
+$controller = ucfirst($page) . 'Controller';
 
-if (function_exists($controller)) {
-    $params = $controller($params);
+if (class_exists($controller)) {
+    $params = $controller::prepare_variables($params);
     $page = 'blocks/' . $page;
     echo render($page, $params);
 } else {

@@ -1,8 +1,9 @@
 <?php
 
-class Cart extends Base
+class Cart
 {
     public function __construct(
+        private int $id,
         private int $quantity,
         private User $user,
         private Product $product,

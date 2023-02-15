@@ -1,11 +1,15 @@
 <?php
 
-function index_controller($params)
+class IndexController
 {
-    // $pdo = connection();
-    // $statement = $pdo->query('SELECT * FROM product WHERE id=1');
-    // $row = $statement->fetch(PDO::FETCH_ASSOC);
+    public static function prepare_variables(array $params): array
+    {
+        $pdo = connection();
 
-    $params['title'] = 'Home';
-    return $params;
+        $params['title'] = 'Home';
+        $product = new DatabaseProduct($pdo);
+        $params['product'] = $product->get_product(1);
+
+        return $params;
+    }
 }
