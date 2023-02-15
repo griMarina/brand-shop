@@ -2,10 +2,10 @@
     background-color: #f1e4e6;
 
     &-container {
-        background-image: url(../img/promo-bg-big.png);
+        background-image: url(../img/test/promo-bg-big.png);
         background-repeat: no-repeat;
-        background-position-x: -226px;
-        background-position-y: bottom;
+        background-position-x: 160px;
+        background-position-y: center;
         min-height: 764px;
         @include flex(flex-end);
     }
@@ -146,6 +146,11 @@
             z-index: 0;
             display: flex;
             overflow: hidden;
+
+            img {
+                width: 360px;
+                height: 420px;
+            }
         }
 
         &-overlay {

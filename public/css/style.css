@@ -490,10 +490,10 @@ main {
   background-color: #f1e4e6;
 }
 .promo-container {
-  background-image: url(../img/promo-bg-big.png);
+  background-image: url(../img/test/promo-bg-big.png);
   background-repeat: no-repeat;
-  background-position-x: -226px;
-  background-position-y: bottom;
+  background-position-x: 160px;
+  background-position-y: center;
   min-height: 764px;
   display: flex;
   justify-content: flex-end;
@@ -619,6 +619,10 @@ main {
   z-index: 0;
   display: flex;
   overflow: hidden;
+}
+.products-card-image img {
+  width: 360px;
+  height: 420px;
 }
 .products-card-overlay {
   position: absolute;
