@@ -12,7 +12,7 @@ summary::-webkit-details-marker {
 }
 
 body {
-  font-family: Verdana, Tahoma, sans-serif;
+  font-family: Times, serif;
 }
 
 .wrapper {
@@ -91,7 +91,10 @@ main {
   cursor: pointer;
 }
 .header-logo-icon {
-  margin-right: 40px;
+  color: #f16d7f;
+  font-weight: 900;
+  font-size: 48px;
+  margin-right: 30px;
   transition-duration: 0.5s;
 }
 .header-logo-icon:hover {

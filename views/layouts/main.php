@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?></title>
     <link rel="stylesheet" href="/css/style.css">
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
 </head>
 
 <body>
@@ -15,9 +14,7 @@
         <header class="header">
             <div class="container header-container">
                 <div class="header-left">
-                    <a href="#" class="header-link header-logo-icon">
-                        <img src="img/logo.png" alt="logo">
-                    </a>
+                    <a href="#" class="header-link header-logo-icon">B</a>
                     <a href="#" class="header-link header-search-icon">
                         <img src="img/search-icon.svg" alt="search">
                     </a>
@@ -83,7 +80,52 @@
                 </div>
             </div>
         </header>
+
         <?= $content ?>
+
+        <section class="benefits">
+            <h2 class="hidden">company's advantages</h2>
+            <div class="container benefits-container">
+                <div class="benefits-item">
+                    <img src="img/van-icon.svg" alt="delivery">
+                    <h3 class="benefits-heading">Free Delivery</h3>
+                    <p class="benefits-text">Worldwide delivery on all. Authorit tively morph next-generation
+                        innov tion with extensive models.</p>
+                </div>
+                <div class="benefits-item">
+                    <img src="img/percentage-icon.svg" alt="discounts">
+                    <h3 class="benefits-heading">Sales & discounts</h3>
+                    <p class="benefits-text">Worldwide delivery on all. Authorit tively morph next-generation
+                        innov tion with extensive models.</p>
+                </div>
+                <div class="benefits-item">
+                    <img src="img/crown-icon.svg" alt="assurance">
+                    <h3 class="benefits-heading">Quality assurance</h3>
+                    <p class="benefits-text">Worldwide delivery on all. Authorit tively morph next-generation
+                        innov tion with extensive models.</p>
+                </div>
+            </div>
+        </section>
+        <aside class="feedback">
+            <div class="container feedback-container">
+                <section class="feedback-reviews">
+                    <h2 class="hidden">user review</h2>
+                    <img class="feedback-userpic" src="img/feedback-userpic.png" alt="avatar">
+                    <p class="feedback-reviews-text">“Vestibulum quis porttitor dui! Quisque viverra nunc mi, <span class="feedback-reviews-text-italic">a pulvinar
+                            purus
+                            condimentum“</span></p>
+                </section>
+                <section class="feedback-subscribe">
+                    <h2 class="feedback-subscribe-heading">SUBSCRIBE</h2>
+                    <span class="feedback-subscribe-text">FOR OUR NEWSLETTER AND
+                        PROMOTION</span>
+                    <form class="feedback-subscribe-form" action="#">
+                        <input class="feedback-subscribe-email" type="email" placeholder="Enter Your Email" minlength="6" maxlength="20" required>
+                        <input class="feedback-subscribe-button" type="submit" value="Subscribe">
+                    </form>
+                </section>
+            </div>
+        </aside>
         <footer class="footer">
             <div class="container footer-container">
                 <section class="copyright">
