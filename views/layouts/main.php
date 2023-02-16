@@ -14,14 +14,14 @@
         <header class="header">
             <div class="container header-container">
                 <div class="header-left">
-                    <a href="#" class="header-link header-logo-icon">B</a>
+                    <a href="/" class="header-link header-logo-icon">B</a>
                     <a href="#" class="header-link header-search-icon">
-                        <img src="img/search-icon.svg" alt="search">
+                        <img src="/img/search-icon.svg" alt="search">
                     </a>
                 </div>
                 <div class="header-right">
                     <input type="checkbox" id="menu-toggle">
-                    <label class="header-link header-menu-icon" for="menu-toggle"><img src="img/menu-icon.svg" alt="menu"></label>
+                    <label class="header-link header-menu-icon" for="menu-toggle"><img src="/img/menu-icon.svg" alt="menu"></label>
                     <nav class="header-menu">
                         <div class="header-menu-overlay">
                             <label class="header-menu-close" for="menu-toggle"><svg width="12" height="12" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
@@ -87,19 +87,19 @@
             <h2 class="hidden">company's advantages</h2>
             <div class="container benefits-container">
                 <div class="benefits-item">
-                    <img src="img/van-icon.svg" alt="delivery">
+                    <img src="/img/van-icon.svg" alt="delivery">
                     <h3 class="benefits-heading">Free Delivery</h3>
                     <p class="benefits-text">Worldwide delivery on all. Authorit tively morph next-generation
                         innov tion with extensive models.</p>
                 </div>
                 <div class="benefits-item">
-                    <img src="img/percentage-icon.svg" alt="discounts">
+                    <img src="/img/percentage-icon.svg" alt="discounts">
                     <h3 class="benefits-heading">Sales & discounts</h3>
                     <p class="benefits-text">Worldwide delivery on all. Authorit tively morph next-generation
                         innov tion with extensive models.</p>
                 </div>
                 <div class="benefits-item">
-                    <img src="img/crown-icon.svg" alt="assurance">
+                    <img src="/img/crown-icon.svg" alt="assurance">
                     <h3 class="benefits-heading">Quality assurance</h3>
                     <p class="benefits-text">Worldwide delivery on all. Authorit tively morph next-generation
                         innov tion with extensive models.</p>
@@ -110,7 +110,7 @@
             <div class="container feedback-container">
                 <section class="feedback-reviews">
                     <h2 class="hidden">user review</h2>
-                    <img class="feedback-userpic" src="img/feedback-userpic.png" alt="avatar">
+                    <img class="feedback-userpic" src="/img/feedback-userpic.png" alt="avatar">
                     <p class="feedback-reviews-text">“Vestibulum quis porttitor dui! Quisque viverra nunc mi, <span class="feedback-reviews-text-italic">a pulvinar
                             purus
                             condimentum“</span></p>

@@ -223,17 +223,12 @@ main {
   justify-content: space-between;
   align-items: center;
 }
-.breadcrumb-heading {
-  color: #f16d7f;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 29px;
-}
 .breadcrumb-navigation {
   font-weight: 300;
   font-size: 14px;
   line-height: 17px;
   list-style: none;
+  flex-grow: 1;
 }
 .breadcrumb-link {
   display: inline;
@@ -255,6 +250,20 @@ main {
 .breadcrumb-arrivals {
   font-weight: 700;
   color: #f16d7f;
+}
+.breadcrumb-categories {
+  flex-grow: 2;
+  display: flex;
+  list-style: none;
+}
+.breadcrumb-category {
+  margin-right: 20px;
+  color: #f16d7f;
+  border: 1px solid #000;
+  padding: 7px;
+}
+.breadcrumb-category a {
+  text-decoration: none;
 }
 
 @media (max-width: 788px) {
@@ -537,6 +546,7 @@ main {
   flex-direction: column;
   border-radius: 5px;
   transition-duration: 0.5s;
+  text-decoration: none;
 }
 .categories-card:hover {
   transform: translate(0px, -10px);
@@ -549,12 +559,6 @@ main {
 }
 .categories-kids {
   background-image: url(../img/category-kids.png);
-}
-.categories-accs {
-  background-image: url(../img/category-accs.png);
-  width: 100%;
-  min-height: 180px;
-  margin-top: 30px;
 }
 .categories-text {
   font-weight: 700;
@@ -723,10 +727,6 @@ main {
   .categories-card {
     min-height: 167px;
   }
-  .categories-accs {
-    min-height: 116px;
-    margin-top: 20px;
-  }
   .products-text {
     margin-top: 3px;
     margin-bottom: 74px;
@@ -785,9 +785,6 @@ main {
     width: 100%;
     margin-top: 32px;
     min-height: 250px;
-  }
-  .categories-accs {
-    min-height: 112px;
   }
   .products-items {
     margin: 0 30px;

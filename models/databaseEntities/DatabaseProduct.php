@@ -9,7 +9,7 @@ class DatabaseProduct
 
     public function get_product(int $id): array
     {
-        $statemnet = $this->pdo->prepare(
+        $statement = $this->pdo->prepare(
             'SELECT product.id, product.title, product.desc, product.price, image.title AS main_img
             FROM product 
             LEFT JOIN `image`
@@ -17,29 +17,47 @@ class DatabaseProduct
             WHERE product.id = :id;'
         );
 
-        $statemnet->execute(
+        $statement->execute(
             [
                 ':id' => (int) $id
             ]
         );
 
-        return $statemnet->fetch(\PDO::FETCH_ASSOC);
+        return $statement->fetch(\PDO::FETCH_ASSOC);
     }
 
-    public function get_products(int $qty): array
+    public function get_products_by_limit(int $limit): array
     {
-        $statemnet = $this->pdo->prepare(
+        $statement = $this->pdo->prepare(
             'SELECT product.id, product.title, product.desc, product.price, image.title AS main_img
             FROM product 
             LEFT JOIN `image`
             ON product.main_img_id = image.id
-            LIMIT :qty;'
+            LIMIT :limit;'
         );
 
-        $statemnet->bindValue(':qty', $qty, PDO::PARAM_INT);
+        $statement->bindValue(':limit', $limit, PDO::PARAM_INT);
 
-        $statemnet->execute();
+        $statement->execute();
 
-        return $statemnet->fetchAll(\PDO::FETCH_ASSOC);
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function get_products_by_section(string $section): array
+    {
+        $statement = $this->pdo->prepare(
+            'SELECT product.id, product.title, product.desc, product.price, image.title AS main_img
+            FROM product 
+            LEFT JOIN `image`
+            ON product.main_img_id = image.id
+            WHERE product.section = :section;'
+        );
+
+        $statement->execute(
+            [
+                ':section' => (string) $section
+            ]
+        );
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
 }

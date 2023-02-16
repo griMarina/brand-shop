@@ -5,6 +5,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/../config/config.php';
 // define the page name from the url, by default it will be 'index'
 $url_array = explode('/', $_SERVER['REQUEST_URI']);
 
+// var_dump($url_array);
+
 if ($url_array[1] == '') {
     $page = 'index';
 } else {
@@ -12,6 +14,8 @@ if ($url_array[1] == '') {
 }
 
 // for each page prepare an array with own set of variables to substitute them into the appropriate template
+// $params['section'] = x;
+
 $params['layout'] = 'main';
 
 // define controller

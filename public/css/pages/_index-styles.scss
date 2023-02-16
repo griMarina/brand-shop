@@ -54,6 +54,7 @@
         flex-direction: column;
         border-radius: 5px;
         transition-duration: 0.5s;
+        text-decoration: none;
 
         &:hover {
             transform: translate(0px, -10px);
@@ -70,13 +71,6 @@
 
     &-kids {
         background-image: url(../img/category-kids.png);
-    }
-
-    &-accs {
-        background-image: url(../img/category-accs.png);
-        width: 100%;
-        min-height: 180px;
-        margin-top: 30px;
     }
 
     &-text {
@@ -273,11 +267,6 @@
         &-card {
             min-height: 167px;
         }
-
-        &-accs {
-            min-height: 116px;
-            margin-top: 20px;
-        }
     }
 
     .products {
@@ -356,10 +345,6 @@
             width: 100%;
             margin-top: 32px;
             min-height: 250px;
-        }
-
-        &-accs {
-            min-height: 112px;
         }
     }
 
