@@ -11,11 +11,13 @@ if ($url_array[1] == '') {
     $page = $url_array[1];
 }
 
+// for each page prepare an array with own set of variables to substitute them into the appropriate template
 $params['layout'] = 'main';
 
 // define controller
 $controller = ucfirst($page) . 'Controller';
 
+// check if the $controller class exists. If the class exists, call the prepare_variables() method on the class and assign the result to the $params array. Then call the render() function with the updated $page and $params as arguments
 if (class_exists($controller)) {
     $params = $controller::prepare_variables($params);
     $page = 'blocks/' . $page;

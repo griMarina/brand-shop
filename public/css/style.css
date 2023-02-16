@@ -1,11 +1,4 @@
 @charset "UTF-8";
-@font-face {
-  font-family: "Lato";
-  src: url("../fonts/Lato/Lato-Semibold.woff2") format("woff2"), url("../fonts/Lato/Lato-Semibold.woff") format("woff"), url("../fonts/Lato/Lato-Semibold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
 * {
   margin: 0;
 }
@@ -19,7 +12,7 @@ summary::-webkit-details-marker {
 }
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: Verdana, Tahoma, sans-serif;
 }
 
 .wrapper {
@@ -490,7 +483,7 @@ main {
   background-color: #f1e4e6;
 }
 .promo-container {
-  background-image: url(../img/test/promo-bg-big.png);
+  background-image: url(../img/promo-bg-big.png);
   background-repeat: no-repeat;
   background-position-x: 160px;
   background-position-y: center;
@@ -561,11 +554,6 @@ main {
   margin-top: 30px;
 }
 .categories-text {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-}
-.categories-big-text {
   font-weight: 700;
   font-size: 24px;
   line-height: 28px;
@@ -707,7 +695,7 @@ main {
     background-image: url(../img/promo-bg-small.png);
     min-height: 368px;
     background-size: contain;
-    background-position-x: -30px;
+    background-position-x: 200px;
   }
   .promo-heading-brand {
     font-weight: 900;

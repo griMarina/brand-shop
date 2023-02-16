@@ -2,7 +2,7 @@
     background-color: #f1e4e6;
 
     &-container {
-        background-image: url(../img/test/promo-bg-big.png);
+        background-image: url(../img/promo-bg-big.png);
         background-repeat: no-repeat;
         background-position-x: 160px;
         background-position-y: center;
@@ -80,12 +80,6 @@
     }
 
     &-text {
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 19px;
-    }
-
-    &-big-text {
         font-weight: 700;
         font-size: 24px;
         line-height: 28px;
@@ -247,7 +241,7 @@
             background-image: url(../img/promo-bg-small.png);
             min-height: 368px;
             background-size: contain;
-            background-position-x: -30px;
+            background-position-x: 200px;
         }
 
         &-heading {
