@@ -2,7 +2,7 @@
     background-color: #f1e4e6;
 
     &-container {
-        background-image: url(../img/promo-bg-big.png);
+        background-image: url(/img/promo-bg-big.png);
         background-repeat: no-repeat;
         background-position-x: 160px;
         background-position-y: center;
@@ -62,15 +62,15 @@
     }
 
     &-women {
-        background-image: url(../img/category-women.png);
+        background-image: url(/img/category-women.jpg);
     }
 
     &-men {
-        background-image: url(../img/category-men.png);
+        background-image: url(/img/category-men.jpg);
     }
 
     &-kids {
-        background-image: url(../img/category-kids.png);
+        background-image: url(/img/category-kids.jpg);
     }
 
     &-text {

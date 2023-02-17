@@ -229,6 +229,7 @@ main {
   line-height: 17px;
   list-style: none;
   flex-grow: 1;
+  padding: 0;
 }
 .breadcrumb-link {
   display: inline;
@@ -247,33 +248,50 @@ main {
   color: #f16d7f;
   text-decoration: underline;
 }
-.breadcrumb-arrivals {
-  font-weight: 700;
-  color: #f16d7f;
-}
 .breadcrumb-categories {
-  flex-grow: 2;
+  flex-grow: 1;
   display: flex;
   list-style: none;
+  padding: 0;
 }
 .breadcrumb-category {
-  margin-right: 20px;
-  color: #f16d7f;
-  border: 1px solid #000;
-  padding: 7px;
+  margin-right: 10px;
 }
 .breadcrumb-category a {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid #ff6a6a;
+  color: #f26376;
   text-decoration: none;
+  font-size: 16px;
+  line-height: 19px;
+  margin-top: 18px;
+  transition-duration: 0.4s;
+  width: 80px;
+  text-align: center;
+}
+.breadcrumb-category a:hover {
+  background-color: #f16d7f;
+  color: #ffffff;
+  fill: #ffffff;
 }
 
-@media (max-width: 788px) {
+@media (max-width: 915px) {
   .breadcrumb-container {
-    flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
   }
   .breadcrumb-navigation {
     padding-left: 0;
     padding-bottom: 10px;
+    flex-grow: 0;
+  }
+  .breadcrumb-categories {
+    flex-grow: 0;
+  }
+}
+@media (max-width: 788px) {
+  .breadcrumb-categories {
+    display: none;
   }
 }
 .benefits {
@@ -495,7 +513,7 @@ main {
   background-color: #f1e4e6;
 }
 .promo-container {
-  background-image: url(../img/promo-bg-big.png);
+  background-image: url(/img/promo-bg-big.png);
   background-repeat: no-repeat;
   background-position-x: 160px;
   background-position-y: center;
@@ -552,13 +570,13 @@ main {
   transform: translate(0px, -10px);
 }
 .categories-women {
-  background-image: url(../img/category-women.png);
+  background-image: url(/img/category-women.jpg);
 }
 .categories-men {
-  background-image: url(../img/category-men.png);
+  background-image: url(/img/category-men.jpg);
 }
 .categories-kids {
-  background-image: url(../img/category-kids.png);
+  background-image: url(/img/category-kids.jpg);
 }
 .categories-text {
   font-weight: 700;

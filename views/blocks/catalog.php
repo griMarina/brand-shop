@@ -2,14 +2,14 @@
     <section class="breadcrumb">
         <div class="container breadcrumb-container">
             <ul class="breadcrumb-navigation">
-                <li class="breadcrumb-link"><a href="/">HOME</a></li>
+                <!-- <li class="breadcrumb-link"><a href="/">HOME</a></li> -->
+                <li class="breadcrumb-link"><a href="/catalog">ALL PRODUCTS</a></li>
                 <li class="breadcrumb-link"><a href="#">MEN</a></li>
-                <li class="breadcrumb-link breadcrumb-arrivals">NEW ARRIVALS</li>
             </ul>
             <ul class="breadcrumb-categories">
-                <li class="breadcrumb-category"><a href="#"><span>WOMEN</span></a></li>
-                <li class="breadcrumb-category"><a href="#"><span>MEN</span></a></li>
-                <li class="breadcrumb-category"><a href="#"><span>KIDS</span></a></li>
+                <li class="breadcrumb-category"><a href="/catalog/women"><span>WOMEN</span></a></li>
+                <li class="breadcrumb-category"><a href="/catalog/men"><span>MEN</span></a></li>
+                <li class="breadcrumb-category"><a href="/catalog/kids"><span>KIDS</span></a></li>
             </ul>
         </div>
 

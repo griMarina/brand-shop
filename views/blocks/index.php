@@ -10,14 +10,14 @@
     </section>
     <section class="categories container">
         <h2 class="hidden">categories of products</h2>
-        <a class="categories-card categories-women" href="catalog/women">
-            <span class="categories-text">FOR WOMEN</span>
+        <a class="categories-card categories-women" href="/catalog/women">
+            <span class="categories-text">WOMEN</span>
         </a>
-        <a class="categories-card categories-men" href="catalog/men">
-            <span class="categories-text">FOR MEN</span>
+        <a class="categories-card categories-men" href="/catalog/men">
+            <span class="categories-text">MEN</span>
         </a>
-        <a class="categories-card categories-kids" href="catalog/kids">
-            <span class="categories-text">FOR KIDS</span>
+        <a class="categories-card categories-kids" href="/catalog/kids">
+            <span class="categories-text">KIDS</span>
         </a>
 
     </section>
