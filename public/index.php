@@ -8,7 +8,7 @@ $url_array = explode('/', $_SERVER['REQUEST_URI']);
 // var_dump($url_array);
 
 if ($url_array[1] == '') {
-    $page = 'index';
+    $page = 'home';
 } else {
     $page = $url_array[1];
 }

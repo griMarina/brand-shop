@@ -10,11 +10,11 @@ class DatabaseProduct
     public function get_product(int $id): array
     {
         $statement = $this->pdo->prepare(
-            'SELECT product.id, product.title, product.desc, product.price, image.title AS main_img
+            'SELECT product.id, product.title, product.desc, product.price, image.title AS slide
             FROM product 
             LEFT JOIN `image`
-            ON product.main_img_id = image.id
-            WHERE product.id = :id;'
+            ON product.id = image.product_id
+            WHERE product.id = :id AND image.number = 1;'
         );
 
         $statement->execute(
@@ -33,6 +33,7 @@ class DatabaseProduct
             FROM product 
             LEFT JOIN `image`
             ON product.main_img_id = image.id
+            WHERE image.number = 0
             LIMIT :limit;'
         );
 
@@ -50,7 +51,7 @@ class DatabaseProduct
             FROM product 
             LEFT JOIN `image`
             ON product.main_img_id = image.id
-            WHERE product.section = :section;'
+            WHERE product.section = :section AND image.number = 0;'
         );
 
         $statement->execute(

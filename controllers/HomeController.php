@@ -1,6 +1,6 @@
 <?php
 
-class IndexController
+class HomeController
 {
     public static function prepare_variables(array $params): array
     {

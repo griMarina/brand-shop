@@ -12,7 +12,6 @@
                 <li class="breadcrumb-category"><a href="/catalog/kids"><span>KIDS</span></a></li>
             </ul>
         </div>
-
     </section>
     <section class="filter container">
         <h2 class="hidden">filter products</h2>
@@ -118,7 +117,7 @@
                         </div>
                     </div>
                     <figcaption class="products-card-info">
-                        <a class="products-card-link" href="product.html">
+                        <a class="products-card-link" href="/product/?id=<?= $product['id'] ?>">
                             <h3 class="products-card-link-heading"><?= $product['title'] ?></h3>
                             <p class="products-card-link-text"><?= $product['desc'] ?></p>
                         </a>
@@ -148,5 +147,28 @@
                 </svg>
             </a>
         </section>
+    </section>
+    <section class="benefits">
+        <h2 class="hidden">company's advantages</h2>
+        <div class="container benefits-container">
+            <div class="benefits-item">
+                <img src="/img/van-icon.svg" alt="delivery">
+                <h3 class="benefits-heading">Free Delivery</h3>
+                <p class="benefits-text">Worldwide delivery on all. Authorit tively morph next-generation
+                    innov tion with extensive models.</p>
+            </div>
+            <div class="benefits-item">
+                <img src="/img/percentage-icon.svg" alt="discounts">
+                <h3 class="benefits-heading">Sales & discounts</h3>
+                <p class="benefits-text">Worldwide delivery on all. Authorit tively morph next-generation
+                    innov tion with extensive models.</p>
+            </div>
+            <div class="benefits-item">
+                <img src="/img/crown-icon.svg" alt="assurance">
+                <h3 class="benefits-heading">Quality assurance</h3>
+                <p class="benefits-text">Worldwide delivery on all. Authorit tively morph next-generation
+                    innov tion with extensive models.</p>
+            </div>
+        </div>
     </section>
 </main>

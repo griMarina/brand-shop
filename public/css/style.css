@@ -264,7 +264,7 @@ main {
   color: #f26376;
   text-decoration: none;
   font-size: 16px;
-  line-height: 19px;
+  line-height: 20px;
   margin-top: 18px;
   transition-duration: 0.4s;
   width: 80px;
@@ -274,6 +274,9 @@ main {
   background-color: #f16d7f;
   color: #ffffff;
   fill: #ffffff;
+}
+.breadcrumb-category a span {
+  vertical-align: sub;
 }
 
 @media (max-width: 915px) {
