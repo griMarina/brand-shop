@@ -2,8 +2,42 @@
     background-color: #f8f3f4;
 
     &-container {
-        height: 148px;
-        @include flex(space-between);
+        height: 130px;
+        @include flex(space-evenly);
+        flex-direction: column;
+    }
+
+    &-categories {
+        display: flex;
+        list-style: none;
+        padding: 0;
+    }
+
+    &-category {
+        margin-right: 10px;
+
+        a {
+            display: inline-block;
+            padding: 10px;
+            border: 1px solid #ff6a6a;
+            color: #f26376;
+            text-decoration: none;
+            font-size: 16px;
+            line-height: 20px;
+            transition-duration: 0.4s;
+            width: 80px;
+            text-align: center;
+
+            &:hover {
+                background-color: $main-color;
+                color: #ffffff;
+                fill: #ffffff;
+            }
+
+            span {
+                vertical-align: sub;
+            }
+        }
     }
 
     &-navigation {
@@ -11,8 +45,14 @@
         font-size: 14px;
         line-height: 17px;
         list-style: none;
-        flex-grow: 1;
         padding: 0;
+        align-self: flex-start;
+
+        :last-child {
+            a {
+                color: $main-color;
+            }
+        }
     }
 
     &-link {
@@ -36,63 +76,14 @@
         }
     }
 
-    &-categories {
-        flex-grow: 1;
-        display: flex;
-        list-style: none;
-        padding: 0;
-    }
-
-    &-category {
-        margin-right: 10px;
-
-        a {
-            display: inline-block;
-            padding: 10px;
-            border: 1px solid #ff6a6a;
-            color: #f26376;
-            text-decoration: none;
-            font-size: 16px;
-            line-height: 20px;
-            margin-top: 18px;
-            transition-duration: 0.4s;
-            width: 80px;
-            text-align: center;
-
-            &:hover {
-                background-color: $main-color;
-                color: #ffffff;
-                fill: #ffffff;
-            }
-
-            span {
-                vertical-align: sub;
-            }
-        }
-    }
 }
-
-@media (max-width: 915px) {
-    .breadcrumb {
-        &-container {
-            justify-content: space-between;
-        }
-
-        &-navigation {
-            padding-left: 0;
-            padding-bottom: 10px;
-            flex-grow: 0;
-        }
-
-        &-categories {
-            flex-grow: 0;
-        }
-    }
-}
-
 
 @media (max-width: 788px) {
     .breadcrumb {
+
+        &-container {
+            height: 90px;
+        }
 
         &-categories {
             display: none;
