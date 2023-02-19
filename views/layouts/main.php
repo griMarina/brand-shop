@@ -86,11 +86,16 @@
         <aside class="feedback">
             <div class="container feedback-container">
                 <section class="feedback-reviews">
-                    <h2 class="hidden">user review</h2>
-                    <img class="feedback-userpic" src="/img/feedback-userpic.png" alt="avatar">
-                    <p class="feedback-reviews-text">“Vestibulum quis porttitor dui! Quisque viverra nunc mi, <span class="feedback-reviews-text-italic">a pulvinar
-                            purus
-                            condimentum“</span></p>
+                    <h2 class="hidden">about company</h2>
+                    <ul>
+                        <li><a href="#" class="feedback-reviews-link">Contact us</a></li>
+                        <li><a href="#" class="feedback-reviews-link">Delivery information</a></li>
+                        <li><a href="#" class="feedback-reviews-link">Customer service</a></li>
+                        <li><a href="#" class="feedback-reviews-link">About us</a></li>
+                        <li><a href="#" class="feedback-reviews-link">Corporate responsibility</a></li>
+                        <li><a href="#" class="feedback-reviews-link">Careers</a></li>
+                        <li><a href="#" class="feedback-reviews-link">Press</a></li>
+                    </ul>
                 </section>
                 <section class="feedback-subscribe">
                     <h2 class="feedback-subscribe-heading">SUBSCRIBE</h2>

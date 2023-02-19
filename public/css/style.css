@@ -341,7 +341,7 @@ main {
   }
 }
 .feedback {
-  background-image: url(../img/feedback-bg.png);
+  background-image: url(/img/feedback-bg.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -350,29 +350,32 @@ main {
 .feedback-container {
   min-height: 448px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 .feedback-reviews {
   max-width: 356px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  text-align: center;
 }
-.feedback-reviews-text {
-  margin-top: 30px;
+.feedback-reviews ul {
+  padding: 0;
+}
+.feedback-reviews ul li {
+  list-style: none;
+  margin-top: 15px;
+}
+.feedback-reviews-link {
+  text-decoration: none;
   font-size: 20px;
   line-height: 24px;
-  text-align: center;
   color: #222224;
 }
-.feedback-reviews-text-italic {
-  font-size: 20px;
-  line-height: 24px;
-  font-style: italic;
+.feedback-reviews-link:hover {
+  color: #f16d7f;
 }
 .feedback-subscribe {
-  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -425,9 +428,8 @@ main {
 
 @media (max-width: 1192px) {
   .feedback-container {
-    min-height: 693px;
+    min-height: 600px;
     flex-direction: column;
-    justify-content: space-evenly;
   }
 }
 @media (max-width: 788px) {
@@ -435,10 +437,6 @@ main {
     min-height: 550px;
   }
   .feedback-reviews-text {
-    font-size: 18px;
-    line-height: 22px;
-  }
-  .feedback-reviews-text-italic {
     font-size: 18px;
     line-height: 22px;
   }
@@ -1071,7 +1069,7 @@ main {
   height: 1px;
   border-width: 0;
   background-color: #eaeaea;
-  margin: 65px 0;
+  margin: 45px 0;
 }
 .description-cart-button {
   display: flex;
@@ -1079,7 +1077,6 @@ main {
   background-color: #ffffff;
   border: 1px solid #ff6a6a;
   padding: 7px 36px;
-  margin-top: 48px;
   color: #f26376;
   fill: #ef5b70;
   font-size: 16px;
@@ -1124,7 +1121,6 @@ main {
   .description-bottom-line {
     width: 175px;
     margin-top: 32px;
-    margin-bottom: 50px;
   }
   .description .sorting-type-size {
     padding: 0 23px;

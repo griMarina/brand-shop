@@ -1,5 +1,5 @@
 .feedback {
-    background-image: url(../img/feedback-bg.png);
+    background-image: url(/img/feedback-bg.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -7,32 +7,39 @@
 
     &-container {
         min-height: 448px;
-        @include flex(space-between);
+        @include flex(space-around);
     }
 
     &-reviews {
         max-width: 356px;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        text-align: center;
 
-        &-text {
-            margin-top: 30px;
+        ul {
+            padding: 0;
+
+            li {
+                list-style: none;
+                margin-top: 15px;
+
+            }
+        }
+
+
+        &-link {
+            text-decoration: none;
             font-size: 20px;
             line-height: 24px;
-            text-align: center;
             color: #222224;
 
-            &-italic {
-                font-size: 20px;
-                line-height: 24px;
-                font-style: italic;
+            &:hover {
+                color: $main-color;
             }
         }
     }
 
     &-subscribe {
-        width: 50%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -93,9 +100,8 @@
 @media (max-width: 1192px) {
     .feedback {
         &-container {
-            min-height: 693px;
+            min-height: 600px;
             flex-direction: column;
-            justify-content: space-evenly;
         }
     }
 }
@@ -110,11 +116,6 @@
             &-text {
                 font-size: 18px;
                 line-height: 22px;
-
-                &-italic {
-                    font-size: 18px;
-                    line-height: 22px;
-                }
             }
         }
 

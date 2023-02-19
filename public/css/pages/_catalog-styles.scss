@@ -206,28 +206,6 @@
         grid-template-columns: 90px auto;
     }
 
-    // .catalog {
-    //     .products {
-    //         &-card {
-    //             &:nth-child(1n + 2) {
-    //                 margin-right: 0px;
-    //             }
-
-    //             &:nth-child(2n + 2) {
-    //                 margin-right: 15px;
-    //             }
-
-    //             &:nth-child(2) {
-    //                 margin-right: 0px;
-    //             }
-
-    //             &:nth-child(3) {
-    //                 display: none;
-    //             }
-    //         }
-    //     }
-    // }
-
     .pagination {
         margin-top: 25px;
     }
@@ -250,16 +228,6 @@
             }
         }
     }
-
-    // .catalog {
-    //     .products {
-    //         &-card {
-    //             &:nth-child(1n) {
-    //                 margin-right: 0px;
-    //             }
-    //         }
-    //     }
-    // }
 
     .sorting {
         &-title {
