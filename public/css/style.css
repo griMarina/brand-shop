@@ -262,6 +262,7 @@ main {
 }
 .breadcrumb-navigation :last-child a {
   color: #f16d7f;
+  pointer-events: none;
 }
 .breadcrumb-link {
   display: inline;

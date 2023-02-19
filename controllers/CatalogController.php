@@ -8,7 +8,8 @@ class CatalogController
 
         $pdo = connection();
 
-        $params['title'] = 'Catalog';
+        $params['title'] = 'Products';
+        $params['breadcrumbs'] = Breadcrumb::get_breadcrumbs(array_slice($url_array, 2));
         $product = new DatabaseProduct($pdo);
         $params['products'] = (isset($url_array[2]))
             ? $product->get_products_by_section($url_array[2])

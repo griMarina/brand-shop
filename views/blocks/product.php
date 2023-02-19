@@ -7,8 +7,11 @@
                 <li class="breadcrumb-category"><a href="/catalog/kids"><span>KIDS</span></a></li>
             </ul>
             <ul class="breadcrumb-navigation">
-                <li class="breadcrumb-link"><a href="/catalog">ALL PRODUCTS</a></li>
-                <li class="breadcrumb-link"><a href="#">MEN</a></li>
+                <li class="breadcrumb-link"><a href="/">Home</a></li>
+                <li class="breadcrumb-link"><a href="/catalog">Products</a></li>
+                <?php foreach ($breadcrumbs as $crumb => $link) : ?>
+                    <li class="breadcrumb-link"><a href="/catalog<?= $link ?>"><?= $crumb ?></a></li>
+                <?php endforeach; ?>
             </ul>
         </div>
     </section>

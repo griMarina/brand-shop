@@ -8,10 +8,13 @@ class ProductController
 
         $id = (int)$_GET['id'];
 
-        $params['title'] = 'Product';
-        $product = new DatabaseProduct($pdo);
-        $params['product'] = $product->get_product($id);
-        $params['products'] = $product->get_products_by_limit(3);
+        $db_product = new DatabaseProduct($pdo);
+        $product = $db_product->get_product($id);
+        $params['product'] = $product;
+        $params['title'] = $product['title'];
+        $crumbs = [$product['section'], $product['category'], $product['title']];
+        $params['breadcrumbs'] = Breadcrumb::get_breadcrumbs($crumbs);
+        $params['products'] = $db_product->get_products_by_limit(3);
 
         return $params;
     }

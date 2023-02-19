@@ -51,6 +51,7 @@
         :last-child {
             a {
                 color: $main-color;
+                pointer-events: none;
             }
         }
     }
