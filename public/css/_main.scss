@@ -36,42 +36,14 @@ main {
     margin: 0 auto;
 }
 
-/* 
-// Centering using padding
-.center {
-    padding: 0 calc(50% - 585px);
-}
-
-// Adaptive design
-// tablet
-@media (max-width: 1210px) {
-    .container {
-        max-width: 736px;
-    }
-}
-
-// mobile
-@media (max-width: 768px) {
-    .container {
-        max-width: 344px;
-    }
-} 
-*/
-
 // Responsive design
-@media (max-width: 1222px)
-
-/* 1170 + 20 + 16*2 */
-    {
+@media (max-width: $tablet-width) {
     .container {
         padding: 0 16px;
     }
 }
 
-@media (max-width: 788px)
-
-/* 768 + 20 */
-    {
+@media (max-width: $mobile-width) {
     .container {
         padding: 0 8px;
     }

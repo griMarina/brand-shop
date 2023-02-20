@@ -114,7 +114,7 @@
     }
 }
 
-@media (max-width: 1222px) {
+@media (max-width: $tablet-width) {
     .reg {
         padding-top: 40px;
 
@@ -141,7 +141,7 @@
     }
 }
 
-@media (max-width: 788px) {
+@media (max-width: $mobile-width) {
     .reg {
         flex-direction: column;
 

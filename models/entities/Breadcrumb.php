@@ -7,13 +7,11 @@ class Breadcrumb
         $link = '';
         $result = [];
 
-        if (!in_array('', $array)) {
-            foreach ($array as $elem) {
-                $link .= '/' . $elem;
-                $result += [
-                    ucfirst($elem) => $link
-                ];
-            }
+        foreach ($array as $elem) {
+            $link .= '/' . $elem;
+            $result += [
+                ucfirst($elem) => $link
+            ];
         }
 
         return $result;

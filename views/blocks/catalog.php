@@ -10,7 +10,9 @@
                 <li class="breadcrumb-link"><a href="/">Home</a></li>
                 <li class="breadcrumb-link"><a href="/catalog">Products</a></li>
                 <?php foreach ($breadcrumbs as $crumb => $link) : ?>
-                    <li class="breadcrumb-link"><a href="/catalog<?= $link ?>"><?= $crumb ?></a></li>
+                    <?php if ($crumb !== '') : ?>
+                        <li class="breadcrumb-link"><a href="/catalog<?= $link ?>"><?= $crumb ?></a></li>
+                    <?php endif; ?>
                 <?php endforeach; ?>
             </ul>
         </div>

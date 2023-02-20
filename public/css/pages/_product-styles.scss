@@ -130,7 +130,7 @@
     margin-top: 100px;
 }
 
-@media (max-width: 1222px) {
+@media (max-width: $tablet-width) {
     .sorting {
         &-type {
             &-size {
@@ -144,7 +144,7 @@
     }
 }
 
-@media (max-width: 788px) {
+@media (max-width: $mobile-width) {
     .description {
         margin-bottom: 64px;
 

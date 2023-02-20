@@ -18,7 +18,7 @@ class CatalogController
             : $product->get_products_by_limit(12);
 
         if (empty($products)) {
-            header('Location:/');
+            header('Location: /');
         }
 
         $params['products'] = $products;

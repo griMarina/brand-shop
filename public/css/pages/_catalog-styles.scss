@@ -200,7 +200,7 @@
     }
 }
 
-@media (max-width: 1222px) {
+@media (max-width: $tablet-width) {
     .filter {
         justify-content: space-between;
         grid-template-columns: 90px auto;
@@ -211,7 +211,7 @@
     }
 }
 
-@media (max-width: 788px) {
+@media (max-width: $mobile-width) {
     .filter {
         padding-left: 8px;
         grid-template-columns: 40px auto;

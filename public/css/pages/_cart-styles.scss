@@ -255,7 +255,7 @@
     }
 }
 
-@media (max-width: 1222px) {
+@media (max-width: $tablet-width) {
     .cart {
         padding-top: 60px;
         flex-direction: column;
@@ -290,7 +290,7 @@
     }
 }
 
-@media (max-width: 788px) {
+@media (max-width: $mobile-width) {
     .cart {
         padding-top: 40px;
         padding-bottom: 96px;

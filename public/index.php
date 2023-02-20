@@ -25,5 +25,5 @@ if (class_exists($controller)) {
     $page = 'blocks/' . $page;
     echo render($page, $params);
 } else {
-    die('epic fail');
+    header('Location: /');
 }
