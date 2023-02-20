@@ -16,12 +16,12 @@
                 <div class="header-left">
                     <a href="/" class="header-link header-logo-icon">B</a>
                     <a href="#" class="header-link header-search-icon">
-                        <img src="/img/search-icon.svg" alt="search">
+                        <img src="/img/main/search-icon.svg" alt="search">
                     </a>
                 </div>
                 <div class="header-right">
                     <input type="checkbox" id="menu-toggle">
-                    <label class="header-link header-menu-icon" for="menu-toggle"><img src="/img/menu-icon.svg" alt="menu"></label>
+                    <label class="header-link header-menu-icon" for="menu-toggle"><img src="/img/main/menu-icon.svg" alt="menu"></label>
                     <nav class="header-menu">
                         <div class="header-menu-overlay">
                             <label class="header-menu-close" for="menu-toggle"><svg width="12" height="12" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">

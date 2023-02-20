@@ -342,7 +342,7 @@ main {
   }
 }
 .feedback {
-  background-image: url(/img/feedback-bg.png);
+  background-image: url(/img/main/feedback-bg.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -507,7 +507,7 @@ main {
   background-color: #f1e4e6;
 }
 .promo-container {
-  background-image: url(/img/promo-bg-big.png);
+  background-image: url(/img/main/promo-bg-big.png);
   background-repeat: no-repeat;
   background-position-x: 160px;
   background-position-y: center;
@@ -564,13 +564,13 @@ main {
   transform: translate(0px, -10px);
 }
 .categories-women {
-  background-image: url(/img/category-women.png);
+  background-image: url(/img/main/category-women.png);
 }
 .categories-men {
-  background-image: url(/img/category-men.png);
+  background-image: url(/img/main/category-men.png);
 }
 .categories-kids {
-  background-image: url(/img/category-kids.png);
+  background-image: url(/img/main/category-kids.png);
 }
 .categories-text {
   font-weight: 700;
@@ -689,7 +689,7 @@ main {
 
 @media (max-width: 1192px) {
   .promo-container {
-    background-image: url(/img/promo-bg-small.png);
+    background-image: url(/img/main/promo-bg-small.png);
     min-height: 368px;
     background-size: contain;
     background-position-x: 200px;
@@ -1025,7 +1025,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -64px;
+  margin-top: -68px;
   margin-bottom: 130px;
   position: relative;
 }

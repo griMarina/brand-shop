@@ -63,7 +63,7 @@
         <div class="sorting">
             <div class="sorting-type">
                 <input class="sorting-toggle" type="checkbox" id="sorting-toggle-trend">
-                <label class="sorting-title" for="sorting-toggle-trend">TRENDING NOW<img class="sorting-icon" src="/img/dropdown-icon.svg" alt="unfold"></label>
+                <label class="sorting-title" for="sorting-toggle-trend">TRENDING NOW<img class="sorting-icon" src="/img/main/dropdown-icon.svg" alt="unfold"></label>
                 <div class="sorting-list sorting-trend">
                     <input type="checkbox">
                     <label class="sorting-list-value"></label><br>
@@ -77,7 +77,7 @@
             </div>
             <div class="sorting-type sorting-type-size">
                 <input class="sorting-toggle" type="checkbox" id="sorting-toggle-size">
-                <label class="sorting-title" for="sorting-toggle-size">SIZE<img class="sorting-icon" src="/img/dropdown-icon.svg" alt="unfold"></label>
+                <label class="sorting-title" for="sorting-toggle-size">SIZE<img class="sorting-icon" src="/img/main/dropdown-icon.svg" alt="unfold"></label>
                 <div class="sorting-list sorting-list-size sorting-size">
                     <input type="checkbox" id="size-xs" name="size" value="xs">
                     <label class="sorting-list-value" for="size-xs">XS</label><br>
@@ -91,7 +91,7 @@
             </div>
             <div class="sorting-type">
                 <input class="sorting-toggle" type="checkbox" id="sorting-toggle-price">
-                <label class="sorting-title" for="sorting-toggle-price">PRICE<img class="sorting-icon" src="/img/dropdown-icon.svg" alt="unfold"></label>
+                <label class="sorting-title" for="sorting-toggle-price">PRICE<img class="sorting-icon" src="/img/main/dropdown-icon.svg" alt="unfold"></label>
                 <div class="sorting-list sorting-price">
                     <input type="checkbox">
                     <label class="sorting-list-value"></label><br>
@@ -112,7 +112,7 @@
                 <figure class="products-card">
                     <a class="products-card-link" href="/product/?id=<?= $product['id'] ?>">
                         <div class="products-card-image">
-                            <img class="products-card-img" src="/img/<?= $product['main_img'] ?>.jpg" alt="product 1" />
+                            <img class="products-card-img" src="/img/catalog/<?= $product['main_img'] ?>.jpg" alt="product 1" />
                             <div class="products-card-overlay"></div>
                         </div>
                         <figcaption class="products-card-info">
@@ -150,19 +150,19 @@
         <h2 class="hidden">company's advantages</h2>
         <div class="container benefits-container">
             <div class="benefits-item">
-                <img src="/img/van-icon.svg" alt="delivery">
+                <img src="/img/main/van-icon.svg" alt="delivery">
                 <h3 class="benefits-heading">Free Delivery</h3>
                 <p class="benefits-text">Worldwide delivery on all. Authorit tively morph next-generation
                     innov tion with extensive models.</p>
             </div>
             <div class="benefits-item">
-                <img src="/img/percentage-icon.svg" alt="discounts">
+                <img src="/img/main/percentage-icon.svg" alt="discounts">
                 <h3 class="benefits-heading">Sales & discounts</h3>
                 <p class="benefits-text">Worldwide delivery on all. Authorit tively morph next-generation
                     innov tion with extensive models.</p>
             </div>
             <div class="benefits-item">
-                <img src="/img/crown-icon.svg" alt="assurance">
+                <img src="/img/main/crown-icon.svg" alt="assurance">
                 <h3 class="benefits-heading">Quality assurance</h3>
                 <p class="benefits-text">Worldwide delivery on all. Authorit tively morph next-generation
                     innov tion with extensive models.</p>
