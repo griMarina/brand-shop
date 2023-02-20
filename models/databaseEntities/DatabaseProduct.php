@@ -61,6 +61,7 @@ class DatabaseProduct
                 ':section' => (string) $section
             ]
         );
+
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
 }

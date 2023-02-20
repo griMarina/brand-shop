@@ -12,9 +12,16 @@ class CatalogController
 
         $params['title'] = 'Products';
         $params['breadcrumbs'] = Breadcrumb::get_breadcrumbs($crumbs);
-        $params['products'] = (isset($url_array[2]))
+
+        $products = (isset($url_array[2]) && $url_array[2] !== '')
             ? $product->get_products_by_section($url_array[2])
             : $product->get_products_by_limit(12);
+
+        if (empty($products)) {
+            header('Location:/');
+        }
+
+        $params['products'] = $products;
 
         return $params;
     }

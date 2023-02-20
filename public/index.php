@@ -5,8 +5,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/../config/config.php';
 // define the page name from the url, by default it will be 'index'
 $url_array = explode('/', $_SERVER['REQUEST_URI']);
 
-// var_dump($url_array);
-
 if ($url_array[1] == '') {
     $page = 'home';
 } else {
