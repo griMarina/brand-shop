@@ -35,7 +35,7 @@
     }
 }
 
-@media (max-width: 1192px) {
+@media (max-width: 1222px) {
     .footer {
         &-container {
             padding: 21px 32px;
@@ -47,13 +47,12 @@
     .footer {
         &-container {
             padding: 0 0 10px;
-            min-height: 143px;
-            box-sizing: border-box;
             flex-direction: column-reverse;
         }
 
         &-social {
-            padding-top: 40px;
+            padding-top: 15px;
+            padding-bottom: 10px;
         }
     }
 }

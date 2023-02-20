@@ -97,11 +97,12 @@
     }
 }
 
-@media (max-width: 1192px) {
+@media (max-width: 1222px) {
     .feedback {
         &-container {
             min-height: 600px;
-            flex-direction: column;
+            flex-direction: column-reverse;
+            justify-content: space-evenly;
         }
     }
 }

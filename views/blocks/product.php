@@ -39,7 +39,7 @@
         <div class="sorting">
             <div class="sorting-type">
                 <input class="sorting-toggle" type="checkbox" id="sorting-toggle-trend">
-                <label class="sorting-title" for="sorting-toggle-trend">CHOOSE COLOR<img class="sorting-icon" src="/img/dropdown-icon.svg" alt="unfold"></label>
+                <label class="sorting-title" for="sorting-toggle-trend">CHOOSE COLOR<img class="sorting-icon" src="/img/main/dropdown-icon.svg" alt="unfold"></label>
                 <div class="sorting-list sorting-trend">
                     <input type="checkbox">
                     <label class="sorting-list-value"></label><br>
@@ -53,7 +53,7 @@
             </div>
             <div class="sorting-type sorting-type-size">
                 <input class="sorting-toggle" type="checkbox" id="sorting-toggle-size">
-                <label class="sorting-title" for="sorting-toggle-size">CHOOSE SIZE<img class="sorting-icon" src="/img/dropdown-icon.svg" alt="unfold"></label>
+                <label class="sorting-title" for="sorting-toggle-size">CHOOSE SIZE<img class="sorting-icon" src="/img/main/dropdown-icon.svg" alt="unfold"></label>
                 <div class="sorting-list sorting-list-size sorting-size">
                     <input type="checkbox" id="size-xs" name="size" value="xs">
                     <label class="sorting-list-value" for="size-xs">XS</label><br>
@@ -67,7 +67,7 @@
             </div>
             <div class="sorting-type">
                 <input class="sorting-toggle" type="checkbox" id="sorting-toggle-price">
-                <label class="sorting-title" for="sorting-toggle-price">QUANTITY<img class="sorting-icon" src="/img/dropdown-icon.svg" alt="unfold"></label>
+                <label class="sorting-title" for="sorting-toggle-price">QUANTITY<img class="sorting-icon" src="/img/main/dropdown-icon.svg" alt="unfold"></label>
                 <div class="sorting-list sorting-quantity">
                     <input type="checkbox">
                     <label class="sorting-list-value"></label><br>
