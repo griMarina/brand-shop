@@ -31,8 +31,8 @@
                             <h3 class="header-menu-section">Women</h3>
                             <ul class="header-menu-list">
                                 <li><a href="/catalog/women/dresses">Dresses</a></li>
+                                <li><a href="/catalog/women/sweatshirts-hoodies">Sweatshirts & Hoodies</a></li>
                                 <li><a href="/catalog/women/t-shirts">T-Shirts</a></li>
-                                <li><a href="/catalog/women/sweatshirts & hoodies">Sweatshirts & Hoodies</a></li>
                                 <li><a href="/catalog/women/trousers">Trousers</a></li>
                                 <li><a href="/catalog/women/jeans">Jeans</a></li>
                                 <li><a href="/catalog/women/coats">Coats</a></li>
@@ -41,8 +41,8 @@
                             <h3 class="header-menu-section">Men</h3>
                             <ul class="header-menu-list">
                                 <li><a href="/catalog/men/shirts">Shirts</a></li>
+                                <li><a href="/catalog/men/sweatshirts-hoodies">Sweatshirts & Hoodies</a></li>
                                 <li><a href="/catalog/men/t-shirts">T-Shirts</a></li>
-                                <li><a href="/catalog/men/sweatshirts & hoodies">Sweatshirts & Hoodies</a></li>
                                 <li><a href="/catalog/men/trousers">Trousers</a></li>
                                 <li><a href="/catalog/men/jeans">Jeans</a></li>
                                 <li><a href="/catalog/men/coats">Coats</a></li>
@@ -51,8 +51,8 @@
                             <h3 class="header-menu-section">Kids</h3>
                             <ul class="header-menu-list">
                                 <li><a href="/catalog/kids/t-shirts">T-Shirts</a></li>
+                                <li><a href="/catalog/kids/sweatshirts-hoodies">Sweatshirts & Hoodies</a></li>
                                 <li><a href="/catalog/kids/jeans">Jeans</a></li>
-                                <li><a href="/catalog/kids/sweatshirts & hoodies">Sweatshirts & Hoodies</a></li>
                             </ul>
                             <a href="registration.html" class="header-link">
                                 <svg class="header-menu-account-icon" width="29" height="29" viewBox="0 0 29 29" xmlns="http://www.w3.org/2000/svg">

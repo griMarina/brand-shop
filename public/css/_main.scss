@@ -36,6 +36,12 @@ main {
     margin: 0 auto;
 }
 
+.oops {
+    text-align: center;
+    font-size: 30px;
+    margin: 200px;
+}
+
 // Responsive design
 @media (max-width: $tablet-width) {
     .container {

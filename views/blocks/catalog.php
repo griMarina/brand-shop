@@ -26,37 +26,36 @@
                     </svg>
                 </summary>
                 <div>
-                    <details class="filter-content" open>
+                    <details class="filter-content">
                         <summary class="filter-content-title">WOMEN</summary>
                         <ul class="filter-content-list">
                             <li><a href="/catalog/women/dresses">Dresses</a></li>
-                            <li><a href="#">T-Shirts</a></li>
-                            <li><a href="#">Sweatshirts & Hoodies</a></li>
-                            <li><a href="#">Trousers</a></li>
-                            <li><a href="#">Jeans</a></li>
-                            <li><a href="#">Coats</a></li>
-                            <li><a href="#">Shorts</a></li>
-                            <li><a href="#">Shirts</a></li>
+                            <li><a href="/catalog/women/sweatshirts-hoodies">Sweatshirts & Hoodies</a></li>
+                            <li><a href="/catalog/women/t-shirts">T-Shirts</a></li>
+                            <li><a href="/catalog/women/trousers">Trousers</a></li>
+                            <li><a href="/catalog/women/jeans">Jeans</a></li>
+                            <li><a href="/catalog/women/coats">Coats</a></li>
+                            <li><a href="/catalog/women/shorts">Shorts</a></li>
                         </ul>
                     </details>
                     <details class="filter-content">
                         <summary class="filter-content-title">MEN</summary>
                         <ul class="filter-content-list">
-                            <li><a href="#">Shirts</a></li>
-                            <li><a href="#">T-Shirts</a></li>
-                            <li><a href="#">Sweatshirts & Hoodies</a></li>
-                            <li><a href="#">Trousers</a></li>
-                            <li><a href="#">Jeans</a></li>
-                            <li><a href="#">Coats</a></li>
-                            <li><a href="#">Shorts</a></li>
+                            <li><a href="/catalog/men/shirts">Shirts</a></li>
+                            <li><a href="/catalog/men/sweatshirts-hoodies">Sweatshirts & Hoodies</a></li>
+                            <li><a href="/catalog/men/t-shirts">T-Shirts</a></li>
+                            <li><a href="/catalog/men/trousers">Trousers</a></li>
+                            <li><a href="/catalog/men/jeans">Jeans</a></li>
+                            <li><a href="/catalog/men/coats">Coats</a></li>
+                            <li><a href="/catalog/men/shorts">Shorts</a></li>
                         </ul>
                     </details>
                     <details class="filter-content">
                         <summary class="filter-content-title">KIDS</summary>
                         <ul class="filter-content-list">
-                            <li><a href="#">T-Shirts</a></li>
-                            <li><a href="#">Jeans</a></li>
-                            <li><a href="#">Sweatshirts & Hoodies</a></li>
+                            <li><a href="/catalog/kids/t-shirts">T-Shirts</a></li>
+                            <li><a href="/catalog/kids/sweatshirts-hoodies">Sweatshirts & Hoodies</a></li>
+                            <li><a href="/catalog/kids/jeans">Jeans</a></li>
                         </ul>
                     </details>
                 </div>
