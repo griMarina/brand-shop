@@ -38,14 +38,17 @@ main {
 
 .oops {
     text-align: center;
-    font-size: 30px;
-    margin: 200px;
+    margin: 100px;
 }
 
 // Responsive design
 @media (max-width: $tablet-width) {
     .container {
         padding: 0 16px;
+    }
+
+    .oops {
+        margin: 30px;
     }
 }
 

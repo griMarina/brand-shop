@@ -39,13 +39,15 @@ main {
 
 .oops {
   text-align: center;
-  font-size: 30px;
-  margin: 200px;
+  margin: 100px;
 }
 
 @media (max-width: 1222px) {
   .container {
     padding: 0 16px;
+  }
+  .oops {
+    margin: 30px;
   }
 }
 @media (max-width: 794px) {

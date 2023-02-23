@@ -10,7 +10,7 @@
                 <li class="breadcrumb-link"><a href="/">Home</a></li>
                 <li class="breadcrumb-link"><a href="/catalog">Products</a></li>
                 <?php foreach ($breadcrumbs as $crumb => $link) : ?>
-                    <li class="breadcrumb-link"><a href="/catalog<?= $link ?>"><?= $crumb ?></a></li>
+                    <li class="breadcrumb-link"><a href="/catalog<?= str_replace(' & ', '-',  $link) ?>"><?= $crumb ?></a></li>
                 <?php endforeach; ?>
             </ul>
         </div>
@@ -20,7 +20,7 @@
         <picture class="product-slider-image">
             <source srcset="/img/slide-small/<?= $product['slide'] ?>-small.jpg" media="(max-width: 788px)">
             <!-- <source srcset="/img/<?= $product['slide'] ?>-medium.jpg" media="(max-width: 1192px)"> -->
-            <img src="/img/slide-big/<?= $product['slide'] ?>-big.jpg" alt="image 1">
+            <img src="/img/slide-big/<?= $product['slide'] ?>-big.jpg" alt="<?= $product['slide'] ?>">
         </picture>
         <button class="product-slider-button product-slider-button-left" type="button"><svg width="13" height="23" viewBox="0 0 13 23" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12.6998 3.7499L4.9498 11.4999L12.6998 19.2499L11.1498 22.3499L0.299805 11.4999L11.1498 0.649902L12.6998 3.7499Z" />
@@ -91,7 +91,7 @@
                 <figure class="products-card">
                     <a class="products-card-link" href="/product/?id=<?= $product['id'] ?>">
                         <div class="products-card-image">
-                            <img class="products-card-img" src="/img/catalog/<?= $product['main_img'] ?>.jpg" alt="product 1" />
+                            <img class="products-card-img" src="/img/catalog/<?= $product['main_img'] ?>.jpg" alt="<?= $product['main_img'] ?>" />
                             <div class="products-card-overlay"></div>
                         </div>
                         <figcaption class="products-card-info">

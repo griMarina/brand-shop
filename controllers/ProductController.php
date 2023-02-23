@@ -9,7 +9,6 @@ class ProductController
 
         $id = (int)$_GET['id'];
         $product = $db_product->get_product($id);
-
         $crumbs = [$product['section'], $product['category'], $product['title']];
 
         $params['product'] = $product;

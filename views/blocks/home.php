@@ -29,7 +29,7 @@
                 <figure class="products-card">
                     <a class="products-card-link" href="/product/?id=<?= $product['id'] ?>">
                         <div class="products-card-image">
-                            <img class="products-card-img" src="/img/catalog/<?= $product['main_img'] ?>.jpg" alt="product 1" />
+                            <img class="products-card-img" src="/img/catalog/<?= $product['main_img'] ?>.jpg" alt="<?= $product['main_img'] ?>" />
                             <div class="products-card-overlay"></div>
                         </div>
                         <figcaption class="products-card-info">
