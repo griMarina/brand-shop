@@ -210,6 +210,10 @@ main {
   align-items: center;
   flex-direction: column;
 }
+.breadcrumb-heading {
+  color: #f16d7f;
+  font-weight: 400;
+}
 .breadcrumb-categories {
   display: flex;
   list-style: none;
@@ -1108,6 +1112,8 @@ main {
 }
 .cart-item-image {
   display: flex;
+  width: 262px;
+  height: 306px;
 }
 .cart-item-description {
   width: 100%;

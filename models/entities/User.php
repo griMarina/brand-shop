@@ -12,4 +12,9 @@ class User
         private string $address
     ) {
     }
+
+    public function get_id(): int
+    {
+        return $this->id;
+    }
 }

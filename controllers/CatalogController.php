@@ -5,9 +5,6 @@ class CatalogController
     public static function prepare_variables(array $params): array
     {
         $url_array = explode('/', $_SERVER['REQUEST_URI']);
-        if (isset($url_array[3])) {
-            $url_array[3] =  str_replace('-', ' & ', $url_array[3]);
-        }
         $crumbs = array_slice($url_array, 2);
 
         $pdo = connection();

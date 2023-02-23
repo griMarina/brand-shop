@@ -11,7 +11,7 @@ class Order
         private string $address,
         private string $status,
         private DateTime $date,
-        private User $user,
+        private int $user_id,
         private string $session_id
     ) {
     }

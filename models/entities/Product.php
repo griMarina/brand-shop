@@ -8,9 +8,14 @@ class Product
         private string $desc,
         private float $price,
         private string $colour,
-        private string $section,
-        private Image $main_img,
-        private Category $category
+        private int $section_id,
+        private int $main_img_id,
+        private int $category_id
     ) {
+    }
+
+    public function get_id(): int
+    {
+        return $this->id;
     }
 }

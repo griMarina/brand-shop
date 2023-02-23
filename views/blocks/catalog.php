@@ -30,7 +30,7 @@
                         <summary class="filter-content-title">WOMEN</summary>
                         <ul class="filter-content-list">
                             <li><a href="/catalog/women/dresses">Dresses</a></li>
-                            <li><a href="/catalog/women/sweatshirts-hoodies">Sweatshirts & Hoodies</a></li>
+                            <li><a href="/catalog/women/sweatshirts">Sweatshirts</a></li>
                             <li><a href="/catalog/women/t-shirts">T-Shirts</a></li>
                             <li><a href="/catalog/women/trousers">Trousers</a></li>
                             <li><a href="/catalog/women/jeans">Jeans</a></li>
@@ -42,7 +42,7 @@
                         <summary class="filter-content-title">MEN</summary>
                         <ul class="filter-content-list">
                             <li><a href="/catalog/men/shirts">Shirts</a></li>
-                            <li><a href="/catalog/men/sweatshirts-hoodies">Sweatshirts & Hoodies</a></li>
+                            <li><a href="/catalog/men/sweatshirts">Sweatshirts</a></li>
                             <li><a href="/catalog/men/t-shirts">T-Shirts</a></li>
                             <li><a href="/catalog/men/trousers">Trousers</a></li>
                             <li><a href="/catalog/men/jeans">Jeans</a></li>
@@ -54,7 +54,7 @@
                         <summary class="filter-content-title">KIDS</summary>
                         <ul class="filter-content-list">
                             <li><a href="/catalog/kids/t-shirts">T-Shirts</a></li>
-                            <li><a href="/catalog/kids/sweatshirts-hoodies">Sweatshirts & Hoodies</a></li>
+                            <li><a href="/catalog/kids/sweatshirts">Sweatshirts</a></li>
                             <li><a href="/catalog/kids/jeans">Jeans</a></li>
                         </ul>
                     </details>

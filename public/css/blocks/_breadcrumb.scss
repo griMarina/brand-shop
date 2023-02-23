@@ -7,6 +7,11 @@
         flex-direction: column;
     }
 
+    &-heading {
+        color: $main-color;
+        font-weight: 400;
+    }
+
     &-categories {
         display: flex;
         list-style: none;
