@@ -23,7 +23,7 @@
                                     </svg></button>
                             </div>
                             <ul class="cart-item-text">
-                                <li>Price: <span class="cart-item-price">$<?= $product['price'] ?></span></li>
+                                <li>Price: <span class="cart-item-price" data-id="<?= $product['id'] ?>">$<?= $product['total_price'] ?></span></li>
                                 <!-- <li>Color: Red</li>
                             <li>Size: Xl</li> -->
                                 <li>Quantity:
@@ -52,8 +52,7 @@
                 <div class="cart-box">
                     <div class="cart-sum">
                         <h2 class="hidden">sum total</h2>
-                        <p class="cart-sum-text">SUB TOTAL<span class="cart-sum-price">$900</span></p>
-                        <p class="cart-sum-bigtext">GRAND TOTAL<span class="cart-sum-bigprice">$900</span></p>
+                        <p class="cart-sum-bigtext">GRAND TOTAL<span class="cart-sum-bigprice">$ <?= $total ?></span></p>
                         <hr class="cart-sum-line">
                         <a class="cart-sum-proceed" href="#">PROCEED TO CHECKOUT</a>
                     </div>

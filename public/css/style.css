@@ -41,6 +41,9 @@ main {
   text-align: center;
   margin: 100px;
 }
+.oops img {
+  height: 400px;
+}
 
 @media (max-width: 1222px) {
   .container {
@@ -1273,15 +1276,6 @@ main {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-}
-.cart-sum-text {
-  font-weight: 400;
-  font-size: 11px;
-  line-height: 13px;
-  color: #4a4a4a;
-}
-.cart-sum-price {
-  margin-left: 26px;
 }
 .cart-sum-bigtext {
   margin-top: 12px;

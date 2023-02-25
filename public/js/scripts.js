@@ -28,8 +28,16 @@ function decreaseQty(id) {
     })
         .then(response => response.json())
         .then(data => {
-            const quantity = document.querySelector(`.cart-item-quantity[data-id="${id}"]`);
-            quantity.textContent = data['quantity'];
+            if (data['quantity'] === 0) {
+                deleteProduct(id);
+            } else {
+                const quantity = document.querySelector(`.cart-item-quantity[data-id="${id}"]`);
+                quantity.textContent = data['quantity'];
+
+                const price = document.querySelector(`.cart-item-price[data-id="${id}"]`);
+                price.textContent = '$' + data['total_price'];
+
+            }
         })
         .catch(error => {
 
@@ -52,6 +60,9 @@ function increaseQty(id) {
         .then(data => {
             const quantity = document.querySelector(`.cart-item-quantity[data-id="${id}"]`);
             quantity.textContent = data['quantity'];
+
+            const price = document.querySelector(`.cart-item-price[data-id="${id}"]`);
+            price.textContent = '$' + data['total_price'];
         })
         .catch(error => {
 
@@ -83,7 +94,7 @@ function render(data) {
     if (data.length !== 0) {
         document.querySelector('.cart-items').textContent = '';
         for (const elem in data) {
-            const html = `<div class="cart-item">
+            const cartItemHtml = `<div class="cart-item">
         <picture class="cart-item-image">
             <img src="/img/catalog/${data[elem]['image']}.jpg" alt="${data[elem]['image']}">
         </picture>
@@ -95,7 +106,7 @@ function render(data) {
                     </svg></button>
             </div>
             <ul class="cart-item-text">
-                <li>Price: <span class="cart-item-price">$${data[elem]['price']}</span></li>
+                <li>Price: <span class="cart-item-price" data-id="${data[elem]['id']}">$${data[elem]['total_price']}</span></li>
                 <!-- <li>Color: Red</li>
             <li>Size: Xl</li> -->
                 <li>Quantity:
@@ -106,8 +117,24 @@ function render(data) {
             </ul>
         </div>
     </div>`;
-            document.querySelector('.cart-items').insertAdjacentHTML('afterbegin', html);
+            document.querySelector('.cart-items').insertAdjacentHTML('afterbegin', cartItemHtml);
         }
+        const cartCheckoutHtml = `<form class="cart-form">
+                <h2 class="cart-form-heading">SHIPPING ADRESS</h2>
+                <input class="cart-form-info" type="text" placeholder="Country" required>
+                <input class="cart-form-info" type="text" placeholder="State">
+                <input class="cart-form-info" type="text" placeholder="Postcode / Zip" pattern="[0-9]{6}" required>
+                <input class="cart-form-submit" type="submit" value="Get a quote">
+            </form>
+            <div class="cart-box">
+                <div class="cart-sum">
+                    <h2 class="hidden">sum total</h2>
+                    <p class="cart-sum-bigtext">GRAND TOTAL<span class="cart-sum-bigprice">$</span></p>
+                    <hr class="cart-sum-line">
+                    <a class="cart-sum-proceed" href="#">PROCEED TO CHECKOUT</a>
+                </div>
+            </div>`;
+        document.querySelector('.cart-checkout').innerHTML = cartCheckoutHtml;
     } else {
         document.querySelector('.cart').innerHTML = '<p>The cart is empty</p>';
     }
