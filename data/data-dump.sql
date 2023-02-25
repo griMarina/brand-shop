@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `cart`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cart` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `quantity` int NOT NULL DEFAULT '1',
+  `quantity` int DEFAULT NULL,
   `user_id` int DEFAULT NULL,
   `product_id` int NOT NULL,
   `session_id` varchar(255) NOT NULL,
@@ -94,7 +94,7 @@ CREATE TABLE `image` (
 
 LOCK TABLES `image` WRITE;
 /*!40000 ALTER TABLE `image` DISABLE KEYS */;
-INSERT INTO `image` VALUES (1,'product-1',1,0),(2,'product-2',2,0),(3,'product-3',3,0),(4,'product-4',4,0),(5,'product-5',5,0),(6,'product-6',6,0),(7,'product-7',7,0),(8,'product-8',8,0),(9,'product-9',9,0),(10,'product-10',10,0),(11,'product-11',11,0),(12,'product-12',12,0),(13,'product-13',13,0),(14,'product-14',14,0),(15,'product-15',15,0),(18,'product-16',16,0),(19,'product-17',17,0),(20,'product-18',18,0),(21,'product-19',19,0),(22,'product-20',20,0),(23,'product-21',21,0),(24,'product-22',22,0),(25,'product-23',23,0),(26,'product-24',24,0),(27,'product-25',25,0),(28,'product-26',26,0),(29,'product-27',27,0),(30,'product-28',28,0),(31,'product-29',29,0),(32,'product-31',31,0),(33,'product-32',32,0),(34,'product-33',33,0),(35,'product-34',34,0),(36,'product-35',35,0),(37,'product-36',36,0),(38,'product-37',37,0),(39,'product-38',38,0),(40,'product-39',39,0),(41,'product-40',40,0),(42,'product-41',41,0),(43,'product-42',42,0),(44,'product-43',43,0),(45,'product-44',44,0),(46,'product-45',45,0),(47,'product-46',46,0),(48,'product-47',47,0),(49,'product-48',48,0),(50,'product-49',49,0),(51,'product-50',50,0),(52,'product-51',51,0),(53,'product-52',52,0),(54,'product-53',53,0),(55,'product-54',54,0),(56,'product-55',55,0),(57,'product-56',56,0),(58,'product-57',57,0),(59,'product-58',58,0),(60,'product-59',59,0),(61,'product-60',60,0),(62,'product-61',61,0),(63,'product-62',62,0),(64,'product-63',63,0),(65,'product-64',64,0),(66,'product-30',30,0),(67,'product-1-slide-1',1,1),(68,'product-1-slide-2',1,2),(69,'product-1-slide-3',1,3),(70,'product-2-slide-1',2,1),(71,'product-3-slide-1',3,1),(72,'product-4-slide-1',4,1),(73,'product-5-slide-1',5,1),(74,'product-6-slide-1',6,1),(75,'product-7-slide-1',7,1),(76,'product-8-slide-1',8,1),(77,'product-9-slide-1',9,1),(78,'product-10-slide-1',10,1),(79,'product-11-slide-1',11,1),(80,'product-12-slide-1',12,1),(81,'product-13-slide-1',13,1),(82,'product-14-slide-1',14,1),(83,'product-15-slide-1',15,1),(84,'product-16-slide-1',16,1),(85,'product-17-slide-1',17,1),(86,'product-18-slide-1',18,1),(87,'product-19-slide-1',19,1),(88,'product-20-slide-1',20,1),(89,'product-21-slide-1',21,1),(90,'product-22-slide-1',22,1),(91,'product-23-slide-1',23,1),(92,'product-24-slide-1',24,1),(93,'product-25-slide-1',25,1),(94,'product-26-slide-1',26,1),(95,'product-27-slide-1',27,1),(96,'product-28-slide-1',28,1),(97,'product-29-slide-1',29,1),(98,'product-29-slide-2',29,2),(99,'product-29-slide-3',29,3),(100,'product-30-slide-1',30,1),(101,'product-31-slide-1',31,1),(102,'product-32-slide-1',32,1),(103,'product-33-slide-1',33,1),(104,'product-34-slide-1',34,1),(105,'product-35-slide-1',35,1),(106,'product-36-slide-1',36,1),(107,'product-37-slide-1',37,1),(108,'product-38-slide-1',38,1),(109,'product-39-slide-1',39,1),(110,'product-40-slide-1',40,1),(111,'product-41-slide-1',41,1),(112,'product-42-slide-1',42,1),(113,'product-43-slide-1',43,1),(114,'product-44-slide-1',44,1),(115,'product-45-slide-1',45,1),(116,'product-46-slide-1',46,1),(117,'product-47-slide-1',47,1),(118,'product-48-slide-1',48,1),(119,'product-49-slide-1',49,1),(120,'product-50-slide-1',50,1),(121,'product-51-slide-1',51,1),(122,'product-52-slide-1',52,1),(123,'product-53-slide-1',53,1),(124,'product-54-slide-1',54,1),(125,'product-55-slide-1',55,1),(126,'product-56-slide-1',56,1),(127,'product-57-slide-1',57,1),(128,'product-58-slide-1',58,1),(129,'product-59-slide-1',59,1),(130,'product-60-slide-1',60,1),(131,'product-61-slide-1',61,1),(132,'product-62-slide-1',62,1),(133,'product-63-slide-1',63,1),(134,'product-64-slide-1',64,1);
+INSERT INTO `image` VALUES (1,'product-1',1,0),(2,'product-2',2,0),(3,'product-3',3,0),(4,'product-4',4,0),(5,'product-5',5,0),(6,'product-6',6,0),(7,'product-7',7,0),(8,'product-8',8,0),(9,'product-9',9,0),(10,'product-10',10,0),(11,'product-11',11,0),(12,'product-12',12,0),(13,'product-13',13,0),(14,'product-14',14,0),(15,'product-15',15,0),(18,'product-16',16,0),(19,'product-17',17,0),(20,'product-18',18,0),(21,'product-19',19,0),(22,'product-20',20,0),(23,'product-21',21,0),(24,'product-22',22,0),(25,'product-23',23,0),(26,'product-24',24,0),(27,'product-25',25,0),(28,'product-26',26,0),(29,'product-27',27,0),(30,'product-28',28,0),(31,'product-29',29,0),(32,'product-31',31,0),(33,'product-32',32,0),(34,'product-33',33,0),(35,'product-34',34,0),(36,'product-35',35,0),(37,'product-36',36,0),(38,'product-37',37,0),(39,'product-38',38,0),(40,'product-39',39,0),(41,'product-40',40,0),(42,'product-41',41,0),(43,'product-42',42,0),(44,'product-43',43,0),(45,'product-44',44,0),(46,'product-45',45,0),(47,'product-46',46,0),(48,'product-47',47,0),(49,'product-48',48,0),(50,'product-49',49,0),(51,'product-50',50,0),(52,'product-51',51,0),(53,'product-52',52,0),(54,'product-53',53,0),(55,'product-54',54,0),(56,'product-55',55,0),(57,'product-56',56,0),(58,'product-57',57,0),(59,'product-58',58,0),(60,'product-59',59,0),(61,'product-60',60,0),(62,'product-61',61,0),(63,'product-62',62,0),(64,'product-63',63,0),(65,'product-64',64,0),(66,'product-30',30,0),(67,'product-1',1,1),(68,'product-1',1,2),(69,'product-1',1,3),(70,'product-2',2,1),(71,'product-3',3,1),(72,'product-4',4,1),(73,'product-5',5,1),(74,'product-6',6,1),(75,'product-7',7,1),(76,'product-8',8,1),(77,'product-9',9,1),(78,'product-10',10,1),(79,'product-11',11,1),(80,'product-12',12,1),(81,'product-13',13,1),(82,'product-14',14,1),(83,'product-15',15,1),(84,'product-16',16,1),(85,'product-17',17,1),(86,'product-18',18,1),(87,'product-19',19,1),(88,'product-20',20,1),(89,'product-21',21,1),(90,'product-22',22,1),(91,'product-23',23,1),(92,'product-24',24,1),(93,'product-25',25,1),(94,'product-26',26,1),(95,'product-27',27,1),(96,'product-28',28,1),(97,'product-29',29,1),(98,'product-29',29,2),(99,'product-29',29,3),(100,'product-30',30,1),(101,'product-31',31,1),(102,'product-32',32,1),(103,'product-33',33,1),(104,'product-34',34,1),(105,'product-35',35,1),(106,'product-36',36,1),(107,'product-37',37,1),(108,'product-38',38,1),(109,'product-39',39,1),(110,'product-40',40,1),(111,'product-41',41,1),(112,'product-42',42,1),(113,'product-43',43,1),(114,'product-44',44,1),(115,'product-45',45,1),(116,'product-46',46,1),(117,'product-47',47,1),(118,'product-48',48,1),(119,'product-49',49,1),(120,'product-50',50,1),(121,'product-51',51,1),(122,'product-52',52,1),(123,'product-53',53,1),(124,'product-54',54,1),(125,'product-55',55,1),(126,'product-56',56,1),(127,'product-57',57,1),(128,'product-58',58,1),(129,'product-59',59,1),(130,'product-60',60,1),(131,'product-61',61,1),(132,'product-62',62,1),(133,'product-63',63,1),(134,'product-64',64,1);
 /*!40000 ALTER TABLE `image` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,7 +177,7 @@ DROP TABLE IF EXISTS `section`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `section` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `title` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -201,7 +201,7 @@ DROP TABLE IF EXISTS `user`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
   `pass_hash` varchar(255) NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
@@ -230,4 +230,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-22 21:59:27
+-- Dump completed on 2023-02-25 14:51:59

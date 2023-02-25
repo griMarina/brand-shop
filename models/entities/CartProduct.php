@@ -6,7 +6,7 @@ class CartProduct
         // private int $id,
         private int $product_id,
         private string $session_id,
-        private int $quantity = 1,
+        // private int $quantity = 1,
         private int $user_id = 0
     ) {
     }
@@ -21,10 +21,10 @@ class CartProduct
         return $this->session_id;
     }
 
-    public function get_quantity(): int
-    {
-        return $this->quantity;
-    }
+    // public function get_quantity(): int
+    // {
+    //     return $this->quantity;
+    // }
 
     public function get_user_id(): int
     {

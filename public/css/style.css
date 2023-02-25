@@ -1154,22 +1154,20 @@ main {
 .cart-item-text li {
   padding: 3px 0;
 }
+.cart-item-text li span {
+  display: inline-block;
+  min-width: 40px;
+  text-align: center;
+}
 .cart-item-price {
   color: #f16d7f;
 }
-.cart-item-quantity {
-  margin-left: 30px;
-  border: 1px solid #eaeaea;
-  outline: none;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 22px;
-  color: #656565;
-  text-align: center;
-  transition-duration: 0.2s;
-}
-.cart-item-quantity:focus {
-  border: 1px solid #555;
+.cart-item-change_quantity {
+  border: none;
+  font-size: 25px;
+  background-color: transparent;
+  cursor: pointer;
+  color: #f16d7f;
 }
 .cart-actions {
   display: flex;

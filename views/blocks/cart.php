@@ -6,53 +6,61 @@
     </section>
     <section class="cart container">
         <h2 class="hidden">cart</h2>
-        <section class="cart-items">
-            <h2 class="hidden">products in cart</h2>
-            <?php foreach ($cart as $product) : ?>
-                <div class="cart-item">
-                    <picture class="cart-item-image">
-                        <!-- <source srcset="img/product-3-small.jpg" media="(max-width: 788px)"> -->
-                        <img src="/img/catalog/<?= $product['image'] ?>.jpg" alt="<?= $product['image'] ?>">
-                    </picture>
-                    <div class="cart-item-description">
-                        <div class="cart-item-description-top">
-                            <h3 class="cart-item-title"><?= $product['title'] ?></h3>
-                            <button class="cart-item-delete" type="button"><svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M11.2453 9L17.5302 2.71516C17.8285 2.41741 17.9962 2.01336 17.9966 1.59191C17.997 1.17045 17.8299 0.76611 17.5322 0.467833C17.2344 0.169555 16.8304 0.00177586 16.4089 0.00140366C15.9875 0.00103146 15.5831 0.168097 15.2848 0.465848L9 6.75069L2.71516 0.465848C2.41688 0.167571 2.01233 0 1.5905 0C1.16868 0 0.764125 0.167571 0.465848 0.465848C0.167571 0.764125 0 1.16868 0 1.5905C0 2.01233 0.167571 2.41688 0.465848 2.71516L6.75069 9L0.465848 15.2848C0.167571 15.5831 0 15.9877 0 16.4095C0 16.8313 0.167571 17.2359 0.465848 17.5342C0.764125 17.8324 1.16868 18 1.5905 18C2.01233 18 2.41688 17.8324 2.71516 17.5342L9 11.2493L15.2848 17.5342C15.5831 17.8324 15.9877 18 16.4095 18C16.8313 18 17.2359 17.8324 17.5342 17.5342C17.8324 17.2359 18 16.8313 18 16.4095C18 15.9877 17.8324 15.5831 17.5342 15.2848L11.2453 9Z" />
-                                </svg></button>
-                        </div>
-                        <ul class="cart-item-text">
-                            <li>Price: <span class="cart-item-price">$<?= $product['price'] ?></span></li>
-                            <!-- <li>Color: Red</li>
+        <?php if (!empty($cart)) : ?>
+            <section class="cart-items">
+                <h2 class="hidden">products in cart</h2>
+                <?php foreach ($cart as $product) : ?>
+                    <div class="cart-item">
+                        <picture class="cart-item-image">
+                            <!-- <source srcset="img/product-3-small.jpg" media="(max-width: 788px)"> -->
+                            <img src="/img/catalog/<?= $product['image'] ?>.jpg" alt="<?= $product['image'] ?>">
+                        </picture>
+                        <div class="cart-item-description">
+                            <div class="cart-item-description-top">
+                                <h3 class="cart-item-title"><?= $product['title'] ?></h3>
+                                <button class="cart-item-delete" type="button"><svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11.2453 9L17.5302 2.71516C17.8285 2.41741 17.9962 2.01336 17.9966 1.59191C17.997 1.17045 17.8299 0.76611 17.5322 0.467833C17.2344 0.169555 16.8304 0.00177586 16.4089 0.00140366C15.9875 0.00103146 15.5831 0.168097 15.2848 0.465848L9 6.75069L2.71516 0.465848C2.41688 0.167571 2.01233 0 1.5905 0C1.16868 0 0.764125 0.167571 0.465848 0.465848C0.167571 0.764125 0 1.16868 0 1.5905C0 2.01233 0.167571 2.41688 0.465848 2.71516L6.75069 9L0.465848 15.2848C0.167571 15.5831 0 15.9877 0 16.4095C0 16.8313 0.167571 17.2359 0.465848 17.5342C0.764125 17.8324 1.16868 18 1.5905 18C2.01233 18 2.41688 17.8324 2.71516 17.5342L9 11.2493L15.2848 17.5342C15.5831 17.8324 15.9877 18 16.4095 18C16.8313 18 17.2359 17.8324 17.5342 17.5342C17.8324 17.2359 18 16.8313 18 16.4095C18 15.9877 17.8324 15.5831 17.5342 15.2848L11.2453 9Z" />
+                                    </svg></button>
+                            </div>
+                            <ul class="cart-item-text">
+                                <li>Price: <span class="cart-item-price">$<?= $product['price'] ?></span></li>
+                                <!-- <li>Color: Red</li>
                             <li>Size: Xl</li> -->
-                            <li>Quantity: <?= $product['quantity'] ?></li>
-                        </ul>
+                                <li>Quantity:
+                                    <button class="cart-item-change_quantity" onclick="decreaseQty(<?= $product['id'] ?>)" type="button">-</button>
+                                    <span class="cart-item-quantity"><?= $product['quantity'] ?></span>
+                                    <button class="cart-item-change_quantity" onclick="increaseQty(<?= $product['id'] ?>)" type="button">+</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+                <section class="cart-actions">
+                    <h2 class="hidden">further actions</h2>
+                    <button class="cart-actions-clear" type="button">Clear shopping cart</button>
+                    <a class="cart-actions-continue" href="catalog.html">Continue shopping</a>
+                </section>
+            </section>
+            <section class="cart-checkout">
+                <form class="cart-form">
+                    <h2 class="cart-form-heading">SHIPPING ADRESS</h2>
+                    <input class="cart-form-info" type="text" placeholder="Country" required>
+                    <input class="cart-form-info" type="text" placeholder="State">
+                    <input class="cart-form-info" type="text" placeholder="Postcode / Zip" pattern="[0-9]{6}" required>
+                    <input class="cart-form-submit" type="submit" value="Get a quote">
+                </form>
+                <div class="cart-box">
+                    <div class="cart-sum">
+                        <h2 class="hidden">sum total</h2>
+                        <p class="cart-sum-text">SUB TOTAL<span class="cart-sum-price">$900</span></p>
+                        <p class="cart-sum-bigtext">GRAND TOTAL<span class="cart-sum-bigprice">$900</span></p>
+                        <hr class="cart-sum-line">
+                        <a class="cart-sum-proceed" href="#">PROCEED TO CHECKOUT</a>
                     </div>
                 </div>
-            <?php endforeach; ?>
-            <section class="cart-actions">
-                <h2 class="hidden">further actions</h2>
-                <button class="cart-actions-clear" type="button">Clear shopping cart</button>
-                <a class="cart-actions-continue" href="catalog.html">Continue shopping</a>
             </section>
-        </section>
-        <section class="cart-checkout">
-            <form class="cart-form">
-                <h2 class="cart-form-heading">SHIPPING ADRESS</h2>
-                <input class="cart-form-info" type="text" placeholder="Country" required>
-                <input class="cart-form-info" type="text" placeholder="State">
-                <input class="cart-form-info" type="text" placeholder="Postcode / Zip" pattern="[0-9]{6}" required>
-                <input class="cart-form-submit" type="submit" value="Get a quote">
-            </form>
-            <div class="cart-box">
-                <div class="cart-sum">
-                    <h2 class="hidden">sum total</h2>
-                    <p class="cart-sum-text">SUB TOTAL<span class="cart-sum-price">$900</span></p>
-                    <p class="cart-sum-bigtext">GRAND TOTAL<span class="cart-sum-bigprice">$900</span></p>
-                    <hr class="cart-sum-line">
-                    <a class="cart-sum-proceed" href="#">PROCEED TO CHECKOUT</a>
-                </div>
-            </div>
-        </section>
+        <?php else : ?>
+            <p>The cart is empty</p>
+        <?php endif; ?>
     </section>
 </main>

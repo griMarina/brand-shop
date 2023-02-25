@@ -10,7 +10,7 @@ class DatabaseProduct
     public function get_product(int $id): array
     {
         $statement = $this->pdo->prepare(
-            'SELECT product.id, product.title, product.desc, product.price, section.title AS section, image.title AS slide, category.title AS category
+            'SELECT product.id, product.title, product.desc, product.price, section.title AS section, image.title AS `image`, category.title AS category
             FROM `product`
             LEFT JOIN `section`
             ON product.section_id = section.id

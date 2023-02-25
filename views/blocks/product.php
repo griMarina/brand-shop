@@ -18,9 +18,9 @@
     <section class="product-slider">
         <h2 class="hidden">product images</h2>
         <picture class="product-slider-image">
-            <source srcset="/img/slide-small/<?= $product['slide'] ?>-small.jpg" media="(max-width: 788px)">
-            <!-- <source srcset="/img/<?= $product['slide'] ?>-medium.jpg" media="(max-width: 1192px)"> -->
-            <img src="/img/slide-big/<?= $product['slide'] ?>-big.jpg" alt="<?= $product['slide'] ?>">
+            <source srcset="/img/slide-small/<?= $product['image'] ?>-small.jpg" media="(max-width: 788px)">
+            <!-- <source srcset="/img/<?= $product['image'] ?>-medium.jpg" media="(max-width: 1192px)"> -->
+            <img src="/img/slide-big/<?= $product['image'] ?>-slide-1-big.jpg" alt="<?= $product['image'] ?>">
         </picture>
         <button class="product-slider-button product-slider-button-left" type="button"><svg width="13" height="23" viewBox="0 0 13 23" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12.6998 3.7499L4.9498 11.4999L12.6998 19.2499L11.1498 22.3499L0.299805 11.4999L11.1498 0.649902L12.6998 3.7499Z" />
