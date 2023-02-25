@@ -25,6 +25,9 @@ class CartController
             } elseif ($data['action'] == 'increase') {
                 $_SESSION['cart'][$product_id]['quantity'] += 1;
                 $params['json'] = ['quantity' => $_SESSION['cart'][$product_id]['quantity']];
+            } elseif ($data['action'] == 'delete') {
+                unset($_SESSION['cart'][$product_id]);
+                $params['json'] = $_SESSION['cart'];
             }
         }
 

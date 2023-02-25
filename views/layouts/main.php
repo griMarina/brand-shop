@@ -79,9 +79,7 @@
                 </div>
             </div>
         </header>
-
         <?= $content ?>
-
         <aside class="feedback">
             <div class="container feedback-container">
                 <section class="feedback-reviews">
