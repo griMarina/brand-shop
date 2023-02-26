@@ -35,7 +35,7 @@ function decreaseQty(id) {
                 quantity.textContent = data['quantity'];
 
                 const price = document.querySelector(`.cart-item-price[data-id="${id}"]`);
-                price.textContent = '$' + data['total_price'];
+                price.textContent = '$' + data['total_product_price'];
 
             }
         })
@@ -62,7 +62,7 @@ function increaseQty(id) {
             quantity.textContent = data['quantity'];
 
             const price = document.querySelector(`.cart-item-price[data-id="${id}"]`);
-            price.textContent = '$' + data['total_price'];
+            price.textContent = '$' + data['total_product_price'];
         })
         .catch(error => {
 

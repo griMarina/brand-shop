@@ -3,31 +3,57 @@
 class CartProduct
 {
     public function __construct(
-        // private int $id,
-        private int $product_id,
-        private string $session_id,
-        // private int $quantity = 1,
-        private int $user_id = 0
+        private int $id,
+        private string $title,
+        private float $price,
+        private string $image,
+        private int $quantity = 1,
+        private float $total_price = $price
     ) {
     }
 
-    public function get_product_id(): int
+    public function get_id(): int
     {
-        return $this->product_id;
+        return $this->id;
     }
 
-    public function get_session_id(): string
+    public function get_title(): int
     {
-        return $this->session_id;
+        return $this->title;
     }
 
-    // public function get_quantity(): int
-    // {
-    //     return $this->quantity;
-    // }
-
-    public function get_user_id(): int
+    public function get_price(): int
     {
-        return $this->user_id;
+        return $this->price;
+    }
+
+    public function get_image(): int
+    {
+        return $this->image;
+    }
+
+    public function get_quantity(): int
+    {
+        return $this->quantity;
+    }
+
+    public function get_total_price(): int
+    {
+        return $this->total_price;
+    }
+
+    public function set_quantity(string $operation): void
+    {
+        if ($operation == 'increase') {
+            $this->quantity += 1;
+        } elseif ($operation == 'decrease') {
+            $this->quantity -= 1;
+        }
+        $this->set_total_price();
+    }
+
+    public function set_total_price(): void
+    {
+        $this->total_price = $this->quantity * $this->price;
     }
 }

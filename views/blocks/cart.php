@@ -52,7 +52,7 @@
                 <div class="cart-box">
                     <div class="cart-sum">
                         <h2 class="hidden">sum total</h2>
-                        <p class="cart-sum-bigtext">GRAND TOTAL<span class="cart-sum-bigprice">$ <?= $total ?></span></p>
+                        <p class="cart-sum-bigtext">GRAND TOTAL<span class="cart-sum-bigprice">$ <?= $cart_total ?></span></p>
                         <hr class="cart-sum-line">
                         <a class="cart-sum-proceed" href="#">PROCEED TO CHECKOUT</a>
                     </div>
