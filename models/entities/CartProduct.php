@@ -1,6 +1,6 @@
 <?php
 
-class CartProduct
+class CartProduct implements JsonSerializable
 {
     public function __construct(
         private int $id,
@@ -8,8 +8,9 @@ class CartProduct
         private float $price,
         private string $image,
         private int $quantity = 1,
-        private float $total_price = $price
+        private float $total_price = 0.0
     ) {
+        $this->set_total_price();
     }
 
     public function get_id(): int
@@ -17,17 +18,17 @@ class CartProduct
         return $this->id;
     }
 
-    public function get_title(): int
+    public function get_title(): string
     {
         return $this->title;
     }
 
-    public function get_price(): int
+    public function get_price(): float
     {
         return $this->price;
     }
 
-    public function get_image(): int
+    public function get_image(): string
     {
         return $this->image;
     }
@@ -37,7 +38,7 @@ class CartProduct
         return $this->quantity;
     }
 
-    public function get_total_price(): int
+    public function get_total_price(): float
     {
         return $this->total_price;
     }
@@ -55,5 +56,10 @@ class CartProduct
     public function set_total_price(): void
     {
         $this->total_price = $this->quantity * $this->price;
+    }
+
+    public function jsonSerialize(): mixed
+    {
+        return get_object_vars($this);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-class Cart
+class Cart implements JsonSerializable
 {
     public function __construct(
         private string $session_id,
@@ -28,17 +28,15 @@ class Cart
 
     public function add_product(CartProduct $product): void
     {
-        $this->cart_products[] = $product;
+        $id = $product->get_id();
+        $this->cart_products[$id] = $product;
         $this->set_cart_total();
     }
 
-    public function remove_product(CartProduct $product): void
+    public function remove_product(int $id): void
     {
-        $index = array_search($product, $this->cart_products, true);
-        if ($index !== false) {
-            array_splice($this->cart_products, $index, 1);
-            $this->set_cart_total();
-        }
+        unset($this->cart_products[$id]);
+        $this->set_cart_total();
     }
 
     public function get_cart_total(): float
@@ -46,7 +44,7 @@ class Cart
         return $this->cart_total;
     }
 
-    private function set_cart_total(): void
+    public function set_cart_total(): void
     {
         $total = 0;
         foreach ($this->cart_products as $product) {
@@ -55,9 +53,22 @@ class Cart
         $this->cart_total = $total;
     }
 
-    public function is_product_exists(CartProduct $product): bool
+    public function is_product_exists(int $id): bool
     {
-        $index = array_search($product, $this->cart_products, true);
-        return $index == true;
+        return isset($this->cart_products[$id]);
+    }
+
+    public function get_product_by_id(int $id): CartProduct
+    {
+        foreach ($this->cart_products as $product) {
+            if ($product->get_id() == $id) {
+                return $product;
+            }
+        }
+    }
+
+    public function jsonSerialize(): mixed
+    {
+        return get_object_vars($this);
     }
 }
