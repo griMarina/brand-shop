@@ -79,14 +79,14 @@ main {
   transform: scale(1.2);
   cursor: pointer;
 }
-.header-logo-icon {
+.header-logo_icon {
   color: #f16d7f;
   font-weight: 900;
   font-size: 48px;
   margin-right: 30px;
   transition-duration: 0.5s;
 }
-.header-logo-icon:hover {
+.header-logo_icon:hover {
   transform: rotate(360deg);
 }
 .header-menu {
@@ -152,19 +152,27 @@ main {
 .header-menu-list a:hover {
   transform: scale(1.1);
 }
-.header-menu-account-icon {
+.header-menu-account_icon {
   margin: 0 32px;
   display: none;
 }
-.header-menu-cart-icon {
+.header-menu-cart {
   display: none;
 }
-.header-account-icon {
+.header-account_icon {
   margin: 0 32px;
   fill: #e8e8e8;
 }
-.header-cart-icon {
+.header-cart {
+  position: relative;
+}
+.header-cart_icon {
   fill: #e8e8e8;
+}
+.header-cart_count_icon {
+  position: absolute;
+  top: -7px;
+  right: -10px;
 }
 
 #menu-toggle {
@@ -184,23 +192,30 @@ main {
   .header-container {
     padding: 17px 16px;
   }
-  .header-account-icon {
+  .header-account_icon {
     display: none;
   }
-  .header-cart-icon {
+  .header-cart {
     display: none;
   }
-  .header-menu-account-icon {
+  .header-menu-account_icon {
     display: inline;
+    margin: 0 32px;
   }
-  .header-menu-account-icon:hover {
+  .header-menu-account_icon:hover {
     fill: #f16d7f;
   }
-  .header-menu-cart-icon {
-    display: inline;
+  .header-menu-cart {
+    position: relative;
+    display: inline-block;
   }
-  .header-menu-cart-icon:hover {
+  .header-menu-cart:hover {
     fill: #f16d7f;
+  }
+  .header-menu-cart_count_icon {
+    position: absolute;
+    top: -7px;
+    right: -10px;
   }
 }
 .breadcrumb {

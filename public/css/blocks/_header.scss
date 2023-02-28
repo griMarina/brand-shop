@@ -22,7 +22,7 @@
         }
     }
 
-    &-logo-icon {
+    &-logo_icon {
         color: $main-color;
         font-weight: 900;
         font-size: 48px;
@@ -106,23 +106,35 @@
             }
         }
 
-        &-account-icon {
+        &-account_icon {
             margin: 0 32px;
             display: none;
         }
 
-        &-cart-icon {
+        &-cart {
             display: none;
         }
+
     }
 
-    &-account-icon {
+    &-account_icon {
         margin: 0 32px;
         fill: #e8e8e8;
     }
 
-    &-cart-icon {
+    &-cart {
+        position: relative;
+    }
+
+    &-cart_icon {
         fill: #e8e8e8;
+    }
+
+    &-cart_count_icon {
+        position: absolute;
+        top: -7px;
+        right: -10px;
+        // display: none;
     }
 }
 
@@ -148,29 +160,37 @@
             padding: 17px 16px;
         }
 
-        &-account-icon {
+        &-account_icon {
             display: none;
         }
 
-        &-cart-icon {
+        &-cart {
             display: none;
         }
 
         &-menu {
-            &-account-icon {
+            &-account_icon {
                 display: inline;
+                margin: 0 32px;
 
                 &:hover {
                     fill: $main-color;
                 }
             }
 
-            &-cart-icon {
-                display: inline;
+            &-cart {
+                position: relative;
+                display: inline-block;
 
                 &:hover {
                     fill: $main-color;
                 }
+            }
+
+            &-cart_count_icon {
+                position: absolute;
+                top: -7px;
+                right: -10px;
             }
         }
     }

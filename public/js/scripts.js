@@ -28,15 +28,10 @@ function decreaseQty(id) {
     })
         .then(response => response.json())
         .then(data => {
-            if (data['quantity'] === 0) {
+            if (data['cart_products'][id]['quantity'] === 0) {
                 deleteProduct(id);
             } else {
-                const quantity = document.querySelector(`.cart-item-quantity[data-id="${id}"]`);
-                quantity.textContent = data['quantity'];
-
-                const price = document.querySelector(`.cart-item-price[data-id="${id}"]`);
-                price.textContent = '$' + data['total_product_price'];
-
+                updateData(id, data);
             }
         })
         .catch(error => {
@@ -58,11 +53,8 @@ function increaseQty(id) {
     })
         .then(response => response.json())
         .then(data => {
-            const quantity = document.querySelector(`.cart-item-quantity[data-id="${id}"]`);
-            quantity.textContent = data['quantity'];
-
-            const price = document.querySelector(`.cart-item-price[data-id="${id}"]`);
-            price.textContent = '$' + data['total_product_price'];
+            console.log(data);
+            updateData(id, data);
         })
         .catch(error => {
 
@@ -83,16 +75,27 @@ function deleteProduct(id) {
     })
         .then(response => response.json())
         .then(data => {
-            render(data)
+            render(data);
         })
         .catch(error => {
 
         });
 }
 
+function updateData(id, data) {
+    const quantity = document.querySelector(`.cart-item-quantity[data-id="${id}"]`);
+    quantity.textContent = data['cart_products'][id]['quantity'];
+
+    const price = document.querySelector(`.cart-item-price[data-id="${id}"]`);
+    price.textContent = '$' + data['cart_products'][id]['total_price'];
+
+    const total = document.querySelector(`.cart-sum-bigprice`);
+    total.textContent = '$' + data['cart_total'];
+}
+
 function render(data) {
-    console.log(data);
     const cart = data['cart_products'];
+
     if (cart.length !== 0) {
         document.querySelector('.cart-items').textContent = '';
         for (const elem in cart) {
@@ -121,12 +124,12 @@ function render(data) {
     </div>`;
             document.querySelector('.cart-items').insertAdjacentHTML('afterbegin', cartItemHtml);
         }
-        const cartCheckoutHtml = `<form class="cart-form">
-            <h2 class="cart-form-heading">SHIPPING ADRESS</h2>
-            <input class="cart-form-info" type="text" placeholder="Country" required>
-            <input class="cart-form-info" type="text" placeholder="State">
-            <input class="cart-form-info" type="text" placeholder="Postcode / Zip" pattern="[0-9]{6}" required>
-            <input class="cart-form-submit" type="submit" value="Get a quote">
+        const checkoutHtml = `<form class="cart-form">
+        <h2 class="cart-form-heading">SHIPPING ADRESS</h2>
+        <input class="cart-form-info" type="text" placeholder="Country" required>
+        <input class="cart-form-info" type="text" placeholder="State">
+        <input class="cart-form-info" type="text" placeholder="Postcode / Zip" pattern="[0-9]{6}" required>
+        <input class="cart-form-submit" type="submit" value="Get a quote">
         </form>
         <div class="cart-box">
             <div class="cart-sum">
@@ -136,7 +139,7 @@ function render(data) {
                 <a class="cart-sum-proceed" href="#">PROCEED TO CHECKOUT</a>
             </div>
         </div>`;
-        document.querySelector('.cart-checkout').innerHTML = cartCheckoutHtml;
+        document.querySelector('.cart-checkout').innerHTML = checkoutHtml;
     } else {
         document.querySelector('.cart').innerHTML = '<p>The cart is empty</p>';
     }

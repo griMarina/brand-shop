@@ -7,9 +7,11 @@ class CartProduct implements JsonSerializable
         private string $title,
         private float $price,
         private string $image,
+        private Cart $cart,
         private int $quantity = 1,
         private float $total_price = 0.0
     ) {
+        $this->cart = $cart;
         $this->set_total_price();
     }
 
@@ -51,11 +53,13 @@ class CartProduct implements JsonSerializable
             $this->quantity -= 1;
         }
         $this->set_total_price();
+        $this->cart->set_cart_total();
     }
 
     public function set_total_price(): void
     {
         $this->total_price = $this->quantity * $this->price;
+        $this->cart->set_cart_qty();
     }
 
     public function jsonSerialize(): mixed

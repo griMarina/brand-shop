@@ -5,7 +5,8 @@ class Cart implements JsonSerializable
     public function __construct(
         private string $session_id,
         private array $cart_products = [],
-        private float $cart_total = 0.0
+        private float $cart_total = 0.0,
+        private int $cart_qty = 0
     ) {
         $this->set_cart_total();
     }
@@ -24,6 +25,7 @@ class Cart implements JsonSerializable
     {
         $this->cart_products = $cart_products;
         $this->set_cart_total();
+        $this->set_cart_qty();
     }
 
     public function add_product(CartProduct $product): void
@@ -31,12 +33,14 @@ class Cart implements JsonSerializable
         $id = $product->get_id();
         $this->cart_products[$id] = $product;
         $this->set_cart_total();
+        $this->set_cart_qty();
     }
 
     public function remove_product(int $id): void
     {
         unset($this->cart_products[$id]);
         $this->set_cart_total();
+        $this->set_cart_qty();
     }
 
     public function get_cart_total(): float
@@ -66,6 +70,21 @@ class Cart implements JsonSerializable
             }
         }
     }
+
+    public function get_cart_qty(): int
+    {
+        return $this->cart_qty;
+    }
+
+    public function set_cart_qty(): void
+    {
+        $qty = 0;
+        foreach ($this->cart_products as $product) {
+            $qty += $product->get_quantity();
+        }
+        $this->cart_qty = $qty;
+    }
+
 
     public function jsonSerialize(): mixed
     {

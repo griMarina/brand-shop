@@ -28,7 +28,8 @@ class CartController
                             $product_id,
                             $product['title'],
                             $product['price'],
-                            $product['image']
+                            $product['image'],
+                            $cart
                         );
                         $cart->add_product($cart_product);
                     }
@@ -38,32 +39,23 @@ class CartController
                 case 'increase':
                     $cart_product = $cart->get_product_by_id($product_id);
                     $cart_product->set_quantity('increase');
-                    $cart->set_cart_total();
-                    $params['json'] = [
-                        'quantity' => $cart_product->get_quantity(),
-                        'total_product_price' => $cart_product->get_total_price(),
-                        'cart_total' => $cart->get_cart_total()
-                    ];
+                    // $cart->set_cart_total();
+
+                    $params['json'] = $cart;
                     break;
 
                 case 'decrease':
                     $cart_product = $cart->get_product_by_id($product_id);
                     $cart_product->set_quantity('decrease');
-                    $cart->set_cart_total();
-                    $params['json'] = [
-                        'quantity' => $cart_product->get_quantity(),
-                        'total_product_price' => $cart_product->get_total_price(),
-                        'cart_total' => $cart->get_cart_total()
-                    ];
+                    // $cart->set_cart_total();
+
+                    $params['json'] = $cart;
+
                     break;
 
                 case 'delete':
                     $cart->remove_product($product_id);
                     $params['json'] = $cart;
-                    // [
-                    //     'cart' => $cart->get_cart_products(),
-                    //     'cart_total' => $cart->get_cart_total()
-                    // ];
                     break;
 
                 default:
@@ -79,16 +71,6 @@ class CartController
         $params['title'] = 'Cart';
         $params['cart'] = $cart;
 
-        // if (isset($_SESSION['cart'])) {
-        //     $params['cart'] = $_SESSION['cart'];
-        //     $cart_total = 0;
-
-        //     foreach ($params['cart'] as $product) {
-        //         $cart_total += $product['total_product_price'];
-        //     }
-
-        //     $params['cart_total'] = $cart_total;
-        // }
         return $params;
     }
 }
