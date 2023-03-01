@@ -14,9 +14,9 @@ if ($url_array[1] == '') {
 }
 
 // for each page prepare an array with own set of variables to substitute them into the appropriate template
-// $params['section'] = x;
-
 $params['layout'] = 'main';
+$params['cart_qty'] = (isset($_SESSION['cart'])) ? unserialize($_SESSION['cart'])->get_cart_qty() : 0;
+$params['qty_style'] = ($params['cart_qty'] == 0) ? 'none' : 'inline';
 
 // define controller
 $controller = ucfirst($page) . 'Controller';

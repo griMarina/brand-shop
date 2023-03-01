@@ -18,7 +18,7 @@
     <section class="product-slider">
         <h2 class="hidden">product images</h2>
         <picture class="product-slider-image">
-            <source srcset="/img/slide-small/<?= $product['image'] ?>-small.jpg" media="(max-width: 788px)">
+            <source srcset="/img/slide-small/<?= $product['image'] ?>-slide-1-small.jpg" media="(max-width: 788px)">
             <!-- <source srcset="/img/<?= $product['image'] ?>-medium.jpg" media="(max-width: 1192px)"> -->
             <img src="/img/slide-big/<?= $product['image'] ?>-slide-1-big.jpg" alt="<?= $product['image'] ?>">
         </picture>

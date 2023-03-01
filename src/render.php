@@ -13,6 +13,8 @@ function render($page, $params)
             LAYOUTS_DIR . $params['layout'],
             [
                 'title' => $params['title'],
+                'cart_qty' => $params['cart_qty'],
+                'qty_style' => $params['qty_style'],
                 'content' => render_template($page, $params)
             ]
         );

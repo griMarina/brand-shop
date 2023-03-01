@@ -7,11 +7,9 @@ class CartProduct implements JsonSerializable
         private string $title,
         private float $price,
         private string $image,
-        private Cart $cart,
         private int $quantity = 1,
         private float $total_price = 0.0
     ) {
-        $this->cart = $cart;
         $this->set_total_price();
     }
 
@@ -45,25 +43,25 @@ class CartProduct implements JsonSerializable
         return $this->total_price;
     }
 
-    public function set_quantity(string $operation): void
+    public function increase_quantity(): void
     {
-        if ($operation == 'increase') {
-            $this->quantity += 1;
-        } elseif ($operation == 'decrease') {
-            $this->quantity -= 1;
-        }
+        $this->quantity += 1;
         $this->set_total_price();
-        $this->cart->set_cart_total();
+    }
+
+    public function decrease_quantity(): void
+    {
+        $this->quantity -= 1;
+        $this->set_total_price();
     }
 
     public function set_total_price(): void
     {
         $this->total_price = $this->quantity * $this->price;
-        $this->cart->set_cart_qty();
     }
 
     public function jsonSerialize(): mixed
     {
-        return get_object_vars($this);
+        return  get_object_vars($this);
     }
 }

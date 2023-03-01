@@ -37,8 +37,8 @@
                 <?php endforeach; ?>
                 <section class="cart-actions">
                     <h2 class="hidden">further actions</h2>
-                    <button class="cart-actions-clear" type="button">Clear shopping cart</button>
-                    <a class="cart-actions-continue" href="catalog.html">Continue shopping</a>
+                    <button class="cart-actions-clear" type="button" onclick="clearCart()">Clear shopping cart</button>
+                    <a class="cart-actions-continue" href="/catalog">Continue shopping</a>
                 </section>
             </section>
             <section class="cart-checkout">

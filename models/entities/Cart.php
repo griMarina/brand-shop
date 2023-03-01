@@ -21,13 +21,6 @@ class Cart implements JsonSerializable
         return $this->cart_products;
     }
 
-    public function set_cart_products(array $cart_products): void
-    {
-        $this->cart_products = $cart_products;
-        $this->set_cart_total();
-        $this->set_cart_qty();
-    }
-
     public function add_product(CartProduct $product): void
     {
         $id = $product->get_id();
@@ -39,6 +32,18 @@ class Cart implements JsonSerializable
     public function remove_product(int $id): void
     {
         unset($this->cart_products[$id]);
+        $this->set_cart_total();
+        $this->set_cart_qty();
+    }
+
+    public function set_product_quantity(int $id, string $operation): void
+    {
+        if ($operation == 'increase') {
+            $this->cart_products[$id]->increase_quantity();
+        } elseif ($operation == 'decrease') {
+            $this->cart_products[$id]->decrease_quantity();
+        }
+
         $this->set_cart_total();
         $this->set_cart_qty();
     }
@@ -62,15 +67,6 @@ class Cart implements JsonSerializable
         return isset($this->cart_products[$id]);
     }
 
-    public function get_product_by_id(int $id): CartProduct
-    {
-        foreach ($this->cart_products as $product) {
-            if ($product->get_id() == $id) {
-                return $product;
-            }
-        }
-    }
-
     public function get_cart_qty(): int
     {
         return $this->cart_qty;
@@ -85,6 +81,12 @@ class Cart implements JsonSerializable
         $this->cart_qty = $qty;
     }
 
+    public function clear_cart(): void
+    {
+        $this->cart_products = [];
+        $this->set_cart_total();
+        $this->set_cart_qty();
+    }
 
     public function jsonSerialize(): mixed
     {

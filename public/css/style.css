@@ -1387,11 +1387,8 @@ main {
   .cart-item-text li {
     padding: 1px 0;
   }
-  .cart-item-quantity {
-    margin-left: 25px;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
+  .cart-item-change_quantity {
+    font-size: 20px;
   }
   .cart-actions {
     margin-top: 30px;

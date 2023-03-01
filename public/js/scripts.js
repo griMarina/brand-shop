@@ -1,13 +1,18 @@
 function addToCart(id) {
     fetch('/cart', {
         method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
         body: JSON.stringify({
             action: 'add',
             product_id: id
         })
     })
-        .then(response => {
-
+        .then(response => response.json())
+        .then(data => {
+            updateQty(data);
         })
         .catch(error => {
 
@@ -53,7 +58,6 @@ function increaseQty(id) {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             updateData(id, data);
         })
         .catch(error => {
@@ -76,10 +80,46 @@ function deleteProduct(id) {
         .then(response => response.json())
         .then(data => {
             render(data);
+            updateQty(data);
         })
         .catch(error => {
 
         });
+}
+
+function clearCart() {
+    fetch('/cart', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            action: 'clear'
+        })
+    })
+        .then(response => response.json())
+        .then(data => {
+            render(data);
+            updateQty(data);
+        })
+        .catch(error => {
+
+        });
+}
+
+function updateQty(data) {
+    const cartQty = document.querySelectorAll('.text-quantity');
+    const cartIcon = document.querySelectorAll('.header-cart_count_icon');
+
+    cartQty.forEach(el => el.textContent = data['cart_qty']);
+    cartIcon.forEach(el => {
+        if (data['cart_qty'] === 0) {
+            el.style.display = 'none';
+        } else {
+            el.style.display = 'inline';
+        }
+    })
 }
 
 function updateData(id, data) {
@@ -89,8 +129,10 @@ function updateData(id, data) {
     const price = document.querySelector(`.cart-item-price[data-id="${id}"]`);
     price.textContent = '$' + data['cart_products'][id]['total_price'];
 
-    const total = document.querySelector(`.cart-sum-bigprice`);
+    const total = document.querySelector('.cart-sum-bigprice');
     total.textContent = '$' + data['cart_total'];
+
+    updateQty(data);
 }
 
 function render(data) {
@@ -100,10 +142,10 @@ function render(data) {
         document.querySelector('.cart-items').textContent = '';
         for (const elem in cart) {
             const cartItemHtml = `<div class="cart-item">
-        <picture class="cart-item-image">
+            <picture class="cart-item-image">
             <img src="/img/catalog/${cart[elem]['image']}.jpg" alt="${cart[elem]['image']}">
-        </picture>
-        <div class="cart-item-description">
+            </picture>
+            <div class="cart-item-description">
             <div class="cart-item-description-top">
                 <h3 class="cart-item-title">${cart[elem]['title']}</h3>
                 <button class="cart-item-delete" type="button"><svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" onclick="deleteProduct(${cart[elem]['id']})">
@@ -120,10 +162,17 @@ function render(data) {
                     <button class="cart-item-change_quantity" onclick="increaseQty(${cart[elem]['id']})" type="button">+</button>
                 </li>
             </ul>
-        </div>
-    </div>`;
-            document.querySelector('.cart-items').insertAdjacentHTML('afterbegin', cartItemHtml);
+            </div>
+            </div>`;
+            document.querySelector('.cart-items').insertAdjacentHTML('beforeend', cartItemHtml);
         }
+        const actionsHtml = `<section class="cart-actions">
+        <h2 class="hidden">further actions</h2>
+        <button class="cart-actions-clear" type="button" onclick="clearCart()">Clear shopping cart</button>
+        <a class="cart-actions-continue" href="/catalog">Continue shopping</a>
+    </section>`;
+        document.querySelector('.cart-items').insertAdjacentHTML('beforeend', actionsHtml);
+
         const checkoutHtml = `<form class="cart-form">
         <h2 class="cart-form-heading">SHIPPING ADRESS</h2>
         <input class="cart-form-info" type="text" placeholder="Country" required>
