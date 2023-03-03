@@ -4,9 +4,9 @@
             <h1 class="breadcrumb-heading">SHOPPING CART</h1>
         </div>
     </section>
-    <section class="cart container">
-        <h2 class="hidden">cart</h2>
-        <?php if (!empty($cart->get_cart_products())) : ?>
+    <?php if (!empty($cart->get_cart_products())) : ?>
+        <section class="cart container">
+            <h2 class="hidden">cart</h2>
             <section class="cart-items">
                 <h2 class="hidden">products in cart</h2>
                 <?php foreach ($cart->get_cart_products() as $product) : ?>
@@ -42,24 +42,41 @@
                 </section>
             </section>
             <section class="cart-checkout">
-                <form class="cart-form">
+                <!-- <form class="cart-form">
                     <h2 class="cart-form-heading">SHIPPING ADRESS</h2>
                     <input class="cart-form-info" type="text" placeholder="Country" required>
                     <input class="cart-form-info" type="text" placeholder="State">
                     <input class="cart-form-info" type="text" placeholder="Postcode / Zip" pattern="[0-9]{6}" required>
                     <input class="cart-form-submit" type="submit" value="Get a quote">
-                </form>
-                <div class="cart-box">
-                    <div class="cart-sum">
-                        <h2 class="hidden">sum total</h2>
-                        <p class="cart-sum-bigtext">GRAND TOTAL<span class="cart-sum-bigprice">$ <?= $cart->get_cart_total() ?></span></p>
-                        <hr class="cart-sum-line">
-                        <a class="cart-sum-proceed" href="#">PROCEED TO CHECKOUT</a>
-                    </div>
-                </div>
+                </form> -->
+                <!-- <div class="cart-sum"> -->
+                <h2 class="hidden">sum total</h2>
+                <p class="cart-checkout-text">ORDER SUMMARY</p>
+                <hr class="cart-checkout-line">
+                <p class="cart-checkout-text">
+                    <span>Order value</span>
+                    <span class="cart-checkout-price">$<?= $cart->get_cart_total() ?></span>
+                </p>
+                <p class="cart-checkout-text">
+                    <span>Delivery fee</span>
+                    <span>free</span>
+                </p>
+                <hr class="cart-checkout-line">
+                <p class="cart-checkout-text">
+                    <span>TOTAL (VAT included) </span>
+                    <span class="cart-checkout-price cart-checkout-total-price">$<?= $cart->get_cart_total() ?></span>
+                </p>
+                <a class="cart-checkout-proceed" href="/login">PROCEED TO CHECKOUT</a>
+                <!-- </div> -->
             </section>
-        <?php else : ?>
-            <p>The cart is empty</p>
-        <?php endif; ?>
-    </section>
+        </section>
+    <?php else : ?>
+        <div class="empty-cart">
+            <img src="/img/main/empty-cart.png" alt="empty cart image" /></br>
+            <a class="cart-actions-continue" href="/catalog">Continue shopping</a>
+        </div>
+
+
+    <?php endif; ?>
+
 </main>

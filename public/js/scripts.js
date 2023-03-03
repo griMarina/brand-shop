@@ -129,8 +129,8 @@ function updateData(id, data) {
     const price = document.querySelector(`.cart-item-price[data-id="${id}"]`);
     price.textContent = '$' + data['cart_products'][id]['total_price'];
 
-    const total = document.querySelector('.cart-sum-bigprice');
-    total.textContent = '$' + data['cart_total'];
+    const total = document.querySelectorAll('.cart-checkout-price');
+    total.forEach(el => el.textContent = '$' + data['cart_total']);
 
     updateQty(data);
 }
@@ -173,23 +173,28 @@ function render(data) {
     </section>`;
         document.querySelector('.cart-items').insertAdjacentHTML('beforeend', actionsHtml);
 
-        const checkoutHtml = `<form class="cart-form">
-        <h2 class="cart-form-heading">SHIPPING ADRESS</h2>
-        <input class="cart-form-info" type="text" placeholder="Country" required>
-        <input class="cart-form-info" type="text" placeholder="State">
-        <input class="cart-form-info" type="text" placeholder="Postcode / Zip" pattern="[0-9]{6}" required>
-        <input class="cart-form-submit" type="submit" value="Get a quote">
-        </form>
-        <div class="cart-box">
-            <div class="cart-sum">
-                <h2 class="hidden">sum total</h2>
-                <p class="cart-sum-bigtext">GRAND TOTAL<span class="cart-sum-bigprice">$${data['cart_total']}</span></p>
-                <hr class="cart-sum-line">
-                <a class="cart-sum-proceed" href="#">PROCEED TO CHECKOUT</a>
-            </div>
-        </div>`;
+        const checkoutHtml = `<h2 class="hidden">sum total</h2>
+        <p class="cart-checkout-text">ORDER SUMMARY</p>
+        <hr class="cart-checkout-line">
+        <p class="cart-checkout-text">
+            <span>Order value</span>
+            <span class="cart-checkout-price">$${data['cart_total']}</span>
+        </p>
+        <p class="cart-checkout-text">
+            <span>Delivery fee</span>
+            <span>free</span>
+        </p>
+        <hr class="cart-checkout-line">
+        <p class="cart-checkout-text">
+            <span>TOTAL (VAT included) </span>
+            <span class="cart-checkout-price cart-checkout-total-price">$${data['cart_total']}</span>
+        </p>
+        <a class="cart-checkout-proceed" href="/login">PROCEED TO CHECKOUT</a>`;
         document.querySelector('.cart-checkout').innerHTML = checkoutHtml;
     } else {
-        document.querySelector('.cart').innerHTML = '<p>The cart is empty</p>';
+        const div = document.createElement('div');
+        div.className = 'empty-cart';
+        div.innerHTML = '<img src="/img/main/empty-cart.png" />';
+        document.querySelector('.cart').replaceWith(div);
     }
 }
