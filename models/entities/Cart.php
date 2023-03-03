@@ -5,10 +5,9 @@ class Cart implements JsonSerializable
     public function __construct(
         private string $session_id,
         private array $cart_products = [],
-        private float $cart_total = 0.0,
+        private float $cart_price = 0.0,
         private int $cart_qty = 0
     ) {
-        $this->set_cart_total();
     }
 
     public function get_session_id(): string
@@ -21,18 +20,44 @@ class Cart implements JsonSerializable
         return $this->cart_products;
     }
 
+    public function get_cart_price(): float
+    {
+        return $this->cart_price;
+    }
+
+    public function set_cart_price(): void
+    {
+        $cart_price = 0;
+        foreach ($this->cart_products as $product) {
+            $cart_price += $product->get_total_price();
+        }
+        $this->cart_price = $cart_price;
+    }
+
+    public function get_cart_qty(): int
+    {
+        return $this->cart_qty;
+    }
+
+    public function set_cart_qty(): void
+    {
+        $cart_qty = 0;
+        foreach ($this->cart_products as $product) {
+            $cart_qty += $product->get_quantity();
+        }
+        $this->cart_qty = $cart_qty;
+    }
+
+    public function is_product_exists(int $id): bool
+    {
+        return isset($this->cart_products[$id]);
+    }
+
     public function add_product(CartProduct $product): void
     {
         $id = $product->get_id();
         $this->cart_products[$id] = $product;
-        $this->set_cart_total();
-        $this->set_cart_qty();
-    }
-
-    public function remove_product(int $id): void
-    {
-        unset($this->cart_products[$id]);
-        $this->set_cart_total();
+        $this->set_cart_price();
         $this->set_cart_qty();
     }
 
@@ -44,47 +69,21 @@ class Cart implements JsonSerializable
             $this->cart_products[$id]->decrease_quantity();
         }
 
-        $this->set_cart_total();
+        $this->set_cart_price();
         $this->set_cart_qty();
     }
 
-    public function get_cart_total(): float
+    public function remove_product(int $id): void
     {
-        return $this->cart_total;
-    }
-
-    public function set_cart_total(): void
-    {
-        $total = 0;
-        foreach ($this->cart_products as $product) {
-            $total += $product->get_total_price();
-        }
-        $this->cart_total = $total;
-    }
-
-    public function is_product_exists(int $id): bool
-    {
-        return isset($this->cart_products[$id]);
-    }
-
-    public function get_cart_qty(): int
-    {
-        return $this->cart_qty;
-    }
-
-    public function set_cart_qty(): void
-    {
-        $qty = 0;
-        foreach ($this->cart_products as $product) {
-            $qty += $product->get_quantity();
-        }
-        $this->cart_qty = $qty;
+        unset($this->cart_products[$id]);
+        $this->set_cart_price();
+        $this->set_cart_qty();
     }
 
     public function clear_cart(): void
     {
         $this->cart_products = [];
-        $this->set_cart_total();
+        $this->set_cart_price();
         $this->set_cart_qty();
     }
 

@@ -9,7 +9,7 @@ class DatabaseProduct
 
     public function get_product(int $id): array
     {
-        $statement = $this->pdo->prepare(
+        $stmt = $this->pdo->prepare(
             'SELECT product.id, product.title, product.desc, product.price, section.title AS section, image.title AS `image`, category.title AS category
             FROM `product`
             LEFT JOIN `section`
@@ -21,18 +21,18 @@ class DatabaseProduct
             WHERE product.id = :id AND image.number = 1;'
         );
 
-        $statement->execute(
+        $stmt->execute(
             [
                 ':id' => (int) $id
             ]
         );
 
-        return $statement->fetch(\PDO::FETCH_ASSOC);
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
 
     public function get_products_by_limit(int $limit): array
     {
-        $statement = $this->pdo->prepare(
+        $stmt = $this->pdo->prepare(
             'SELECT product.id, product.title, product.desc, product.price, image.title AS main_img
             FROM `product`
             LEFT JOIN `image`
@@ -41,16 +41,16 @@ class DatabaseProduct
             LIMIT :limit;'
         );
 
-        $statement->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
 
-        $statement->execute();
+        $stmt->execute();
 
-        return $statement->fetchAll(\PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function get_products_by_section(string $section): array
     {
-        $statement = $this->pdo->prepare(
+        $stmt = $this->pdo->prepare(
             'SELECT product.id, product.title, product.desc, product.price, image.title AS main_img
             FROM `product`
             LEFT JOIN `section`
@@ -60,18 +60,18 @@ class DatabaseProduct
             WHERE section.title = :section AND image.number = 0;'
         );
 
-        $statement->execute(
+        $stmt->execute(
             [
                 ':section' => (string) $section
             ]
         );
 
-        return $statement->fetchAll(\PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function get_products_by_category(string $section, string $category): array
     {
-        $statement = $this->pdo->prepare(
+        $stmt = $this->pdo->prepare(
             'SELECT product.id, product.title, product.desc, product.price, image.title AS main_img
             FROM `product`
             LEFT JOIN `section`
@@ -83,13 +83,13 @@ class DatabaseProduct
             WHERE section.title = :section AND category.title = :category AND image.number = 0;'
         );
 
-        $statement->execute(
+        $stmt->execute(
             [
                 ':section' => (string) $section,
                 ':category' => (string) $category
             ]
         );
 
-        return $statement->fetchAll(\PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 }

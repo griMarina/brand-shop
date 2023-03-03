@@ -9,7 +9,7 @@ class DatabaseCart
 
     public function get_cart($session_id): array
     {
-        $statement = $this->pdo->prepare(
+        $stmt = $this->pdo->prepare(
             'SELECT cart.quantity, cart.product_id, product.title, product.price, image.title AS `image`
             FROM `cart`
             LEFT JOIN `product`
@@ -19,62 +19,33 @@ class DatabaseCart
             WHERE cart.session_id = :session_id AND image.number = 0;'
         );
 
-        $statement->execute(
+        $stmt->execute(
             [
                 ':session_id' => (string) $session_id
             ]
         );
 
-        return $statement->fetchAll(\PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    // public function cart_product_exists(int $product_id, string $session_id): bool
-    // {
-    //     $statement = $this->pdo->prepare(
-    //         'SELECT cart.product_id
-    //         FROM `cart`
-    //         WHERE cart.product_id = :product_id AND cart.session_id = :session_id;'
-    //     );
-
-    //     $statement->execute(
-    //         [
-    //             ':product_id' => (string) $product_id,
-    //             ':session_id' => (string) $session_id
-    //         ]
-    //     );
-
-    //     return ($statement->rowCount()) ? true : false;
-    // }
-
-    public function add_to_cart(CartProduct $cart): void
+    public function add_cart(Cart $cart): void
     {
 
-        // $result = $this->cart_product_exists($cart->get_product_id(), $cart->get_session_id());
-
-        // if ($result) {
-        //     $statement = $this->pdo->prepare(
-        //         'UPDATE `cart` SET quantity = quantity + 1 
-        //         WHERE cart.product_id = :product_id AND cart.session_id = :session_id;'
-        //     );
-
-        //     $statement->execute(
-        //         [
-        //             ':product_id' => (int) $cart->get_product_id(),
-        //             ':session_id' => (string) $cart->get_session_id()
-        //         ]
-        //     );
-        // } else {
-        $statement = $this->pdo->prepare(
-            'INSERT INTO `cart`(`product_id`, `session_id`) VALUES (:product_id, :session_id);'
+        $stmt = $this->pdo->prepare(
+            "INSERT INTO cart (product_id, quantity, session_id) 
+            VALUES (:product_id, :quantity, :session_id)"
         );
 
-        $statement->execute(
-            [
-                // ':quantity' => (int) $cart->get_quantity(),
-                ':product_id' => (int) $cart->get_product_id(),
-                ':session_id' => (string) $cart->get_session_id()
-            ]
-        );
-        // }
+        $session_id = $cart->get_session_id();
+
+        foreach ($cart->get_cart_products() as $product) {
+            $stmt->execute(
+                [
+                    ':product_id' => (int) $product->get_id(),
+                    ':quantity' => (int) $product->get_quantity(),
+                    ':session_id' => (string) $session_id
+                ]
+            );
+        }
     }
 }

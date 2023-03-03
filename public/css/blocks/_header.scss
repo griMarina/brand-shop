@@ -7,7 +7,7 @@
     z-index: 3;
 
     &-container {
-        padding: 17px 0;
+        padding: 8px 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -42,7 +42,7 @@
         min-height: 764px;
         width: 232px;
         right: 0;
-        top: 89px;
+        top: 74px;
         padding: 35px;
         box-sizing: border-box;
         box-shadow: $shadow;
@@ -150,7 +150,7 @@
 @media (max-width: 1222px) {
     .header {
         &-container {
-            padding: 17px 32px;
+            padding: 8px 32px;
         }
     }
 }
@@ -158,7 +158,7 @@
 @media (max-width: 788px) {
     .header {
         &-container {
-            padding: 17px 16px;
+            padding: 8px 16px;
         }
 
         &-account_icon {

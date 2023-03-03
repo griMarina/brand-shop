@@ -49,13 +49,12 @@
                     <input class="cart-form-info" type="text" placeholder="Postcode / Zip" pattern="[0-9]{6}" required>
                     <input class="cart-form-submit" type="submit" value="Get a quote">
                 </form> -->
-                <!-- <div class="cart-sum"> -->
                 <h2 class="hidden">sum total</h2>
                 <p class="cart-checkout-text">ORDER SUMMARY</p>
                 <hr class="cart-checkout-line">
                 <p class="cart-checkout-text">
                     <span>Order value</span>
-                    <span class="cart-checkout-price">$<?= $cart->get_cart_total() ?></span>
+                    <span class="cart-checkout-price">$<?= $cart->get_cart_price() ?></span>
                 </p>
                 <p class="cart-checkout-text">
                     <span>Delivery fee</span>
@@ -64,10 +63,9 @@
                 <hr class="cart-checkout-line">
                 <p class="cart-checkout-text">
                     <span>TOTAL (VAT included) </span>
-                    <span class="cart-checkout-price cart-checkout-total-price">$<?= $cart->get_cart_total() ?></span>
+                    <span class="cart-checkout-price cart-checkout-total-price">$<?= $cart->get_cart_price() ?></span>
                 </p>
-                <a class="cart-checkout-proceed" href="/login">PROCEED TO CHECKOUT</a>
-                <!-- </div> -->
+                <a class="cart-checkout-proceed" href="/login" onclick="addCart()">PROCEED TO CHECKOUT</a>
             </section>
         </section>
     <?php else : ?>
@@ -75,8 +73,5 @@
             <img src="/img/main/empty-cart.png" alt="empty cart image" /></br>
             <a class="cart-actions-continue" href="/catalog">Continue shopping</a>
         </div>
-
-
     <?php endif; ?>
-
 </main>

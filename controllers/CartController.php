@@ -4,14 +4,13 @@ class CartController
 {
     public static function prepare_variables(array $params): array
     {
-        $session = session_id();
-        // $pdo = connection();
+        $session_id = session_id();
         $data = json_decode(file_get_contents('php://input'), true);
-        // $db_cart = new DatabaseCart($pdo);
+
         if (isset($_SESSION['cart'])) {
             $cart = unserialize($_SESSION['cart']);
         } else {
-            $cart = new Cart($session);
+            $cart = new Cart($session_id);
         }
 
         if (isset($data['action'])) {
@@ -61,11 +60,7 @@ class CartController
             }
         }
 
-        // $cart_product = new CartProduct($product_id, $session);
-        // $db_cart->add_to_cart($cart_product);
-
         $_SESSION['cart'] = serialize($cart);
-
         $params['title'] = 'Cart';
         $params['cart'] = $cart;
 

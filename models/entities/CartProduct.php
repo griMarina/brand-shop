@@ -43,6 +43,11 @@ class CartProduct implements JsonSerializable
         return $this->total_price;
     }
 
+    public function set_total_price(): void
+    {
+        $this->total_price = $this->quantity * $this->price;
+    }
+
     public function increase_quantity(): void
     {
         $this->quantity += 1;
@@ -53,11 +58,6 @@ class CartProduct implements JsonSerializable
     {
         $this->quantity -= 1;
         $this->set_total_price();
-    }
-
-    public function set_total_price(): void
-    {
-        $this->total_price = $this->quantity * $this->price;
     }
 
     public function jsonSerialize(): mixed
