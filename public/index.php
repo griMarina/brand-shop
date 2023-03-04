@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 include $_SERVER['DOCUMENT_ROOT'] . '/../config/config.php';
 
 // define the page name from the url, by default it will be 'index'

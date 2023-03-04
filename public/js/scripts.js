@@ -103,28 +103,6 @@ function clearCart() {
         });
 }
 
-function addCart() {
-    fetch('/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-            action: 'add_cart'
-        })
-    })
-        .then(response => {
-
-        })
-        .then(data => {
-
-        })
-        .catch(error => {
-        });
-}
-
-
 function updateQty(data) {
     const cartQty = document.querySelectorAll('.text-quantity');
     const cartIcon = document.querySelectorAll('.header-cart_count_icon');

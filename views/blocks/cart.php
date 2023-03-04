@@ -42,13 +42,6 @@
                 </section>
             </section>
             <section class="cart-checkout">
-                <!-- <form class="cart-form">
-                    <h2 class="cart-form-heading">SHIPPING ADRESS</h2>
-                    <input class="cart-form-info" type="text" placeholder="Country" required>
-                    <input class="cart-form-info" type="text" placeholder="State">
-                    <input class="cart-form-info" type="text" placeholder="Postcode / Zip" pattern="[0-9]{6}" required>
-                    <input class="cart-form-submit" type="submit" value="Get a quote">
-                </form> -->
                 <h2 class="hidden">sum total</h2>
                 <p class="cart-checkout-text">ORDER SUMMARY</p>
                 <hr class="cart-checkout-line">
@@ -65,7 +58,7 @@
                     <span>TOTAL (VAT included) </span>
                     <span class="cart-checkout-price cart-checkout-total-price">$<?= $cart->get_cart_price() ?></span>
                 </p>
-                <a class="cart-checkout-proceed" href="/login" onclick="addCart()">PROCEED TO CHECKOUT</a>
+                <a class="cart-checkout-proceed" href="/login">PROCEED TO CHECKOUT</a>
             </section>
         </section>
     <?php else : ?>
