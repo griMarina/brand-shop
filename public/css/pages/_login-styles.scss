@@ -1,0 +1,72 @@
+.checkout-option {
+    display: flex;
+    padding: 32px;
+
+    &-login {
+        flex-grow: 1;
+        justify-content: center;
+        display: flex;
+
+        &-form {
+            display: flex;
+            flex-direction: column;
+            width: 250px;
+
+            &-heading {
+                font-weight: 300;
+                font-size: 20px;
+                line-height: 19px;
+                color: #222222;
+                margin-bottom: 20px;
+            }
+
+            &-info {
+                @include input;
+
+                &:focus {
+                    border: 1px solid #555;
+                }
+            }
+
+            &-submit {
+                @include input;
+                background-color: #ffffff;
+                color: #4a4a4a;
+                border: 1px solid #a4a4a4;
+                text-transform: uppercase;
+                cursor: pointer;
+
+                &:hover {
+                    @include hover;
+                }
+            }
+        }
+    }
+
+    &-register {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        flex-grow: 1;
+        align-content: center;
+
+        &-link {
+            @include input;
+            text-decoration: none;
+            text-align: center;
+            width: 250px;
+            text-transform: uppercase;
+
+            &:hover {
+                @include hover;
+
+            }
+        }
+    }
+}
+
+@media (max-width: $mobile-width) {
+    .checkout-option {
+        flex-direction: column;
+    }
+}
