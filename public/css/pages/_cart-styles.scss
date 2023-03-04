@@ -184,58 +184,6 @@
         }
     }
 
-    // &-form {
-    //     display: flex;
-    //     flex-direction: column;
-    //     width: 100%;
-
-    //     &-heading {
-    //         font-weight: 300;
-    //         font-size: 16px;
-    //         line-height: 19px;
-    //         color: #222222;
-    //         margin-bottom: 20px;
-    //     }
-
-    //     &-info {
-    //         border: 1px solid #a4a4a4;
-    //         padding: 13px;
-    //         margin-bottom: 20px;
-    //         outline: none;
-    //         font-family: inherit;
-    //         font-weight: 300;
-    //         font-size: 14px;
-    //         line-height: 14px;
-    //         color: #222222;
-    //         transition-duration: 0.2s;
-
-    //         &:focus {
-    //             border: 1px solid #555;
-    //         }
-    //     }
-
-    //     &-submit {
-    //         width: fit-content;
-    //         padding: 10px 14px;
-    //         background-color: #ffffff;
-    //         color: #4a4a4a;
-    //         border: 1px solid #a4a4a4;
-    //         font-family: inherit;
-    //         font-weight: 300;
-    //         font-size: 11px;
-    //         line-height: 13px;
-    //         text-transform: uppercase;
-    //         cursor: pointer;
-    //         transition-duration: 0.4s;
-
-    //         &:hover {
-    //             background-color: $main-color;
-    //             border: 1px solid $main-color;
-    //             color: #ffffff;
-    //         }
-    //     }
-    // }
-
 }
 
 .empty-cart {
@@ -272,11 +220,6 @@
             justify-content: center;
             align-self: flex-end;
         }
-
-        // &-form {
-        //     margin-right: 15px;
-        // }
-
     }
 
     .empty-cart {
