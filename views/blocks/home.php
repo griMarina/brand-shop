@@ -19,7 +19,6 @@
         <a class="categories-card categories-kids" href="/catalog/kids">
             <span class="categories-text">KIDS</span>
         </a>
-
     </section>
     <section class="products container">
         <h2 class="products-heading">Featured Items</h2>
@@ -49,20 +48,17 @@
             <div class="benefits-item">
                 <img src="/img/main/van-icon.svg" alt="delivery">
                 <h3 class="benefits-heading">Free Delivery</h3>
-                <p class="benefits-text">Worldwide delivery on all. Authorit tively morph next-generation
-                    innov tion with extensive models.</p>
+                <p class="benefits-text">Worldwide delivery on all. Authorit tively morph next-generation innovation with extensive models.</p>
             </div>
             <div class="benefits-item">
                 <img src="/img/main/percentage-icon.svg" alt="discounts">
                 <h3 class="benefits-heading">Sales & discounts</h3>
-                <p class="benefits-text">Worldwide delivery on all. Authorit tively morph next-generation
-                    innov tion with extensive models.</p>
+                <p class="benefits-text">Worldwide delivery on all. Authorit tively morph next-generation innovation with extensive models.</p>
             </div>
             <div class="benefits-item">
                 <img src="/img/main/crown-icon.svg" alt="assurance">
                 <h3 class="benefits-heading">Quality assurance</h3>
-                <p class="benefits-text">Worldwide delivery on all. Authorit tively morph next-generation
-                    innov tion with extensive models.</p>
+                <p class="benefits-text">Worldwide delivery on all. Authorit tively morph next-generation innovation with extensive models.</p>
             </div>
         </div>
     </section>

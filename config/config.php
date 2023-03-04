@@ -11,5 +11,4 @@ include ROOT . '/src/render.php';
 include ROOT . '/src/db.php';
 
 spl_autoload_register('autoload');
-
-// session_start(); // after spl_autoload_register
+session_start();
