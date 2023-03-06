@@ -32,7 +32,7 @@ class DatabaseCart
     {
 
         $stmt = $this->pdo->prepare(
-            "INSERT INTO cart (product_id, quantity, session_id) 
+            "INSERT INTO `cart` (product_id, quantity, session_id) 
             VALUES (:product_id, :quantity, :session_id)"
         );
 
