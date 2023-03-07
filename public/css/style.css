@@ -1397,7 +1397,6 @@ main {
   font-weight: 300;
   font-size: 13px;
   line-height: 16px;
-  color: #b1b1b1;
   outline: none;
   transition-duration: 0.2s;
 }
@@ -1436,6 +1435,7 @@ main {
   cursor: pointer;
   border: 1px solid #f16d7f;
   transition-duration: 0.4s;
+  font-family: inherit;
 }
 .reg-form-join svg {
   padding-left: 15px;
@@ -1505,9 +1505,9 @@ main {
 .checkout-option {
   display: flex;
   padding: 32px;
+  justify-content: space-evenly;
 }
 .checkout-option-login {
-  flex-grow: 1;
   justify-content: center;
   display: flex;
 }
@@ -1566,7 +1566,6 @@ main {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  flex-grow: 1;
   align-content: center;
 }
 .checkout-option-register-link {
@@ -1617,7 +1616,6 @@ main {
   font-weight: 300;
   font-size: 13px;
   line-height: 16px;
-  color: #b1b1b1;
   outline: none;
   transition-duration: 0.2s;
 }
@@ -1636,6 +1634,7 @@ main {
   cursor: pointer;
   border: 1px solid #f16d7f;
   transition-duration: 0.4s;
+  font-family: inherit;
 }
 .checkout-form-join svg {
   padding-left: 15px;
@@ -1651,4 +1650,125 @@ main {
 .checkout-form-join:hover svg {
   transform: translateX(8px);
   fill: #f16d7f;
+}
+
+.account-nav {
+  height: 130px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.account-nav-top-heading {
+  color: inherit;
+  font-weight: 400;
+  font-size: 16px;
+}
+.account-nav-top .logout-mob {
+  display: none;
+}
+.account-nav-categories {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  min-width: 500px;
+  justify-content: space-between;
+}
+.account-nav-category a {
+  color: #222224;
+  text-decoration: none;
+  transition-duration: 0.3s;
+}
+.account-nav-category a:hover {
+  color: #f16d7f;
+}
+.account-nav-logout {
+  color: inherit;
+  text-decoration: none;
+  transition-duration: 0.3s;
+  text-align: center;
+}
+.account-nav-logout:hover {
+  color: #f16d7f;
+}
+
+.account-header {
+  text-align: center;
+  font-weight: normal;
+  margin: 30px;
+}
+.account-table-wrapper {
+  margin: 10px 70px 70px;
+  box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+}
+.account-table {
+  font-size: 14px;
+  font-weight: normal;
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+  background-color: white;
+}
+.account-table td,
+.account-table th {
+  text-align: center;
+  padding: 8px;
+  border-right: 1px solid #d7d6d6;
+  font-size: 14px;
+}
+.account-table thead th {
+  background: #817e7e;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+.account-table tr {
+  height: 50px;
+}
+.account-table tr:nth-child(even) {
+  background: #F8F8F8;
+}
+.account-table-view {
+  color: inherit;
+  text-decoration: none;
+  transition-duration: 0.3s;
+  text-align: center;
+}
+.account-table-view:hover {
+  color: #f16d7f;
+}
+.account-table-view span {
+  vertical-align: sub;
+}
+
+@media (max-width: 788px) {
+  .account-nav {
+    flex-direction: column;
+    font-size: 14px;
+  }
+  .account-nav-top {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  .account-nav-top .logout-mob {
+    display: inline-block;
+  }
+  .account-nav .logout-desk {
+    display: none;
+  }
+  .account-nav-categories {
+    min-width: 300px;
+  }
+  .account-nav-category {
+    font-size: 12px;
+  }
+  .account-header {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  .account-table-wrapper {
+    margin: 20px 0;
+    font-size: 14px;
+  }
 }/*# sourceMappingURL=style.css.map */

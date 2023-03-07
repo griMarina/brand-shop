@@ -18,7 +18,6 @@
             font-weight: 300;
             font-size: 13px;
             line-height: 16px;
-            color: #b1b1b1;
             outline: none;
             transition-duration: 0.2s;
 
@@ -39,6 +38,7 @@
             cursor: pointer;
             border: 1px solid $main-color;
             transition-duration: 0.4s;
+            font-family: inherit;
 
             & svg {
                 padding-left: 15px;
