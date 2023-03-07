@@ -16,16 +16,14 @@ class DatabaseOrder
             ON cart.product_id = product.id
             LEFT JOIN `image`
             ON product.id = image.product_id
-            WHERE cart.session_id = :session_id AND image.number = 0;'
+            WHERE cart.session_id = :session_id AND image.number = 0'
         );
 
-        $stmt->execute(
-            [
-                ':id' => (int) $id
-            ]
-        );
+        $stmt->execute([
+            ':id' => (int) $id
+        ]);
 
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function add_order(Order $order): void
@@ -36,16 +34,14 @@ class DatabaseOrder
             VALUES (:first_name, :last_name, :phone, :email, :address, :status, :session_id)"
         );
 
-        $stmt->execute(
-            [
-                ':first_name' => (string) $order->get_first_name(),
-                ':last_name' => (string) $order->get_last_name(),
-                ':phone' => (string) $order->get_phone(),
-                ':email' => (string) $order->get_email(),
-                ':address' => (string) $order->get_address(),
-                ':session_id' => (string) $order->get_session_id(),
-                ':status' => (string) $order->get_status()
-            ]
-        );
+        $stmt->execute([
+            ':first_name' => (string) $order->get_first_name(),
+            ':last_name' => (string) $order->get_last_name(),
+            ':phone' => (string) $order->get_phone(),
+            ':email' => (string) $order->get_email(),
+            ':address' => (string) $order->get_address(),
+            ':session_id' => (string) $order->get_session_id(),
+            ':status' => (string) $order->get_status()
+        ]);
     }
 }

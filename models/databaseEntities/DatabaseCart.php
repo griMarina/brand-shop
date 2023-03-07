@@ -16,16 +16,14 @@ class DatabaseCart
             ON cart.product_id = product.id
             LEFT JOIN `image`
             ON product.id = image.product_id
-            WHERE cart.session_id = :session_id AND image.number = 0;'
+            WHERE cart.session_id = :session_id AND image.number = 0'
         );
 
-        $stmt->execute(
-            [
-                ':session_id' => (string) $session_id
-            ]
-        );
+        $stmt->execute([
+            ':session_id' => (string) $session_id
+        ]);
 
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function add_cart(Cart $cart): void
@@ -39,13 +37,11 @@ class DatabaseCart
         $session_id = $cart->get_session_id();
 
         foreach ($cart->get_cart_products() as $product) {
-            $stmt->execute(
-                [
-                    ':product_id' => (int) $product->get_id(),
-                    ':quantity' => (int) $product->get_quantity(),
-                    ':session_id' => (string) $session_id
-                ]
-            );
+            $stmt->execute([
+                ':product_id' => (int) $product->get_id(),
+                ':quantity' => (int) $product->get_quantity(),
+                ':session_id' => (string) $session_id
+            ]);
         }
     }
 }

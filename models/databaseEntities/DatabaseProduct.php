@@ -18,16 +18,14 @@ class DatabaseProduct
             ON product.id = image.product_id
             LEFT JOIN `category`
             ON product.category_id = category.id
-            WHERE product.id = :id AND image.number = 1;'
+            WHERE product.id = :id AND image.number = 1'
         );
 
-        $stmt->execute(
-            [
-                ':id' => (int) $id
-            ]
-        );
+        $stmt->execute([
+            ':id' => (int) $id
+        ]);
 
-        return $stmt->fetch(\PDO::FETCH_ASSOC);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function get_products_by_limit(int $limit): array
@@ -38,14 +36,14 @@ class DatabaseProduct
             LEFT JOIN `image`
             ON product.main_img_id = image.id
             WHERE image.number = 0
-            LIMIT :limit;'
+            LIMIT :limit'
         );
 
         $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
 
         $stmt->execute();
 
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function get_products_by_section(string $section): array
@@ -57,16 +55,14 @@ class DatabaseProduct
             ON product.section_id = section.id
             LEFT JOIN `image`
             ON product.main_img_id = image.id
-            WHERE section.title = :section AND image.number = 0;'
+            WHERE section.title = :section AND image.number = 0'
         );
 
-        $stmt->execute(
-            [
-                ':section' => (string) $section
-            ]
-        );
+        $stmt->execute([
+            ':section' => (string) $section
+        ]);
 
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function get_products_by_category(string $section, string $category): array
@@ -80,16 +76,14 @@ class DatabaseProduct
             ON product.main_img_id = image.id
             LEFT JOIN `category`
             ON product.category_id = category.id
-            WHERE section.title = :section AND category.title = :category AND image.number = 0;'
+            WHERE section.title = :section AND category.title = :category AND image.number = 0'
         );
 
-        $stmt->execute(
-            [
-                ':section' => (string) $section,
-                ':category' => (string) $category
-            ]
-        );
+        $stmt->execute([
+            ':section' => (string) $section,
+            ':category' => (string) $category
+        ]);
 
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

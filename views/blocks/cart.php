@@ -58,7 +58,7 @@
                     <span>TOTAL (VAT included) </span>
                     <span class="cart-checkout-price cart-checkout-total-price">$<?= $cart->get_cart_price() ?></span>
                 </p>
-                <a class="cart-checkout-proceed" href="/login">PROCEED TO CHECKOUT</a>
+                <a class="cart-checkout-proceed" href="/login/?action=checkout">PROCEED TO CHECKOUT</a>
             </section>
         </section>
     <?php else : ?>
