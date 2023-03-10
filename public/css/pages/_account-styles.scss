@@ -49,10 +49,10 @@
 }
 
 .account {
-
     &-header {
         text-align: center;
         font-weight: normal;
+        color: $main-color;
         margin: 30px;
     }
 
@@ -108,6 +108,126 @@
             }
         }
     }
+
+    &-index {
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+
+        h2 {
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        a {
+            width: 200px;
+            align-self: center;
+            margin-top: 50px;
+        }
+    }
+
+    &-order {
+        &-summary {
+            display: flex;
+            padding: 30px;
+            justify-content: space-between;
+            background-color: #f2f2f2;
+            margin-bottom: 50px;
+        }
+
+        &-item {
+            display: flex;
+            box-shadow: $shadow-2;
+            margin-bottom: 20px;
+
+            &-image {
+                display: flex;
+                width: 108px;
+                height: 126px;
+            }
+
+            &-description {
+                display: flex;
+                padding: 28px 30px;
+                width: 100%;
+            }
+
+            &-title {
+                font-size: 16px;
+                color: #222222;
+                flex-grow: 1;
+            }
+
+            &-qty {
+                margin-right: 30px;
+            }
+        }
+    }
+
+    &-info {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    &-form {
+        label {
+            display: inline-block;
+            width: 120px;
+        }
+
+        &-info {
+            min-width: 300px;
+            box-sizing: border-box;
+            border: 1px solid #a4a4a4;
+            padding: 14px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-family: inherit;
+            outline: none;
+            transition-duration: 0.2s;
+
+            &:focus {
+                border: 1px solid #555;
+            }
+        }
+
+        &-text {
+            margin-top: 5px;
+            color: #b1b1b1;
+        }
+
+        &-join {
+            margin-top: 20px;
+            padding: 16px 30px;
+            background-color: $main-color;
+            color: #ffffff;
+            fill: #ffffff;
+            cursor: pointer;
+            border: 1px solid $main-color;
+            transition-duration: 0.4s;
+            font-family: inherit;
+
+            & svg {
+                padding-left: 15px;
+                transition-duration: 0.4s;
+                transition-timing-function: ease-in;
+                transform: translateX(0px);
+            }
+
+            &:hover {
+                background-color: #ffffff;
+                color: $main-color;
+                border: 1px solid $main-color;
+
+                & svg {
+                    transform: translateX(8px);
+                    fill: $main-color;
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 788px) {
@@ -139,7 +259,6 @@
     }
 
     .account {
-
         &-header {
             font-size: 16px;
             margin-top: 20px;
@@ -147,6 +266,33 @@
 
         &-table-wrapper {
             margin: 20px 0;
+            font-size: 14px;
+        }
+
+        &-order {
+            &-summary {
+                flex-direction: column;
+                margin-bottom: 30px;
+                padding: 15px;
+
+                p {
+                    margin-bottom: 5px;
+                }
+            }
+
+            &-item {
+                &-description {
+                    flex-direction: column;
+                    justify-content: space-around;
+                }
+
+                &-title {
+                    flex-grow: 0;
+                }
+            }
+        }
+
+        &-form {
             font-size: 14px;
         }
     }

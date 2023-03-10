@@ -1695,6 +1695,7 @@ main {
 .account-header {
   text-align: center;
   font-weight: normal;
+  color: #f16d7f;
   margin: 30px;
 }
 .account-table-wrapper {
@@ -1741,6 +1742,104 @@ main {
 .account-table-view span {
   vertical-align: sub;
 }
+.account-index {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.account-index h2 {
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+.account-index a {
+  width: 200px;
+  align-self: center;
+  margin-top: 50px;
+}
+.account-order-summary {
+  display: flex;
+  padding: 30px;
+  justify-content: space-between;
+  background-color: #f2f2f2;
+  margin-bottom: 50px;
+}
+.account-order-item {
+  display: flex;
+  box-shadow: 17px 19px 24px rgba(0, 0, 0, 0.13);
+  margin-bottom: 20px;
+}
+.account-order-item-image {
+  display: flex;
+  width: 108px;
+  height: 126px;
+}
+.account-order-item-description {
+  display: flex;
+  padding: 28px 30px;
+  width: 100%;
+}
+.account-order-item-title {
+  font-size: 16px;
+  color: #222222;
+  flex-grow: 1;
+}
+.account-order-item-qty {
+  margin-right: 30px;
+}
+.account-info {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.account-form label {
+  display: inline-block;
+  width: 120px;
+}
+.account-form-info {
+  min-width: 300px;
+  box-sizing: border-box;
+  border: 1px solid #a4a4a4;
+  padding: 14px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: inherit;
+  outline: none;
+  transition-duration: 0.2s;
+}
+.account-form-info:focus {
+  border: 1px solid #555;
+}
+.account-form-text {
+  margin-top: 5px;
+  color: #b1b1b1;
+}
+.account-form-join {
+  margin-top: 20px;
+  padding: 16px 30px;
+  background-color: #f16d7f;
+  color: #ffffff;
+  fill: #ffffff;
+  cursor: pointer;
+  border: 1px solid #f16d7f;
+  transition-duration: 0.4s;
+  font-family: inherit;
+}
+.account-form-join svg {
+  padding-left: 15px;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-in;
+  transform: translateX(0px);
+}
+.account-form-join:hover {
+  background-color: #ffffff;
+  color: #f16d7f;
+  border: 1px solid #f16d7f;
+}
+.account-form-join:hover svg {
+  transform: translateX(8px);
+  fill: #f16d7f;
+}
 
 @media (max-width: 788px) {
   .account-nav {
@@ -1770,6 +1869,24 @@ main {
   }
   .account-table-wrapper {
     margin: 20px 0;
+    font-size: 14px;
+  }
+  .account-order-summary {
+    flex-direction: column;
+    margin-bottom: 30px;
+    padding: 15px;
+  }
+  .account-order-summary p {
+    margin-bottom: 5px;
+  }
+  .account-order-item-description {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .account-order-item-title {
+    flex-grow: 0;
+  }
+  .account-form {
     font-size: 14px;
   }
 }/*# sourceMappingURL=style.css.map */
