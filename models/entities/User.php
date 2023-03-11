@@ -10,8 +10,15 @@ class User
     private string $phone;
     private string $address;
 
-    public function __construct(string $id = '', string $username = '', string $pass_hash = '', string $first_name = '', string $last_name = '', string $phone = '', string $address = '')
-    {
+    public function __construct(
+        string $id = '',
+        string $username = '',
+        string $pass_hash = '',
+        string $first_name = '',
+        string $last_name = '',
+        string $phone = '',
+        string $address = ''
+    ) {
         $this->id = $id;
         $this->username = $username;
         $this->pass_hash = $pass_hash;

@@ -6,11 +6,9 @@ class RegistrationController
     {
         if (isset($_POST['action']) == 'join') {
             $pdo = connection();
-
             $user_id = uniqid();
             $password = $_POST['password'];
             $pass_hash = password_hash($password, PASSWORD_DEFAULT);
-
             $user = new User(
                 $user_id,
                 $_POST['email'],

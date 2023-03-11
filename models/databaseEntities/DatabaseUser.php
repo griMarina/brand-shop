@@ -17,7 +17,7 @@ class DatabaseUser
             ':username' => (string) $username,
         ]);
 
-        return $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'User')[0] ?: null;
+        return $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'User')[0] ?? null;
     }
 
     public function add_user(User $user): void
