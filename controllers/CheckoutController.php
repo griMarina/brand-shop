@@ -4,13 +4,18 @@ class CheckoutController
 {
     public static function prepare_variables(array $params): array
     {
+        $pdo = connection();
+        $auth = new Auth($pdo);
+        $user = $auth->user_exists();
+
         if (isset($_POST['action']) == 'submit_order') {
             $session_id = session_id();
-            $pdo = connection();
 
             $cart = unserialize($_SESSION['cart']);
             $db_cart = new DatabaseCart($pdo);
             $db_cart->add_cart($cart);
+
+            $user_id = ($user) ? $user->get_id() : null;
 
             $order = new Order(
                 $_POST['first_name'],
@@ -18,6 +23,7 @@ class CheckoutController
                 $_POST['phone'],
                 $_POST['email'],
                 $_POST['address'],
+                $user_id,
                 $session_id
             );
             $db_order = new DatabaseOrder($pdo);
@@ -31,6 +37,7 @@ class CheckoutController
 
         $params['status'] = $_GET['status'] ?? '';
         $params['title'] = 'Checkout';
+        $params['user'] = $user;
 
         return $params;
     }

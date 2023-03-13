@@ -8,6 +8,7 @@ class Order
         private string $phone,
         private string $email,
         private string $address,
+        private ?string $user_id,
         private string $session_id,
         private string $status = 'pending'
     ) {
@@ -36,6 +37,11 @@ class Order
     public function get_address(): string
     {
         return $this->address;
+    }
+
+    public function get_user_id(): ?string
+    {
+        return $this->user_id;
     }
 
     public function get_session_id(): string

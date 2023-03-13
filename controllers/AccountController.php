@@ -4,9 +4,14 @@ class AccountController
 {
     public static function prepare_variables(array $params): array
     {
+
+        $pdo = connection();
+        $auth = new Auth($pdo);
+        $user = $auth->user_exists();
+
         $tab = basename($_SERVER['REQUEST_URI']);
 
-        if (!isset($_SESSION['username'])) {
+        if (!isset($user)) {
             header('Location: /login');
             die();
         }
@@ -20,7 +25,7 @@ class AccountController
 
         $params['title'] = 'Account';
         $params['tab'] = $tab;
-        $params['first_name'] = $_SESSION['first_name'];
+        $params['user'] = $user;
 
         return $params;
     }

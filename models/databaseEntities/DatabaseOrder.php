@@ -30,8 +30,8 @@ class DatabaseOrder
     {
 
         $stmt = $this->pdo->prepare(
-            "INSERT INTO `order` (first_name, last_name, phone, email, address, status, session_id) 
-            VALUES (:first_name, :last_name, :phone, :email, :address, :status, :session_id)"
+            "INSERT INTO `order` (first_name, last_name, phone, email, address, status, user_id, session_id) 
+            VALUES (:first_name, :last_name, :phone, :email, :address, :status, :user_id, :session_id)"
         );
 
         $stmt->execute([
@@ -40,6 +40,7 @@ class DatabaseOrder
             ':phone' => (string) $order->get_phone(),
             ':email' => (string) $order->get_email(),
             ':address' => (string) $order->get_address(),
+            ':user_id' => $order->get_user_id(),
             ':session_id' => (string) $order->get_session_id(),
             ':status' => (string) $order->get_status()
         ]);
