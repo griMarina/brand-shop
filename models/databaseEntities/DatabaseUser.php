@@ -38,4 +38,25 @@ class DatabaseUser
             ':address' => (string) $user->get_address(),
         ]);
     }
+
+    public function update_info(User $user): void
+    {
+
+        $stmt = $this->pdo->prepare(
+            "UPDATE `user` SET
+                first_name = :first_name,
+                last_name = :last_name,
+                phone = :phone,
+                address = :address
+            WHERE id = :id"
+        );
+
+        $stmt->execute([
+            ':id' => (string) $user->get_id(),
+            ':first_name' => (string) $user->get_first_name(),
+            ':last_name' => (string) $user->get_last_name(),
+            ':phone' => (string) $user->get_phone(),
+            ':address' => (string) $user->get_address(),
+        ]);
+    }
 }

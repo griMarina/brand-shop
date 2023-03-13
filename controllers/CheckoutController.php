@@ -23,6 +23,7 @@ class CheckoutController
                 $_POST['phone'],
                 $_POST['email'],
                 $_POST['address'],
+                $cart->get_cart_price(),
                 $user_id,
                 $session_id
             );

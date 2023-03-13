@@ -26,11 +26,8 @@ CREATE TABLE `cart` (
   `id` int NOT NULL AUTO_INCREMENT,
   `product_id` int NOT NULL,
   `quantity` int DEFAULT NULL,
-  `user_id` varchar(255) DEFAULT NULL,
   `session_id` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`),
-  CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -231,4 +228,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-07 18:11:16
+-- Dump completed on 2023-03-13 16:17:24

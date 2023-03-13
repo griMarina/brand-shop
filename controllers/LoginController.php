@@ -4,7 +4,6 @@ class LoginController
 {
     public static function prepare_variables(array $params): array
     {
-
         $pdo = connection();
         $auth = new Auth($pdo);
         $user = $auth->user_exists();
@@ -12,8 +11,9 @@ class LoginController
         if (isset($user)) {
             if (isset($_GET['action']) == 'checkout') {
                 header('Location: /checkout');
+            } else {
+                header('Location: /account');
             }
-            header('Location: /account');
             die();
         }
 

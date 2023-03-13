@@ -7,20 +7,16 @@ class DatabaseOrder
     ) {
     }
 
-    public function get_order(int $id): array
+    public function get_orders(string $user_id): array
     {
         $stmt = $this->pdo->prepare(
-            'SELECT cart.quantity, cart.product_id, product.title, product.price, image.title AS `image`
-            FROM `cart`
-            LEFT JOIN `product`
-            ON cart.product_id = product.id
-            LEFT JOIN `image`
-            ON product.id = image.product_id
-            WHERE cart.session_id = :session_id AND image.number = 0'
+            'SELECT id, status, date, total
+            FROM `order`
+            WHERE user_id = :user_id'
         );
 
         $stmt->execute([
-            ':id' => (int) $id
+            ':user_id' => (string) $user_id
         ]);
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -30,8 +26,8 @@ class DatabaseOrder
     {
 
         $stmt = $this->pdo->prepare(
-            "INSERT INTO `order` (first_name, last_name, phone, email, address, status, user_id, session_id) 
-            VALUES (:first_name, :last_name, :phone, :email, :address, :status, :user_id, :session_id)"
+            "INSERT INTO `order` (first_name, last_name, phone, email, address, status, total, user_id, session_id) 
+            VALUES (:first_name, :last_name, :phone, :email, :address, :status, :total, :user_id, :session_id)"
         );
 
         $stmt->execute([
@@ -40,9 +36,10 @@ class DatabaseOrder
             ':phone' => (string) $order->get_phone(),
             ':email' => (string) $order->get_email(),
             ':address' => (string) $order->get_address(),
+            ':status' => (string) $order->get_status(),
+            ':total' => (float) $order->get_total(),
             ':user_id' => $order->get_user_id(),
-            ':session_id' => (string) $order->get_session_id(),
-            ':status' => (string) $order->get_status()
+            ':session_id' => (string) $order->get_session_id()
         ]);
     }
 }

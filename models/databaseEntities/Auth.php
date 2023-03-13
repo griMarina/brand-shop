@@ -7,11 +7,6 @@ class Auth
     ) {
     }
 
-    public function get_username(): string
-    {
-        return $_SESSION['username'] ?? '';
-    }
-
     public function user_exists(): ?User
     {
         if (isset($_SESSION['username'])) {
@@ -29,7 +24,7 @@ class Auth
         $user = $db_user->get_user($username);
 
         if (isset($user) && password_verify($password, $user->get_pass_hash())) {
-            $_SESSION['username'] = $username;
+            $_SESSION['username'] = $user->get_username();
             return true;
         } else {
             return false;

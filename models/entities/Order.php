@@ -8,6 +8,7 @@ class Order
         private string $phone,
         private string $email,
         private string $address,
+        private float $total,
         private ?string $user_id,
         private string $session_id,
         private string $status = 'pending'
@@ -37,6 +38,11 @@ class Order
     public function get_address(): string
     {
         return $this->address;
+    }
+
+    public function get_total(): float
+    {
+        return $this->total;
     }
 
     public function get_user_id(): ?string
