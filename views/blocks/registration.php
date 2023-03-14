@@ -6,7 +6,7 @@
     </section>
     <section class="reg container">
         <?php if ($status == 'ok') : ?>
-            <p>You have successfully registered!<br>Thank you for joining us!</p>
+            <p class="reg-success">You have successfully registered!<br>Thank you for joining us!</p>
         <?php else : ?>
             <h2 class="hidden">registration</h2>
             <section>
@@ -33,6 +33,9 @@
                     </fieldset>
                     <fieldset class="reg-form-heading">
                         Login details
+                        <?php if ((isset($status)) && $status == 'error') : ?>
+                            <p class="reg-form-error">This login email already exists.</p>
+                        <?php endif; ?>
                         <input class="reg-form-info" name="email" type="email" placeholder="Email" required>
                         <input class="reg-form-info" name="password" type="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                     </fieldset>

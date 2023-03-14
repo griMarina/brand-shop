@@ -14,6 +14,9 @@
                     <input class="checkout-option-login-form-info" name="password" type="password" placeholder="Password" required>
                     <input class="checkout-option-login-form-submit" type="submit" value="Log in">
                 </form>
+                <?php if ((isset($status)) && $status == 'login_error') : ?>
+                    <p class="checkout-option-login-error">Incorrect login or password.</p>
+                <?php endif; ?>
             </section>
             <section class="checkout-option-register">
                 <h2 class="checkout-option-login-form-heading">I'm new here</h2>
@@ -29,6 +32,9 @@
                     <input class="checkout-option-login-form-info" name="password" type="password" placeholder="Password" required>
                     <input class="checkout-option-login-form-submit" type="submit" value="Log in">
                 </form>
+                <?php if ((isset($status)) && $status == 'login_error') : ?>
+                    <p class="checkout-option-login-error">Incorrect login or password.</p>
+                <?php endif; ?>
             </section>
             <section class="checkout-option-register">
                 <h2 class="checkout-option-login-form-heading">I'm new here</h2>

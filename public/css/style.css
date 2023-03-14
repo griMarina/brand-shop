@@ -1375,9 +1375,21 @@ main {
   padding-bottom: 96px;
   display: flex;
 }
+.reg-success {
+  text-align: center;
+  margin: 0 auto;
+}
 .reg-form {
   width: 360px;
   margin-right: 130px;
+}
+.reg-form-error {
+  position: relative;
+  text-align: center;
+  border: 1px solid #6f2d2d;
+  padding: 13px;
+  background-color: #facdcd;
+  color: #6f2d2d;
 }
 .reg-form-heading {
   border: none;
@@ -1511,6 +1523,7 @@ main {
 .checkout-option-login {
   justify-content: center;
   display: flex;
+  flex-direction: column;
 }
 .checkout-option-login-form {
   display: flex;
@@ -1562,6 +1575,13 @@ main {
   background-color: #f16d7f;
   border: 1px solid #f16d7f;
   color: #ffffff;
+}
+.checkout-option-login-error {
+  text-align: center;
+  border: 1px solid #6f2d2d;
+  padding: 20px;
+  background-color: #facdcd;
+  color: #6f2d2d;
 }
 .checkout-option-register {
   display: flex;
@@ -1792,9 +1812,15 @@ main {
   text-align: center;
   margin-bottom: 40px;
 }
+.account-info-hr {
+  height: 1px;
+  border-width: 0;
+  background-color: #ef5b70;
+  margin: 30px 0;
+}
 .account-form label {
   display: inline-block;
-  width: 120px;
+  width: 145px;
 }
 .account-form-info {
   min-width: 300px;

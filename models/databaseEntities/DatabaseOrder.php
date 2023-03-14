@@ -7,6 +7,19 @@ class DatabaseOrder
     ) {
     }
 
+    public function get_order(int $id): array
+    {
+        $stmt = $this->pdo->prepare(
+            'SELECT id, date, status, total, session_id FROM `order` WHERE id = :id'
+        );
+
+        $stmt->execute([
+            ':id' => (int) $id
+        ]);
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function get_orders(string $user_id): array
     {
         $stmt = $this->pdo->prepare(

@@ -27,13 +27,14 @@ class LoginController
                 } else {
                     header('Location: /account');
                 }
-                die();
             } else {
-                echo "Wrong login/password.";
+                header('Location: /login/?status=login_error');
             }
+            die();
         }
 
         $params['action'] = $_GET['action'] ?? '';
+        $params['status'] = $_GET['status'] ?? '';
         $params['title'] = 'Login';
 
         return $params;

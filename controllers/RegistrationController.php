@@ -9,6 +9,14 @@ class RegistrationController
             $user_id = uniqid();
             $password = $_POST['password'];
             $pass_hash = password_hash($password, PASSWORD_DEFAULT);
+
+            $db_user = new DatabaseUser($pdo);
+            $user = $db_user->get_user($_POST['email']);
+            if (isset($user)) {
+                header('Location: /registration/?status=error');
+                die();
+            }
+
             $user = new User(
                 $user_id,
                 $_POST['email'],
@@ -18,7 +26,6 @@ class RegistrationController
                 $_POST['phone'],
                 $_POST['address']
             );
-            $db_user = new DatabaseUser($pdo);
             $db_user->add_user($user);
 
             header('Location: /registration/?status=ok');

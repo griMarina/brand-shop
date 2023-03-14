@@ -169,12 +169,20 @@
     &-info {
         text-align: center;
         margin-bottom: 40px;
+
+        &-hr {
+            height: 1px;
+            border-width: 0;
+            background-color: #ef5b70;
+            margin: 30px 0;
+
+        }
     }
 
     &-form {
         label {
             display: inline-block;
-            width: 120px;
+            width: 145px;
         }
 
         &-info {

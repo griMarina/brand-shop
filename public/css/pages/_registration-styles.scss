@@ -3,9 +3,23 @@
     padding-bottom: 96px;
     display: flex;
 
+    &-success {
+        text-align: center;
+        margin: 0 auto;
+    }
+
     &-form {
         width: 360px;
         margin-right: 130px;
+
+        &-error {
+            position: relative;
+            text-align: center;
+            border: 1px solid #6f2d2d;
+            padding: 13px;
+            background-color: #facdcd;
+            color: #6f2d2d;
+        }
 
         &-heading {
             border: none;
