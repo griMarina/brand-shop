@@ -3,9 +3,9 @@
     padding: 32px;
     justify-content: space-evenly;
 
-
     &-login {
-        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
         display: flex;
         flex-direction: column;
 
@@ -47,7 +47,8 @@
         &-error {
             text-align: center;
             border: 1px solid #6f2d2d;
-            padding: 20px;
+            padding: 10px;
+            box-sizing: border-box;
             background-color: #facdcd;
             color: #6f2d2d;
         }
@@ -77,5 +78,10 @@
 @media (max-width: $mobile-width) {
     .checkout-option {
         flex-direction: column;
+
+        &-login-error {
+            margin-bottom: 20px;
+            width: 250px;
+        }
     }
 }

@@ -10,15 +10,15 @@ class AccountController
         $user = $auth->user_exists();
         $db_user = new DatabaseUser($pdo);
 
-        $db_orders = new DatabaseOrder($pdo);
-        $orders = $db_orders->get_orders($user->get_id());
-
-        $tab = basename($_SERVER['REQUEST_URI']);
-
         if (!isset($user)) {
             header('Location: /login');
             die();
         }
+
+        $db_orders = new DatabaseOrder($pdo);
+        $orders = $db_orders->get_orders($user->get_id());
+
+        $tab = basename($_SERVER['REQUEST_URI']);
 
         if (isset($_POST['action']) == 'update_info') {
 
