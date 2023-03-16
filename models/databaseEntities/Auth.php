@@ -18,6 +18,11 @@ class Auth
         }
     }
 
+    public function is_admin(): bool
+    {
+        return $_SESSION['username'] == 'admin@admin.com';
+    }
+
     public function auth(string $username, string $password): bool
     {
         $db_user = new DatabaseUser($this->pdo);

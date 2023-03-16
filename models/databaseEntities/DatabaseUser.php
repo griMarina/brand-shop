@@ -20,6 +20,19 @@ class DatabaseUser
         return $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'User')[0] ?? null;
     }
 
+    public function get_users(): array
+    {
+        $stmt = $this->pdo->prepare(
+            'SELECT id, username, first_name, last_name FROM `user` WHERE username != :username'
+        );
+
+        $stmt->execute([
+            ':username' => 'admin@admin.com',
+        ]);
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function add_user(User $user): void
     {
 

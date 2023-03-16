@@ -28,6 +28,22 @@ class DatabaseProduct
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function get_products(): array
+    {
+        $stmt = $this->pdo->prepare(
+            'SELECT product.id, product.title, product.price, section.title AS section, category.title AS category
+            FROM `product`
+            LEFT JOIN `section`
+            ON product.section_id = section.id
+            LEFT JOIN `category`
+            ON product.category_id = category.id'
+        );
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function get_products_by_limit(int $limit): array
     {
         $stmt = $this->pdo->prepare(

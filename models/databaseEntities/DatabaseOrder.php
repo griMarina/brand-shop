@@ -20,7 +20,18 @@ class DatabaseOrder
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function get_orders(string $user_id): array
+    public function get_orders(): array
+    {
+        $stmt = $this->pdo->prepare(
+            'SELECT id, email, date, status, total FROM `order`'
+        );
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function get_orders_by_user_id(string $user_id): array
     {
         $stmt = $this->pdo->prepare(
             'SELECT id, status, date, total

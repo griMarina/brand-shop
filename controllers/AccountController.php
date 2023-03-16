@@ -16,7 +16,7 @@ class AccountController
         }
 
         $db_orders = new DatabaseOrder($pdo);
-        $orders = $db_orders->get_orders($user->get_id());
+        $orders = $db_orders->get_orders_by_user_id($user->get_id());
 
         $tab = basename($_SERVER['REQUEST_URI']);
 

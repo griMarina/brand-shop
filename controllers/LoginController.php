@@ -9,6 +9,12 @@ class LoginController
         $user = $auth->user_exists();
 
         if (isset($user)) {
+
+            if ($auth->is_admin()) {
+                header('Location: /admin');
+                die();
+            }
+
             if (isset($_GET['action']) == 'checkout') {
                 header('Location: /checkout');
             } else {
@@ -22,6 +28,12 @@ class LoginController
             $password = $_POST['password'];
 
             if ($auth->auth($username, $password)) {
+
+                if ($auth->is_admin()) {
+                    header('Location: /admin');
+                    die();
+                }
+
                 if ($_POST['action'] == 'login_checkout') {
                     header('Location: /checkout');
                 } else {
