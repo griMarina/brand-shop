@@ -1,0 +1,144 @@
+.admin-nav {
+    height: 130px;
+    @include flex(space-evenly);
+
+    &-top {
+        &-heading {
+            color: inherit;
+            font-weight: 400;
+            font-size: 16px;
+            color: $main-color;
+        }
+
+        .logout-mob {
+            display: none;
+        }
+    }
+
+    &-categories {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        min-width: 500px;
+        justify-content: space-between;
+    }
+
+    &-category {
+
+        a {
+            color: #222224;
+            text-decoration: none;
+            transition-duration: 0.3s;
+
+            &:hover {
+                color: $main-color;
+            }
+        }
+    }
+
+    &-logout {
+        color: inherit;
+        text-decoration: none;
+        transition-duration: 0.3s;
+        text-align: center;
+
+        &:hover {
+            color: $main-color;
+        }
+    }
+}
+
+.admin {
+    &-table-wrapper {
+        margin: 10px 70px 70px;
+        box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+    }
+
+    &-table {
+        font-size: 14px;
+        font-weight: normal;
+        border: none;
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 100%;
+        white-space: nowrap;
+        background-color: white;
+
+        td,
+        th {
+            text-align: center;
+            padding: 8px;
+            border-right: 1px solid #d7d6d6;
+            font-size: 14px;
+        }
+
+        thead th {
+            background: #817e7e;
+            color: #ffffff;
+        }
+
+        tr {
+            height: 50px;
+        }
+
+        tr:nth-child(even) {
+            background: #F8F8F8;
+        }
+
+        &-view {
+            color: inherit;
+            text-decoration: none;
+            transition-duration: 0.3s;
+            text-align: center;
+
+            &:hover {
+                color: $main-color;
+            }
+
+            span {
+                vertical-align: sub;
+            }
+        }
+    }
+}
+
+@media (max-width: 788px) {
+    .admin-nav {
+        flex-direction: column;
+        font-size: 14px;
+
+        &-top {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+
+            .logout-mob {
+                display: inline-block;
+            }
+        }
+
+        .logout-desk {
+            display: none;
+        }
+
+        &-categories {
+            min-width: 300px;
+        }
+
+        &-category {
+            font-size: 10px;
+        }
+    }
+
+    .admin {
+        &-header {
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        &-table-wrapper {
+            margin: 20px 0;
+            font-size: 14px;
+        }
+    }
+}

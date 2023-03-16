@@ -6,11 +6,11 @@
                 <a class="account-nav-logout logout-mob" href="/"><span>Log out</span></a>
             </div>
             <ul class="account-nav-categories">
-                <li class="account-nav-category"><a href="/account/orders"><span>ORDERS</span></a></li>
-                <li class="account-nav-category"><a href="/account/info"><span>PERSONAL DETAILS</span></a>
+                <li class="account-nav-category <?= ($tab == 'orders') ? 'active' : '' ?>"><a href="/account/orders"><span>ORDERS</span></a></li>
+                <li class="account-nav-category <?= ($tab == 'info') ? 'active' : '' ?>"><a href="/account/info"><span>PERSONAL DETAILS</span></a>
                 </li>
-                <li class="account-nav-category"><a href="/account"><span>RETURNS</span></a></li>
-                <li class="account-nav-category"><a href="/account"><span>WISH LIST</span></a></li>
+                <li class="account-nav-category <?= ($tab == 'returns') ? 'active' : '' ?>"><a href="/account/returns"><span>RETURNS</span></a></li>
+                <li class="account-nav-category <?= ($tab == 'wish_list') ? 'active' : '' ?>"><a href="/account/wish_list"><span>WISH LIST</span></a></li>
             </ul>
             <a class="account-nav-logout logout-desk" href="/account/?action=logout"><span>Log out</span></a>
         </div>
@@ -101,6 +101,16 @@
                         </svg>
                     </button>
                 </form>
+            </div>
+        <?php elseif ($tab == 'returns') : ?>
+            <div class="account-index">
+                <h2>Your returns</h2>
+                <a class="cart-actions-continue" href="/catalog">Continue shopping</a>
+            </div>
+        <?php elseif ($tab == 'wish_list') : ?>
+            <div class="account-index">
+                <h2>Your wish list</h2>
+                <a class="cart-actions-continue" href="/catalog">Continue shopping</a>
             </div>
         <?php else : ?>
             <div class="account-index">

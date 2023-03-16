@@ -1,4 +1,4 @@
-.account-nav {
+.admin-nav {
     height: 130px;
     @include flex(space-evenly);
 
@@ -7,6 +7,7 @@
             color: inherit;
             font-weight: 400;
             font-size: 16px;
+            color: $main-color;
         }
 
         .logout-mob {
@@ -23,7 +24,6 @@
     }
 
     &-category {
-
         a {
             color: #222224;
             text-decoration: none;
@@ -51,19 +51,70 @@
             color: $main-color;
         }
     }
-
 }
 
-.account {
-    &-header {
-        text-align: center;
-        font-weight: normal;
-        color: $main-color;
-        margin: 30px;
+.admin {
+    &-top {
+        display: flex;
+        justify-content: space-between;
+        margin: 30px 0;
+
+        &-btn {
+            // display: inline-block;
+            align-self: center;
+            width: 120px;
+            padding: 15px;
+            border: 1px solid $main-color;
+            color: #ffffff;
+            background-color: $main-color;
+            // text-decoration: none;
+            font-size: 14x;
+            cursor: pointer;
+            transition-duration: 0.4s;
+            font-family: inherit;
+            margin-right: 10px;
+            box-sizing: border-box;
+
+            &:hover {
+                border: 1px solid $main-color;
+                background-color: #ffffff;
+                color: $main-color;
+            }
+        }
+
+        &-pagination {
+            display: flex;
+            padding: 6px 9px;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 19px;
+            border: 1px solid #ebebeb;
+            border-radius: 5px;
+
+            & a {
+                display: flex;
+                align-items: center;
+                padding: 5px 8px;
+                text-decoration: none;
+                color: #ebebeb;
+                transition-duration: 0.3s;
+
+                &.active {
+                    color: $main-color;
+                }
+
+                &:hover {
+                    background-color: $main-color;
+                    border-radius: 5px;
+                    color: #ffffff;
+                    fill: #ffffff;
+                }
+            }
+        }
     }
 
     &-table-wrapper {
-        margin: 10px 70px 70px;
+        margin-bottom: 50px;
         box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
     }
 
@@ -88,7 +139,6 @@
         thead th {
             background: #817e7e;
             color: #ffffff;
-            text-transform: uppercase;
         }
 
         tr {
@@ -97,6 +147,10 @@
 
         tr:nth-child(even) {
             background: #F8F8F8;
+        }
+
+        &-checkbox {
+            width: 20px;
         }
 
         &-view {
@@ -114,106 +168,17 @@
             }
         }
     }
-
-    &-index {
-        height: 400px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-
-        h2 {
-            margin-bottom: 30px;
-            font-weight: 400;
-        }
-
-        a {
-            width: 200px;
-            align-self: center;
-            margin-top: 50px;
-        }
-    }
-
-    &-info {
-        text-align: center;
-        margin-bottom: 40px;
-
-        &-hr {
-            height: 1px;
-            border-width: 0;
-            background-color: #ef5b70;
-            margin: 30px 0;
-
-        }
-    }
-
-    &-form {
-        label {
-            display: inline-block;
-            width: 145px;
-        }
-
-        &-info {
-            min-width: 300px;
-            box-sizing: border-box;
-            border: 1px solid #a4a4a4;
-            padding: 14px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            font-family: inherit;
-            outline: none;
-            transition-duration: 0.2s;
-
-            &:focus {
-                border: 1px solid #555;
-            }
-        }
-
-        &-text {
-            margin-top: 5px;
-            color: #b1b1b1;
-        }
-
-        &-join {
-            margin-top: 20px;
-            padding: 16px 30px;
-            background-color: $main-color;
-            color: #ffffff;
-            fill: #ffffff;
-            cursor: pointer;
-            border: 1px solid $main-color;
-            transition-duration: 0.4s;
-            font-family: inherit;
-
-            & svg {
-                padding-left: 15px;
-                transition-duration: 0.4s;
-                transition-timing-function: ease-in;
-                transform: translateX(0px);
-            }
-
-            &:hover {
-                background-color: #ffffff;
-                color: $main-color;
-                border: 1px solid $main-color;
-
-                & svg {
-                    transform: translateX(8px);
-                    fill: $main-color;
-                }
-            }
-        }
-    }
 }
 
-@media (max-width: $mobile-width) {
-    .account-nav {
+
+@media (max-width: 788px) {
+    .admin-nav {
         flex-direction: column;
         font-size: 14px;
 
         &-top {
             display: flex;
-            justify-content: space-evenly;
+            justify-content: space-around;
             width: 100%;
 
             .logout-mob {
@@ -230,11 +195,11 @@
         }
 
         &-category {
-            font-size: 12px;
+            font-size: 10px;
         }
     }
 
-    .account {
+    .admin {
         &-header {
             font-size: 16px;
             margin-top: 20px;
@@ -242,10 +207,6 @@
 
         &-table-wrapper {
             margin: 20px 0;
-            font-size: 14px;
-        }
-
-        &-form {
             font-size: 14px;
         }
     }
