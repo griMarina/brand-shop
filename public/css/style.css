@@ -1984,12 +1984,14 @@ main {
   margin: 30px 0;
 }
 .admin-top-btn {
+  display: inline-block;
   align-self: center;
   width: 120px;
   padding: 15px;
   border: 1px solid #f16d7f;
   color: #ffffff;
   background-color: #f16d7f;
+  text-decoration: none;
   font-size: 14x;
   cursor: pointer;
   transition-duration: 0.4s;
@@ -2073,6 +2075,61 @@ main {
 }
 .admin-table-view span {
   vertical-align: sub;
+}
+.admin-product {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.admin-product-form {
+  display: flex;
+  flex-direction: column;
+}
+.admin-product-form-info {
+  min-width: 300px;
+  box-sizing: border-box;
+  border: 1px solid #a4a4a4;
+  padding: 14px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: inherit;
+  outline: none;
+  transition-duration: 0.2s;
+}
+.admin-product-form-info:focus {
+  border: 1px solid #555;
+}
+.admin-product-form-text {
+  margin-top: 5px;
+  color: #b1b1b1;
+}
+.admin-product-form-join {
+  width: 140px;
+  margin-top: 20px;
+  padding: 16px 30px;
+  background-color: #f16d7f;
+  color: #ffffff;
+  fill: #ffffff;
+  cursor: pointer;
+  border: 1px solid #f16d7f;
+  transition-duration: 0.4s;
+  font-family: inherit;
+}
+.admin-product-form-join svg {
+  padding-left: 15px;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-in;
+  transform: translateX(0px);
+}
+.admin-product-form-join:hover {
+  background-color: #ffffff;
+  color: #f16d7f;
+  border: 1px solid #f16d7f;
+}
+.admin-product-form-join:hover svg {
+  transform: translateX(8px);
+  fill: #f16d7f;
 }
 
 @media (max-width: 788px) {

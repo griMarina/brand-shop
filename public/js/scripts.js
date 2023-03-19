@@ -184,7 +184,7 @@ function render(data) {
             <span>TOTAL (VAT included) </span>
             <span class="cart-checkout-price cart-checkout-total-price">$${data['cart_price']}</span>
         </p>
-        <a class="cart-checkout-proceed" href="/login">PROCEED TO CHECKOUT</a>`;
+        <a class="cart-checkout-proceed" href="/login/?action=checkout">PROCEED TO CHECKOUT</a>`;
         document.querySelector('.cart-checkout').innerHTML = checkoutHtml;
     } else {
         const div = document.createElement('div');

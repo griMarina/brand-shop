@@ -12,16 +12,55 @@ class AdminController
             die();
         }
 
-        $tab = basename($_SERVER['REQUEST_URI']);
+        // $tab = basename($_SERVER['REQUEST_URI']);
+        $url_array = explode('/', $_SERVER['REQUEST_URI']);
+        $tab = $url_array[2] ?? '';
 
-        $db_product = new DatabaseProduct($pdo);
-        $products = $db_product->get_products();
+        switch ($tab) {
+            case 'products':
+                $db_product = new DatabaseProduct($pdo);
+                $products = $db_product->get_products();
+                $params['products'] = $products;
+                break;
+            case 'product':
+                $id = (int)$_GET['id'];
+                $db_product = new DatabaseProduct($pdo);
+                $product = $db_product->get_product($id);
+                $params['product'] = $product;
+                break;
+            case 'add-product':
+                $db_product = new DatabaseProduct($pdo);
 
-        $db_user = new DatabaseUser($pdo);
-        $users = $db_user->get_users();
+                if (isset($_POST['action']) == 'add') {
+                    $product_id = uniqid('product_');
 
-        $db_order = new DatabaseOrder($pdo);
-        $orders = $db_order->get_orders();
+                    $product = new Product(
+                        $product_id,
+                        $_POST['title'],
+                        $_POST['desc'],
+                        $_POST['price'],
+                        $_POST['colour'],
+                        (int)$_POST['section_id'],
+                        (int)$_POST['category_id']
+                    );
+                    $db_product->add_product($product);
+                    $db_product->add_img($product->get_id());
+                }
+
+                $categories = $db_product->get_categories();
+                $params['categories'] = $categories;
+                break;
+            case 'users':
+                $db_user = new DatabaseUser($pdo);
+                $users = $db_user->get_users();
+                $params['users'] = $users;
+                break;
+            case 'orders':
+                $db_order = new DatabaseOrder($pdo);
+                $orders = $db_order->get_orders();
+                $params['orders'] = $orders;
+                break;
+        }
 
         if (isset($_GET['action']) == 'logout') {
             session_regenerate_id();
@@ -32,9 +71,6 @@ class AdminController
 
         $params['title'] = 'Admin panel';
         $params['tab'] = $tab;
-        $params['products'] = $products;
-        $params['users'] = $users;
-        $params['orders'] = $orders;
 
         return $params;
     }
