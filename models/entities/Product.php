@@ -9,6 +9,7 @@ class Product
     private string $colour;
     private int $section_id;
     private int $category_id;
+    private string $main_img_id;
 
     public function __construct(
         string $id = '',
@@ -17,7 +18,8 @@ class Product
         float $price = 0.0,
         string $colour = '',
         int $section_id = 0,
-        int $category_id = 0
+        int $category_id = 0,
+        string $main_img_id = ''
     ) {
         $this->id = $id;
         $this->title = $title;
@@ -26,6 +28,7 @@ class Product
         $this->colour = $colour;
         $this->section_id = $section_id;
         $this->category_id = $category_id;
+        $this->main_img_id = $main_img_id;
     }
 
     public function get_id(): string
@@ -61,5 +64,10 @@ class Product
     public function get_category_id(): int
     {
         return $this->category_id;
+    }
+
+    public function get_main_img_id(): string
+    {
+        return $this->main_img_id;
     }
 }

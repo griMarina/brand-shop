@@ -8,19 +8,20 @@ class CatalogController
         $crumbs = array_slice($url_array, 2);
 
         $pdo = connection();
-        $product = new DatabaseProduct($pdo);
+        $db_product = new DatabaseProduct($pdo);
+        $db_crumbs = new DatabaseCrumbs($pdo);
 
         $params['title'] = 'Products';
-        $params['breadcrumbs'] = Breadcrumb::get_breadcrumbs($crumbs);
+        $params['crumbs'] = $db_crumbs->get_crumbs($crumbs);
 
         if (isset($url_array[2]) && !empty($url_array[2])) {
             if (isset($url_array[3]) && !empty($url_array[3])) {
-                $products = $product->get_products_by_category($url_array[2], $url_array[3]);
+                $products = $db_product->get_products_by_category($url_array[2], $url_array[3]);
             } else {
-                $products = $product->get_products_by_section($url_array[2]);
+                $products = $db_product->get_products_by_section($url_array[2]);
             }
         } else {
-            $products = $product->get_products_by_limit(12);
+            $products = $db_product->get_products_by_limit(12);
         }
 
         if (empty($products)) {

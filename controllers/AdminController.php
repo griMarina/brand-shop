@@ -12,7 +12,6 @@ class AdminController
             die();
         }
 
-        // $tab = basename($_SERVER['REQUEST_URI']);
         $url_array = explode('/', $_SERVER['REQUEST_URI']);
         $tab = $url_array[2] ?? '';
 
@@ -22,17 +21,35 @@ class AdminController
                 $products = $db_product->get_products();
                 $params['products'] = $products;
                 break;
+
             case 'product':
-                $id = (int)$_GET['id'];
+                $id = (string)$_GET['id'];
                 $db_product = new DatabaseProduct($pdo);
+                $db_image = new DatabaseImage($pdo);
                 $product = $db_product->get_product($id);
+                $image = $db_image->get_image($product->get_main_img_id());
+
+                if (isset($_POST['action']) == 'edit') {
+                }
+
                 $params['product'] = $product;
+                $params['image'] = $image;
                 break;
+
             case 'add-product':
                 $db_product = new DatabaseProduct($pdo);
+                $db_image = new DatabaseImage($pdo);
 
                 if (isset($_POST['action']) == 'add') {
+                    $image_title = $_FILES['new_img']['name'] ?? 'no-img';
+                    $image_id = uniqid('image_');
                     $product_id = uniqid('product_');
+
+                    $image = new Image(
+                        $image_id,
+                        $image_title,
+                        $product_id,
+                    );
 
                     $product = new Product(
                         $product_id,
@@ -41,20 +58,25 @@ class AdminController
                         $_POST['price'],
                         $_POST['colour'],
                         (int)$_POST['section_id'],
-                        (int)$_POST['category_id']
+                        (int)$_POST['category_id'],
+                        $image_id
                     );
+
                     $db_product->add_product($product);
-                    $db_product->add_img($product->get_id());
+                    $db_image->add_image($image);
+                    // $db_product->add_img($product->get_id());
                 }
 
                 $categories = $db_product->get_categories();
                 $params['categories'] = $categories;
                 break;
+
             case 'users':
                 $db_user = new DatabaseUser($pdo);
                 $users = $db_user->get_users();
                 $params['users'] = $users;
                 break;
+
             case 'orders':
                 $db_order = new DatabaseOrder($pdo);
                 $orders = $db_order->get_orders();

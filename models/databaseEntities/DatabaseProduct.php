@@ -7,25 +7,19 @@ class DatabaseProduct
     ) {
     }
 
-    public function get_product(string $id): array
+    public function get_product(string $id): ?Product
     {
         $stmt = $this->pdo->prepare(
-            'SELECT product.id, product.title, product.desc, product.price, section.title AS section, image.title AS `image`, category.title AS category
+            'SELECT id, title, `desc`, price, colour, section_id, category_id, main_img_id
             FROM `product`
-            LEFT JOIN `section`
-            ON product.section_id = section.id
-            LEFT JOIN `image`
-            ON product.id = image.product_id
-            LEFT JOIN `category`
-            ON product.category_id = category.id
-            WHERE product.id = :id AND image.number = 0'
+            WHERE product.id = :id'
         );
 
         $stmt->execute([
             ':id' => (string) $id
         ]);
 
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Product')[0] ?? null;
     }
 
     public function get_products(): array
@@ -121,8 +115,8 @@ class DatabaseProduct
     {
 
         $stmt = $this->pdo->prepare(
-            "INSERT INTO `product` (id, title, `desc`, price, colour, section_id, category_id) 
-            VALUES (:id, :title, :desc, :price, :colour, :section_id, :category_id)"
+            "INSERT INTO `product` (id, title, `desc`, price, colour, section_id, category_id, main_img_id) 
+            VALUES (:id, :title, :desc, :price, :colour, :section_id, :category_id, :main_img_id)"
         );
 
         $stmt->execute([
@@ -132,30 +126,21 @@ class DatabaseProduct
             ':price' => (float) $product->get_price(),
             ':colour' => (string) $product->get_colour(),
             ':section_id' => (int) $product->get_section_id(),
-            ':category_id' => (int) $product->get_category_id()
+            ':category_id' => (int) $product->get_category_id(),
+            ':main_img_id' => (string) $product->get_main_img_id()
         ]);
     }
 
-    public function add_img(string $product_id): void
-    {
-        $stmt = $this->pdo->prepare(
-            "INSERT INTO `image` (title, product_id, `number`) 
-            VALUES ('no-img', :product_id, 0)"
-        );
+    // public function add_img(string $product_id): void
+    // {
 
-        $stmt->execute([
-            ':product_id' => (string) $product_id
-        ]);
+    //     $stmt = $this->pdo->prepare(
+    //         "UPDATE `product` SET main_img_id = :img_id WHERE id = :product_id"
+    //     );
 
-        $img_id = $this->pdo->lastInsertId();
-
-        $stmt = $this->pdo->prepare(
-            "UPDATE `product` SET main_img_id = :img_id WHERE id = :product_id"
-        );
-
-        $stmt->execute([
-            ':img_id' => (int) $img_id,
-            ':product_id' => (string) $product_id
-        ]);
-    }
+    //     $stmt->execute([
+    //         ':img_id' => (int) $iamge_id,
+    //         ':product_id' => (string) $product_id
+    //     ]);
+    // }
 }

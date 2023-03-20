@@ -3,7 +3,7 @@
 class CartProduct implements JsonSerializable
 {
     public function __construct(
-        private int $id,
+        private string $id,
         private string $title,
         private float $price,
         private string $image,
@@ -13,7 +13,7 @@ class CartProduct implements JsonSerializable
         $this->set_total_price();
     }
 
-    public function get_id(): int
+    public function get_id(): string
     {
         return $this->id;
     }

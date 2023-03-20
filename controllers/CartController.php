@@ -23,10 +23,10 @@ class CartController
                     } else {
                         $product = $_SESSION['products'][$product_id] ?? '';
                         $cart_product = new CartProduct(
-                            $product_id,
-                            $product['title'],
-                            $product['price'],
-                            $product['image']
+                            $product->get_id(),
+                            $product->get_title(),
+                            $product->get_price(),
+                            $product->get_main_img_id()
                         );
                         $cart->add_product($cart_product);
                     }
