@@ -11,4 +11,5 @@ include ROOT . '/src/render.php';
 include ROOT . '/src/db.php';
 
 spl_autoload_register('autoload');
+ini_set('session.cookie_samesite', 'Lax'); // session_set_cookie_params(['samesite' => 'Lax']);
 session_start();
