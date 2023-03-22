@@ -13,6 +13,7 @@ class ProductController
         $product = $db_product->get_product($id);
         $image = $db_image->get_image($product->get_main_img_id());
         $_SESSION['products'][$id] = $product;
+        $_SESSION['images'][$id] = $image;
 
         $params['product'] = $product;
         $params['image'] = $image;

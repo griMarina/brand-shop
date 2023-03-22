@@ -22,11 +22,12 @@ class CartController
                         $cart->set_product_quantity($product_id, 'increase');
                     } else {
                         $product = $_SESSION['products'][$product_id] ?? '';
+                        $image = $_SESSION['images'][$product_id] ?? '';
                         $cart_product = new CartProduct(
                             $product->get_id(),
                             $product->get_title(),
                             $product->get_price(),
-                            $product->get_main_img_id()
+                            $image->get_title()
                         );
                         $cart->add_product($cart_product);
                     }

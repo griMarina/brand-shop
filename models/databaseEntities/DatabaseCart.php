@@ -38,7 +38,7 @@ class DatabaseCart
 
         foreach ($cart->get_cart_products() as $product) {
             $stmt->execute([
-                ':product_id' => (int) $product->get_id(),
+                ':product_id' => (string) $product->get_id(),
                 ':quantity' => (int) $product->get_quantity(),
                 ':session_id' => (string) $session_id
             ]);

@@ -48,7 +48,7 @@ class Cart implements JsonSerializable
         $this->cart_qty = $cart_qty;
     }
 
-    public function is_product_exists(int $id): bool
+    public function is_product_exists(string $id): bool
     {
         return isset($this->cart_products[$id]);
     }
@@ -61,7 +61,7 @@ class Cart implements JsonSerializable
         $this->set_cart_qty();
     }
 
-    public function set_product_quantity(int $id, string $operation): void
+    public function set_product_quantity(string $id, string $operation): void
     {
         if ($operation == 'increase') {
             $this->cart_products[$id]->increase_quantity();
@@ -73,7 +73,7 @@ class Cart implements JsonSerializable
         $this->set_cart_qty();
     }
 
-    public function remove_product(int $id): void
+    public function remove_product(string $id): void
     {
         unset($this->cart_products[$id]);
         $this->set_cart_price();

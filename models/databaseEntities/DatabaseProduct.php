@@ -131,6 +131,36 @@ class DatabaseProduct
         ]);
     }
 
+    public function update_product(string $id, string $title, float $price, string $desc): void
+    {
+
+        $stmt = $this->pdo->prepare(
+            "UPDATE `product` SET
+                title = :title,
+                price = :price,
+                `desc` = :desc
+            WHERE id = :id"
+        );
+
+        $stmt->execute([
+            ':id' => (string) $id,
+            ':title' => (string) $title,
+            ':price' => (float) $price,
+            ':desc' => (string) $desc,
+        ]);
+    }
+
+    public function delete_product(string $id): void
+    {
+        $stmt = $this->pdo->prepare(
+            "DELETE FROM `product` WHERE id = :id"
+        );
+
+        $stmt->execute([
+            ':id' => (string) $id
+        ]);
+    }
+
     // public function add_img(string $product_id): void
     // {
 

@@ -23,14 +23,27 @@ class AdminController
                 break;
 
             case 'product':
-                $id = (string)$_GET['id'];
                 $db_product = new DatabaseProduct($pdo);
                 $db_image = new DatabaseImage($pdo);
+
+                if (isset($_POST['action'])) {
+                    if ($_POST['action'] == 'edit') {
+                        $db_product->update_product(
+                            $_POST['id'],
+                            $_POST['title'],
+                            $_POST['price'],
+                            $_POST['desc']
+                        );
+                    } elseif ($_POST['action'] == 'delete') {
+                        $db_product->delete_product($_POST['id']);
+                    }
+                    header('Location: /admin');
+                    die();
+                }
+
+                $id = $_GET['id'] ?? $_POST['id'];
                 $product = $db_product->get_product($id);
                 $image = $db_image->get_image($product->get_main_img_id());
-
-                if (isset($_POST['action']) == 'edit') {
-                }
 
                 $params['product'] = $product;
                 $params['image'] = $image;
@@ -41,7 +54,7 @@ class AdminController
                 $db_image = new DatabaseImage($pdo);
 
                 if (isset($_POST['action']) == 'add') {
-                    $image_title = $_FILES['new_img']['name'] ?? 'no-img';
+                    $image_title = !empty($_FILES['new_img']['name']) ? $_FILES['new_img']['name'] : 'no-img';
                     $image_id = uniqid('image_');
                     $product_id = uniqid('product_');
 
@@ -64,10 +77,10 @@ class AdminController
 
                     $db_product->add_product($product);
                     $db_image->add_image($image);
-                    // $db_product->add_img($product->get_id());
                 }
 
                 $categories = $db_product->get_categories();
+
                 $params['categories'] = $categories;
                 break;
 

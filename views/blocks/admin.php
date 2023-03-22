@@ -59,7 +59,7 @@
                             <tr>
                                 <td class="admin-table-checkbox"><input type="checkbox" name="" id=""></td>
                                 <td><a class="admin-table-view" href="/admin/product/?id=<?= $product['id'] ?>"><?= $product['id'] ?></a></td>
-                                <td><?= $product['title'] ?></td>
+                                <td><a class="admin-table-view" href="/admin/product/?id=<?= $product['id'] ?>"><?= $product['title'] ?></a></td>
                                 <td>$<?= $product['price'] ?></td>
                                 <td><?= $product['section'] ?></td>
                                 <td><?= $product['category'] ?></td>
@@ -70,7 +70,7 @@
             </div>
         <?php elseif ($tab == 'product') : ?>
             <div class="admin-product">
-                <form class="admin-product-form" method="POST" action="/admin" enctype="multipart/form-data">
+                <form class="admin-product-form" method="POST" action="/admin/product" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="<?= $product->get_id() ?>">
                     <fieldset class="admin-product-form-field">
                         <img class="admin-product-form-img" src="/img/slide-small/<?= $image->get_title() ?>-slide-1-small.jpg" alt="<?= $image->get_title() ?>">
@@ -78,11 +78,11 @@
                     </fieldset>
                     <fieldset class="admin-product-form-field">
                         <label for="id">Id</label>
-                        <input id="id" class="admin-product-form-input" name="id" type="text" value="<?= $product->get_id() ?> " disabled>
+                        <input id="id" class="admin-product-form-input" name="id" type="text" value="<?= $product->get_id() ?>" disabled>
                         <label for="title">Title</label>
-                        <input id="title" class="admin-product-form-input" name="title" type="text" value="<?= $product->get_title() ?> ">
-                        <label for="price">Price</label>
-                        <input id="price" class="admin-product-form-input" name="price" type="text" value="<?= $product->get_price() ?> ">
+                        <input id="title" class="admin-product-form-input" name="title" type="text" value="<?= $product->get_title() ?>">
+                        <label for="price">Price, $</label>
+                        <input id="price" class="admin-product-form-input" name="price" type="number" value="<?= $product->get_price() ?>">
                         <label for="desc">Description</label>
                         <textarea id="desc" class="admin-product-form-input" name="desc" rows="4" cols="50"><?= $product->get_desc() ?></textarea>
                         <div class="admin-product-form-btn">
@@ -106,7 +106,7 @@
                         <label for="desc">Description</label>
                         <textarea id="desc" class="admin-product-form-input" name="desc" rows="4" cols="50"></textarea>
                         <label for="price">Price, $</label>
-                        <input id="price" class="admin-product-form-input" name="price" type="text" value="">
+                        <input id="price" class="admin-product-form-input" name="price" type="number" value="">
                         <label for="colour">Colour</label>
                         <input id="colour" class="admin-product-form-input" name="colour" type="text" value="">
                         <label for="section_id">Section</label>
