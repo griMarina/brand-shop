@@ -59,19 +59,17 @@
 
         &-btn {
             display: inline-block;
-            align-self: center;
+            text-decoration: none;
+            text-align: center;
+            box-sizing: border-box;
             width: 120px;
             padding: 15px;
             border: 1px solid $main-color;
             color: #ffffff;
             background-color: $main-color;
-            text-decoration: none;
-            font-size: 14x;
             cursor: pointer;
             transition-duration: 0.4s;
-            font-family: inherit;
-            margin-right: 10px;
-            box-sizing: border-box;
+            // margin-right: 10px;
 
             &:hover {
                 border: 1px solid $main-color;
@@ -168,21 +166,29 @@
     }
 
     &-product {
-        display: flex;
-        justify-content: space-around;
         margin-top: 50px;
         margin-bottom: 50px;
 
         &-form {
             display: flex;
-            flex-direction: column;
+            justify-content: space-evenly;
 
-            &-info {
+            &-field {
+                border: none;
+                display: flex;
+                flex-direction: column;
+            }
+
+            &-img {
+                margin-bottom: 20px;
+            }
+
+            &-input {
                 min-width: 300px;
                 box-sizing: border-box;
                 border: 1px solid #a4a4a4;
-                padding: 14px;
-                margin-top: 10px;
+                padding: 10px;
+                margin-top: 2px;
                 margin-bottom: 10px;
                 font-family: inherit;
                 outline: none;
@@ -193,9 +199,61 @@
                 }
             }
 
-            &-text {
-                margin-top: 5px;
-                color: #b1b1b1;
+            &-btn {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            &-join {
+                width: 120px;
+                margin-top: 20px;
+                padding: 16px 30px;
+                background-color: $main-color;
+                color: #ffffff;
+                fill: #ffffff;
+                cursor: pointer;
+                border: 1px solid $main-color;
+                transition-duration: 0.4s;
+                font-family: inherit;
+
+                &:hover {
+                    background-color: #ffffff;
+                    color: $main-color;
+                    border: 1px solid $main-color;
+                }
+            }
+        }
+    }
+
+    &-user {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        display: flex;
+        justify-content: center;
+
+        &-form {
+            display: flex;
+            flex-direction: column;
+
+            &-input {
+                min-width: 300px;
+                box-sizing: border-box;
+                border: 1px solid #a4a4a4;
+                padding: 10px;
+                margin-top: 2px;
+                margin-bottom: 10px;
+                font-family: inherit;
+                outline: none;
+                transition-duration: 0.2s;
+
+                &:focus {
+                    border: 1px solid #555;
+                }
+            }
+
+            &-btn {
+                display: flex;
+                justify-content: space-between;
             }
 
             &-join {
@@ -210,25 +268,17 @@
                 transition-duration: 0.4s;
                 font-family: inherit;
 
-                & svg {
-                    padding-left: 15px;
-                    transition-duration: 0.4s;
-                    transition-timing-function: ease-in;
-                    transform: translateX(0px);
-                }
-
                 &:hover {
                     background-color: #ffffff;
                     color: $main-color;
                     border: 1px solid $main-color;
-
-                    & svg {
-                        transform: translateX(8px);
-                        fill: $main-color;
-                    }
                 }
             }
         }
+    }
+
+    &-order {
+        display: flex;
     }
 }
 
@@ -269,6 +319,16 @@
         &-table-wrapper {
             margin: 20px 0;
             font-size: 14px;
+        }
+
+        &-product-form {
+            flex-direction: column;
+
+            &-img {
+                width: fit-content;
+                align-self: center;
+
+            }
         }
     }
 }

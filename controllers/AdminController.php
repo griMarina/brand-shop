@@ -77,10 +77,32 @@ class AdminController
                 $params['users'] = $users;
                 break;
 
+            case 'user':
+                // $id = (string)$_GET['id'];
+                // $db_user = new DatabaseUser($pdo);
+                // $users = $db_user->get_user();
+                // $params['users'] = $users;
+                break;
+
+            case 'add-user':
+
+                break;
+
             case 'orders':
                 $db_order = new DatabaseOrder($pdo);
                 $orders = $db_order->get_orders();
                 $params['orders'] = $orders;
+                break;
+            case 'order':
+                $id = (int)$_GET['id'];
+                $db_orders = new DatabaseOrder($pdo);
+                $order = $db_orders->get_order($id);
+
+                $db_cart = new DatabaseCart($pdo);
+                $cart = $db_cart->get_cart($order['session_id']);
+
+                $params['order'] = $order;
+                $params['cart'] = $cart;
                 break;
         }
 
