@@ -1016,6 +1016,7 @@ main {
   font-size: 14px;
   line-height: 17px;
   color: #f16d7f;
+  text-transform: uppercase;
 }
 .description-top-line {
   width: 63px;
@@ -2171,6 +2172,59 @@ main {
 }
 .admin-order {
   display: flex;
+  flex-direction: column;
+}
+.admin-order-header {
+  font-weight: 400;
+  color: #f16d7f;
+  align-self: center;
+}
+.admin-order-summary-top {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.admin-order-summary-bottom {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+.admin-order-summary-text {
+  margin-bottom: 5px;
+}
+.admin-order-summary span {
+  font-weight: bold;
+}
+.admin-order-form-input {
+  min-width: 200px;
+  border: 1px solid #a4a4a4;
+  padding: 7px;
+  font-family: inherit;
+  outline: none;
+  transition-duration: 0.2s;
+}
+.admin-order-form-input:focus {
+  border: 1px solid #555;
+}
+.admin-order-form-btn {
+  width: 80px;
+  padding: 8px;
+  background-color: #f16d7f;
+  color: #ffffff;
+  fill: #ffffff;
+  cursor: pointer;
+  border: 1px solid #f16d7f;
+  transition-duration: 0.4s;
+  font-family: inherit;
+}
+.admin-order-form-btn:hover {
+  background-color: #ffffff;
+  color: #f16d7f;
+  border: 1px solid #f16d7f;
+}
+.admin-order-items {
+  margin: 50px;
 }
 
 @media (max-width: 788px) {

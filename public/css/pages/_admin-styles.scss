@@ -69,7 +69,6 @@
             background-color: $main-color;
             cursor: pointer;
             transition-duration: 0.4s;
-            // margin-right: 10px;
 
             &:hover {
                 border: 1px solid $main-color;
@@ -279,6 +278,73 @@
 
     &-order {
         display: flex;
+        flex-direction: column;
+
+        &-header {
+            font-weight: 400;
+            color: $main-color;
+            align-self: center;
+        }
+
+        &-summary {
+            &-top {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 40px;
+                margin-bottom: 20px;
+            }
+
+            &-bottom {
+                display: flex;
+                justify-content: space-evenly;
+                padding: 20px;
+            }
+
+            &-text {
+                margin-bottom: 5px;
+            }
+
+            span {
+                font-weight: bold;
+            }
+        }
+
+        &-form {
+            &-input {
+                min-width: 200px;
+                border: 1px solid #a4a4a4;
+                padding: 7px;
+                font-family: inherit;
+                outline: none;
+                transition-duration: 0.2s;
+
+                &:focus {
+                    border: 1px solid #555;
+                }
+            }
+
+            &-btn {
+                width: 80px;
+                padding: 8px;
+                background-color: $main-color;
+                color: #ffffff;
+                fill: #ffffff;
+                cursor: pointer;
+                border: 1px solid $main-color;
+                transition-duration: 0.4s;
+                font-family: inherit;
+
+                &:hover {
+                    background-color: #ffffff;
+                    color: $main-color;
+                    border: 1px solid $main-color;
+                }
+            }
+        }
+
+        &-items {
+            margin: 50px;
+        }
     }
 }
 

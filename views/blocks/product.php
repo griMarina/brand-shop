@@ -30,7 +30,7 @@
             </svg></button>
     </section>
     <section class="description container">
-        <span class="description-type">WOMEN COLLECTION</span>
+        <span class="description-type"><?= array_key_first($crumbs) ?> COLLECTION</span>
         <hr class="description-top-line">
         <h2 class="description-title"><?= $product->get_title() ?></h2>
         <p class="description-text"><?= $product->get_desc() ?></p>

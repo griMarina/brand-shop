@@ -123,7 +123,6 @@
                         </select>
                         <button class="admin-product-form-join" type="submit">ADD</button>
                     </fieldset>
-
                 </form>
             </div>
         <?php elseif ($tab == 'users') : ?>
@@ -272,19 +271,39 @@
         <?php elseif ($tab == 'order') : ?>
             <div class="admin-order">
                 <section class="admin-order-summary">
-                    <h2 class="admin-header">Order <?= $order['id'] ?></h2>
-                    <div>
-                        <p>Ordered: <?= $order['date'] ?></p>
-                        <p>Status: <?= $order['status'] ?></p>
-                        <p>Total: $<?= $order['total'] ?></p>
+                    <div class="admin-order-summary-top">
+                        <h2 class="admin-order-header">Order <?= $order['id'] ?></h2>
+                        <form class="admin-order-form" method="POST" action="/admin/order">
+                            <input hidden name="action" value="change-status">
+                            <select class="admin-order-form-input" name="status" id="status">
+                                <option value="">Change order status</option>
+                                <option value="pending">Pending</option>
+                                <option value="awaiting payment">Awaiting Payment</option>
+                                <option value="completed">Completed</option>
+                                <option value="shipped">Shipped</option>
+                                <option value="refunded">Refunded</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                            <input class="admin-order-form-btn" type="submit" value="Submit">
+                        </form>
                     </div>
-                    <div>
-                        <p>Customer: </p>
-                        <p>Name</p>
-                        <p>Email</p>
-                        <p>Address</p>
+                    <hr>
+                    <div class="admin-order-summary-bottom">
+                        <div>
+                            <p class="admin-order-summary-text"><span>Customer:</span></p>
+                            <p class="admin-order-summary-text">Name</p>
+                            <p class="admin-order-summary-text">Email</p>
+                            <p class="admin-order-summary-text">Address</p>
+                        </div>
+                        <div>
+                            <p class="admin-order-summary-text"><span> Order details:</span></p>
+                            <p class="admin-order-summary-text">Ordered: <?= $order['date'] ?></p>
+                            <p class="admin-order-summary-text">Status: <?= $order['status'] ?></p>
+                            <p class="admin-order-summary-text">Total: $<?= $order['total'] ?></p>
+                        </div>
                     </div>
                 </section>
+                <hr>
                 <section class="admin-order-items">
                     <?php foreach ($cart as $item) : ?>
                         <div class="order-item">
@@ -292,7 +311,7 @@
                                 <img src="/img/catalog/<?= $item['image'] ?>.jpg" alt="<?= $item['image'] ?>">
                             </picture>
                             <p class="order-item-description">
-                                <a class="order-item-title" href="/product/?id=<?= $item['product_id'] ?>"><span><?= $item['title'] ?></span></a>
+                                <a class="order-item-title" href="/admin/product/?id=<?= $item['product_id'] ?>"><span><?= $item['title'] ?></span></a>
                                 <span class="order-item-qty"> Quantity: <?= $item['quantity'] ?></span>
                                 <span>Price: $<?= $item['price'] * $item['quantity'] ?></span>
                             </p>
@@ -302,8 +321,22 @@
             </div>
         <?php else : ?>
             <div class="account-index">
-                <h2>Welcome Admin!</h2>
-                <p>You can manage user's orders, returns and account's info right here.</p>
+                <?php if ($status == 'product-added') : ?>
+                    <p>New product has been successfully added!</p>
+                <?php elseif ($status == 'product-updated') : ?>
+                    <p>Product has been successfully updated!</p>
+                <?php elseif ($status == 'product-deleted') : ?>
+                    <p>Product has been successfully deleted!</p>
+                <?php elseif ($status == 'user-added') : ?>
+                    <p>New user has been successfully added!</p>
+                <?php elseif ($status == 'user-updated') : ?>
+                    <p>User's data has been successfully updated!</p>
+                <?php elseif ($status == 'user-deleted') : ?>
+                    <p>User has been successfully deleted!</p>
+                <?php else : ?>
+                    <h2>Welcome Admin!</h2>
+                    <p>You can manage user's orders, returns and account's info right here.</p>
+                <?php endif; ?>
             </div>
         <?php endif; ?>
     </section>

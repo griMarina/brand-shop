@@ -34,11 +34,13 @@ class AdminController
                             $_POST['price'],
                             $_POST['desc']
                         );
+                        header('Location: /admin/?status=product-updated');
+                        die();
                     } elseif ($_POST['action'] == 'delete') {
                         $db_product->delete_product($_POST['id']);
+                        header('Location: /admin/?status=product-deleted');
+                        die();
                     }
-                    header('Location: /admin');
-                    die();
                 }
 
                 $id = $_GET['id'] ?? $_POST['id'];
@@ -77,6 +79,7 @@ class AdminController
 
                     $db_product->add_product($product);
                     $db_image->add_image($image);
+                    header('Location: /admin/?status=product-added');
                 }
 
                 $categories = $db_product->get_categories();
@@ -128,6 +131,7 @@ class AdminController
 
         $params['title'] = 'Admin panel';
         $params['tab'] = $tab;
+        $params['status'] = $_GET['status'] ?? '';
 
         return $params;
     }

@@ -20,7 +20,6 @@ class OrderController
         $db_cart = new DatabaseCart($pdo);
         $cart = $db_cart->get_cart($order['session_id']);
 
-
         $params['title'] = 'Order';
         $params['user'] = $user;
         $params['order'] = $order;
