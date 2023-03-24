@@ -25,8 +25,8 @@ class DatabaseImage
     public function add_image(Image $image): void
     {
         $stmt = $this->pdo->prepare(
-            "INSERT INTO `image` (id, title, product_id, `number`) 
-            VALUES (:id, :title, :product_id, :number)"
+            'INSERT INTO `image` (id, title, product_id, `number`) 
+            VALUES (:id, :title, :product_id, :number)'
         );
 
         $stmt->execute([

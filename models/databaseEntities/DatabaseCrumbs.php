@@ -9,7 +9,6 @@ class DatabaseCrumbs
 
     public function get_data(string $id): array
     {
-
         $stmt = $this->pdo->prepare(
             'SELECT section.title AS section, category.title AS category, product.title
             FROM `product`

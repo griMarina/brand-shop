@@ -167,7 +167,7 @@
                         <?php foreach ($users as $user) : ?>
                             <tr>
                                 <td class="admin-table-checkbox"><input type="checkbox" name="" id=""></td>
-                                <td><a class="admin-table-view" href="/admin/user/?id=<?= $user['id'] ?>"><?= $user['id'] ?></a></td>
+                                <td><a class="admin-table-view" href="/admin/user/?user_id=<?= $user['id'] ?>"><?= $user['id'] ?></a></td>
                                 <td><?= $user['username'] ?></td>
                                 <td><?= $user['first_name'] . ' ' . $user['last_name'] ?></td>
                             </tr>
@@ -177,20 +177,20 @@
             </div>
         <?php elseif ($tab == 'user') : ?>
             <div class="admin-user">
-                <form class="admin-user-form" method="POST" action="/admin/add-user">
-                    <input type="hidden" name="id" value="">
+                <form class="admin-user-form" method="POST" action="/admin/user">
+                    <input type="hidden" name="user_id" value="<?= $user->get_id() ?>">
                     <label for="id">Id</label>
-                    <input id="id" class="admin-user-form-input" name="id" type="text" value="" disabled>
+                    <input id="id" class="admin-user-form-input" name="id" type="text" value="<?= $user->get_id() ?>" disabled>
                     <label for="emal">Email</label>
-                    <input id="email" class="admin-user-form-input" name="email" type="email" value="" disabled>
+                    <input id="email" class="admin-user-form-input" name="email" type="email" value="<?= $user->get_username() ?>" disabled>
                     <label for="first_name">First Name</label>
-                    <input id="first_name" class="admin-user-form-input" name="first_name" type="text" placeholder="First Name" value="">
+                    <input id="first_name" class="admin-user-form-input" name="first_name" type="text" placeholder="First Name" value="<?= $user->get_first_name() ?>">
                     <label for="last_name">Last Name</label>
-                    <input id="last_name" class="admin-user-form-input" name="last_name" type="text" placeholder="Last Name" value="">
+                    <input id="last_name" class="admin-user-form-input" name="last_name" type="text" placeholder="Last Name" value="<?= $user->get_last_name() ?>">
                     <label for="phone">Phone</label>
-                    <input id="phone" class="admin-user-form-input" name="phone" type="phone" placeholder="Phone" value="">
+                    <input id="phone" class="admin-user-form-input" name="phone" type="phone" placeholder="Phone" value="<?= $user->get_phone() ?>">
                     <label for="address">Address</label>
-                    <input id="address" class="admin-user-form-input" name="address" type="address" placeholder="Address" value="">
+                    <input id="address" class="admin-user-form-input" name="address" type="address" placeholder="Address" value="<?= $user->get_address() ?>">
                     <div class="admin-user-form-btn">
                         <button class="admin-user-form-join" type="submit" name="action" value="edit">EDIT</button>
                         <button class="admin-user-form-join" type="submit" name="action" value="delete">DELETE</button>

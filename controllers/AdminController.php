@@ -94,14 +94,40 @@ class AdminController
                 break;
 
             case 'user':
-                // $id = (string)$_GET['id'];
-                // $db_user = new DatabaseUser($pdo);
-                // $users = $db_user->get_user();
-                // $params['users'] = $users;
+                $id = $_GET['user_id'] ?? $_POST['user_id'];
+
+                if (preg_match('/^user_[a-f0-9]{13}$/', $id)) {
+                    $db_user = new DatabaseUser($pdo);
+                    $user = $db_user->get_user_by_id($id);
+                } else {
+                    header('Location: /oops');
+                    die();
+                }
+
+                if (isset($_POST['action'])) {
+                    if ($_POST['action'] == 'edit') {
+
+                        foreach ($_POST as $key => $value) {
+                            if (property_exists($user, $key)) {
+                                $setter_name = 'set_' . ($key);
+                                $user->$setter_name($value);
+                            }
+                        }
+
+                        $db_user->update_info($user);
+                        header('Location: /admin/?status=user-updated');
+                        die();
+                    } elseif ($_POST['action'] == 'delete') {
+                        $db_user->delete_user($id);
+                        header('Location: /admin/?status=user-deleted');
+                        die();
+                    }
+                }
+
+                $params['user'] = $user;
                 break;
 
             case 'add-user':
-
                 break;
 
             case 'orders':
@@ -109,6 +135,7 @@ class AdminController
                 $orders = $db_order->get_orders();
                 $params['orders'] = $orders;
                 break;
+
             case 'order':
                 $id = (int)$_GET['id'];
                 $db_orders = new DatabaseOrder($pdo);

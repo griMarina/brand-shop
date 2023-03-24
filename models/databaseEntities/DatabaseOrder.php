@@ -10,7 +10,7 @@ class DatabaseOrder
     public function get_order(int $id): array
     {
         $stmt = $this->pdo->prepare(
-            'SELECT id, date, status, total, session_id FROM `order` WHERE id = :id'
+            'SELECT id, `date`, `status`, total, session_id FROM `order` WHERE id = :id'
         );
 
         $stmt->execute([
@@ -23,7 +23,7 @@ class DatabaseOrder
     public function get_orders(): array
     {
         $stmt = $this->pdo->prepare(
-            'SELECT id, email, date, status, total FROM `order`'
+            'SELECT id, email, `date`, `status`, total FROM `order`'
         );
 
         $stmt->execute();
@@ -31,16 +31,16 @@ class DatabaseOrder
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function get_orders_by_user_id(string $user_id): array
+    public function get_orders_by_user_id(string $id): array
     {
         $stmt = $this->pdo->prepare(
-            'SELECT id, status, date, total
+            'SELECT id, `status`, `date`, total
             FROM `order`
-            WHERE user_id = :user_id'
+            WHERE user_id = :id'
         );
 
         $stmt->execute([
-            ':user_id' => (string) $user_id
+            ':id' => (string) $id
         ]);
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -48,10 +48,9 @@ class DatabaseOrder
 
     public function add_order(Order $order): void
     {
-
         $stmt = $this->pdo->prepare(
-            "INSERT INTO `order` (first_name, last_name, phone, email, address, status, total, user_id, session_id) 
-            VALUES (:first_name, :last_name, :phone, :email, :address, :status, :total, :user_id, :session_id)"
+            'INSERT INTO `order` (first_name, last_name, phone, email, `address`, `status`, total, user_id, session_id) 
+            VALUES (:first_name, :last_name, :phone, :email, :address, :status, :total, :user_id, :session_id)'
         );
 
         $stmt->execute([

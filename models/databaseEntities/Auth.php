@@ -11,7 +11,7 @@ class Auth
     {
         if (isset($_SESSION['username'])) {
             $db_user = new DatabaseUser($this->pdo);
-            $user = $db_user->get_user($_SESSION['username']);
+            $user = $db_user->get_user_by_username($_SESSION['username']);
             return $user;
         } else {
             return null;
@@ -26,7 +26,7 @@ class Auth
     public function auth(string $username, string $password): bool
     {
         $db_user = new DatabaseUser($this->pdo);
-        $user = $db_user->get_user($username);
+        $user = $db_user->get_user_by_username($username);
 
         if (isset($user) && password_verify($password, $user->get_pass_hash())) {
             $_SESSION['username'] = $user->get_username();

@@ -7,7 +7,7 @@ class DatabaseCart
     ) {
     }
 
-    public function get_cart($session_id): array
+    public function get_cart(string $session_id): array
     {
         $stmt = $this->pdo->prepare(
             'SELECT cart.quantity, cart.product_id, product.title, product.price, image.title AS `image`
@@ -28,10 +28,9 @@ class DatabaseCart
 
     public function add_cart(Cart $cart): void
     {
-
         $stmt = $this->pdo->prepare(
-            "INSERT INTO `cart` (product_id, quantity, session_id) 
-            VALUES (:product_id, :quantity, :session_id)"
+            'INSERT INTO `cart` (product_id, quantity, session_id) 
+            VALUES (:product_id, :quantity, :session_id)'
         );
 
         $session_id = $cart->get_session_id();

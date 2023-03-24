@@ -13,8 +13,6 @@ class CheckoutController
 
             $cart = unserialize($_SESSION['cart']);
             $db_cart = new DatabaseCart($pdo);
-            $db_cart->add_cart($cart);
-
             $user_id = ($user) ? $user->get_id() : null;
 
             $order = new Order(
@@ -29,6 +27,7 @@ class CheckoutController
             );
             $db_order = new DatabaseOrder($pdo);
             $db_order->add_order($order);
+            $db_cart->add_cart($cart);
 
             unset($_SESSION['cart']);
             session_regenerate_id();

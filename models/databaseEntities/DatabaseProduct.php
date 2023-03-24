@@ -113,10 +113,9 @@ class DatabaseProduct
 
     public function add_product(Product $product): void
     {
-
         $stmt = $this->pdo->prepare(
-            "INSERT INTO `product` (id, title, `desc`, price, colour, section_id, category_id, main_img_id) 
-            VALUES (:id, :title, :desc, :price, :colour, :section_id, :category_id, :main_img_id)"
+            'INSERT INTO `product` (id, title, `desc`, price, colour, section_id, category_id, main_img_id) 
+            VALUES (:id, :title, :desc, :price, :colour, :section_id, :category_id, :main_img_id)'
         );
 
         $stmt->execute([
@@ -133,13 +132,12 @@ class DatabaseProduct
 
     public function update_product(string $id, string $title, float $price, string $desc): void
     {
-
         $stmt = $this->pdo->prepare(
-            "UPDATE `product` SET
+            'UPDATE `product` SET
                 title = :title,
                 price = :price,
                 `desc` = :desc
-            WHERE id = :id"
+            WHERE id = :id'
         );
 
         $stmt->execute([
@@ -153,7 +151,7 @@ class DatabaseProduct
     public function delete_product(string $id): void
     {
         $stmt = $this->pdo->prepare(
-            "DELETE FROM `product` WHERE id = :id"
+            'DELETE FROM `product` WHERE id = :id'
         );
 
         $stmt->execute([
@@ -163,7 +161,6 @@ class DatabaseProduct
 
     // public function add_img(string $product_id): void
     // {
-
     //     $stmt = $this->pdo->prepare(
     //         "UPDATE `product` SET main_img_id = :img_id WHERE id = :product_id"
     //     );

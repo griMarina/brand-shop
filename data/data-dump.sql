@@ -28,9 +28,9 @@ CREATE TABLE `cart` (
   `quantity` int DEFAULT NULL,
   `session_id` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `product_id` (`product_id`),
-  CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  KEY `session_id` (`session_id`),
+  CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`session_id`) REFERENCES `order` (`session_id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,8 +118,9 @@ CREATE TABLE `order` (
   `session_id` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
-  CONSTRAINT `order_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  KEY `session_id` (`session_id`),
+  CONSTRAINT `order_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -149,7 +150,6 @@ CREATE TABLE `product` (
   `category_id` int NOT NULL,
   `main_img_id` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `main_img_id` (`main_img_id`),
   KEY `category_id` (`category_id`),
   KEY `section_id` (`section_id`),
   CONSTRAINT `product_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`),
@@ -230,4 +230,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-23 19:10:44
+-- Dump completed on 2023-03-24 21:20:03
