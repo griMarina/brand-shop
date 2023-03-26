@@ -2,7 +2,7 @@
     <section class="breadcrumb">
         <div class="container admin-nav">
             <div class="admin-nav-top">
-                <p class="admin-nav-top-heading">ADMIN PANEL</p>
+                <a class="admin-nav-top-heading" href="/admin">ADMIN PANEL</a>
                 <a class="admin-nav-logout logout-mob" href="/"><span>Log out</span></a>
             </div>
             <ul class="admin-nav-categories">
@@ -21,7 +21,7 @@
                         <a class="admin-top-btn" href="/admin/add-product">ADD NEW</a>
                         <!-- <a class="admin-top-btn" href="#">DELETE</a> -->
                     </div>
-                    <section class="admin-top-pagination">
+                    <!-- <section class="admin-top-pagination">
                         <h2 class="hidden">page selection</h2>
                         <a href="#">
                             <svg class="admin-top-pagination-icon" width="9" height="14" viewBox="0 0 9 14" xmlns="http://www.w3.org/2000/svg">
@@ -41,7 +41,7 @@
                                 <path d="M0.994995 12L5.995 7L0.994995 2L1.995 0L8.995 7L1.995 14L0.994995 12Z" />
                             </svg>
                         </a>
-                    </section>
+                    </section> -->
                 </div>
                 <div class="admin-table-wrapper">
                     <table class="admin-table sortable">
@@ -127,10 +127,10 @@
             </div>
         <?php elseif ($tab == 'users') : ?>
             <div class="admin-users">
-                <div class="admin-top">
+                <!-- <div class="admin-top">
                     <div>
                         <a class="admin-top-btn" href="/admin/add-user">ADD NEW</a>
-                        <!-- <a class="admin-top-btn" href="#">DELETE</a> -->
+                        <a class="admin-top-btn" href="#">DELETE</a>
                     </div>
                     <section class="admin-top-pagination">
                         <h2 class="hidden">page selection</h2>
@@ -153,7 +153,7 @@
                             </svg>
                         </a>
                     </section>
-                </div>
+                </div> -->
                 <div class="admin-table-wrapper">
                     <table class="admin-table sortable">
                         <thead>
@@ -216,10 +216,10 @@
             </div>
         <?php elseif ($tab == 'orders') : ?>
             <div class="admin-orders">
-                <div class="admin-top">
+                <!-- <div class="admin-top">
                     <div>
                         <a class="admin-top-btn" href="#">ADD NEW</a>
-                        <!-- <a class="admin-top-btn" href="#">DELETE</a> -->
+                        <a class="admin-top-btn" href="#">DELETE</a>
                     </div>
                     <section class="admin-top-pagination">
                         <h2 class="hidden">page selection</h2>
@@ -242,7 +242,7 @@
                             </svg>
                         </a>
                     </section>
-                </div>
+                </div> -->
                 <div class="admin-table-wrapper">
                     <table class="admin-table sortable">
                         <thead>
@@ -272,10 +272,10 @@
             <div class="admin-order">
                 <section class="admin-order-summary">
                     <div class="admin-order-summary-top">
-                        <h2 class="admin-order-header">Order <?= $order['id'] ?></h2>
+                        <h2 class="admin-order-header">Order: <?= $order->get_id() ?></h2>
                         <form class="admin-order-form" method="POST" action="/admin/order">
-                            <input hidden name="action" value="change-status">
-                            <select class="admin-order-form-input" name="status" id="status">
+                            <input hidden name="id" value="<?= $order->get_id() ?>">
+                            <select class="admin-order-form-input" name="status">
                                 <option value="">Change order status</option>
                                 <option value="pending">Pending</option>
                                 <option value="awaiting payment">Awaiting Payment</option>
@@ -284,22 +284,25 @@
                                 <option value="refunded">Refunded</option>
                                 <option value="cancelled">Cancelled</option>
                             </select>
-                            <input class="admin-order-form-btn" type="submit" value="Submit">
+                            <div class="admin-order-form-btn">
+                                <button class="admin-order-form-join" type="submit" name="action" value="update-status">Save</button>
+                                <button class="admin-order-form-join" type="submit" name="action" value="delete">Delete order</button>
+                            </div>
                         </form>
                     </div>
                     <hr>
                     <div class="admin-order-summary-bottom">
                         <div>
                             <p class="admin-order-summary-text"><span>Customer:</span></p>
-                            <p class="admin-order-summary-text">Name</p>
-                            <p class="admin-order-summary-text">Email</p>
-                            <p class="admin-order-summary-text">Address</p>
+                            <p class="admin-order-summary-text"><?= $order->get_first_name() . ' ' . $order->get_last_name() ?></p>
+                            <p class="admin-order-summary-text"><?= $order->get_address() ?></p>
+                            <p class="admin-order-summary-text"><?= $order->get_email() ?></p>
                         </div>
                         <div>
                             <p class="admin-order-summary-text"><span> Order details:</span></p>
-                            <p class="admin-order-summary-text">Ordered: <?= $order['date'] ?></p>
-                            <p class="admin-order-summary-text">Status: <?= $order['status'] ?></p>
-                            <p class="admin-order-summary-text">Total: $<?= $order['total'] ?></p>
+                            <p class="admin-order-summary-text">Ordered: <?= $order->get_date() ?></p>
+                            <p class="admin-order-summary-text">Status: <?= $order->get_status() ?></p>
+                            <p class="admin-order-summary-text">Total: $<?= $order->get_total() ?></p>
                         </div>
                     </div>
                 </section>
@@ -327,12 +330,12 @@
                     <p>Product has been successfully updated!</p>
                 <?php elseif ($status == 'product-deleted') : ?>
                     <p>Product has been successfully deleted!</p>
-                <?php elseif ($status == 'user-added') : ?>
-                    <p>New user has been successfully added!</p>
                 <?php elseif ($status == 'user-updated') : ?>
                     <p>User's data has been successfully updated!</p>
                 <?php elseif ($status == 'user-deleted') : ?>
                     <p>User has been successfully deleted!</p>
+                <?php elseif ($status == 'order-deleted') : ?>
+                    <p>Order has been successfully deleted!</p>
                 <?php else : ?>
                     <h2>Welcome Admin!</h2>
                     <p>You can manage user's orders, returns and account's info right here.</p>

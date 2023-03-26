@@ -2,33 +2,16 @@
 
 class Product
 {
-    private string $id;
-    private string $title;
-    private string $desc;
-    private float $price;
-    private string $colour;
-    private int $section_id;
-    private int $category_id;
-    private string $main_img_id;
-
     public function __construct(
-        string $id = '',
-        string $title = '',
-        string $desc = '',
-        float $price = 0.0,
-        string $colour = '',
-        int $section_id = 0,
-        int $category_id = 0,
-        string $main_img_id = ''
+        private string $id = '',
+        private string $title = '',
+        private string $desc = '',
+        private float $price = 0.0,
+        private string $colour = '',
+        private int $section_id = 0,
+        private int $category_id = 0,
+        private string $main_img_id = ''
     ) {
-        $this->id = $id;
-        $this->title = $title;
-        $this->desc = $desc;
-        $this->price = $price;
-        $this->colour = $colour;
-        $this->section_id = $section_id;
-        $this->category_id = $category_id;
-        $this->main_img_id = $main_img_id;
     }
 
     public function get_id(): string

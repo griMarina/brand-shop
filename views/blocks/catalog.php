@@ -62,7 +62,7 @@
             </details>
         </div>
         <div class="sorting">
-            <div class="sorting-type">
+            <!-- <div class="sorting-type">
                 <input class="sorting-toggle" type="checkbox" id="sorting-toggle-trend">
                 <label class="sorting-title" for="sorting-toggle-trend">TRENDING NOW<img class="sorting-icon" src="/img/main/dropdown-icon.svg" alt="unfold"></label>
                 <div class="sorting-list sorting-trend">
@@ -103,7 +103,7 @@
                     <input type="checkbox">
                     <label class="sorting-list-value"></label><br>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
     <section class="products container">
@@ -113,7 +113,7 @@
                 <figure class="products-card">
                     <a class="products-card-link" href="/product/?id=<?= $product['id'] ?>">
                         <div class="products-card-image">
-                            <img class="products-card-img" src="/img/catalog/<?= $product['main_img'] ?>.jpg" alt="<?= $product['main_img'] ?>" />
+                            <img class="products-card-img" src="/img/catalog/<?= $product['main_img'] ?>.jpg" alt="<?= $product['id'] ?>" />
                             <div class="products-card-overlay"></div>
                         </div>
                         <figcaption class="products-card-info">

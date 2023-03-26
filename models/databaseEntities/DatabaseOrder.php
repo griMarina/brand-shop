@@ -7,17 +7,17 @@ class DatabaseOrder
     ) {
     }
 
-    public function get_order(int $id): array
+    public function get_order(int $id): ?Order
     {
         $stmt = $this->pdo->prepare(
-            'SELECT id, `date`, `status`, total, session_id FROM `order` WHERE id = :id'
+            'SELECT * FROM `order` WHERE id = :id'
         );
 
         $stmt->execute([
             ':id' => (int) $id
         ]);
 
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Order')[0] ?? null;
     }
 
     public function get_orders(): array
@@ -63,6 +63,31 @@ class DatabaseOrder
             ':total' => (float) $order->get_total(),
             ':user_id' => $order->get_user_id(),
             ':session_id' => (string) $order->get_session_id()
+        ]);
+    }
+
+    public function update_status(int $id, string $status): void
+    {
+        $stmt = $this->pdo->prepare(
+            'UPDATE `order` SET
+                `status` = :status
+            WHERE id = :id'
+        );
+
+        $stmt->execute([
+            ':id' => (int) $id,
+            ':status' => (string) $status
+        ]);
+    }
+
+    public function delete_order(int $id): void
+    {
+        $stmt = $this->pdo->prepare(
+            'DELETE FROM `order` WHERE id = :id'
+        );
+
+        $stmt->execute([
+            ':id' => (int) $id
         ]);
     }
 }

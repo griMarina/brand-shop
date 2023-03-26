@@ -72,8 +72,8 @@ class AdminController
                         $_POST['desc'],
                         $_POST['price'],
                         $_POST['colour'],
-                        (int)$_POST['section_id'],
-                        (int)$_POST['category_id'],
+                        intval($_POST['section_id']),
+                        intval($_POST['category_id']),
                         $image_id
                     );
 
@@ -137,12 +137,27 @@ class AdminController
                 break;
 
             case 'order':
-                $id = (int)$_GET['id'];
-                $db_orders = new DatabaseOrder($pdo);
-                $order = $db_orders->get_order($id);
+                $id = $_GET['id'] ?? $_POST['id'];
+                $id = intval($id);
+
+                $db_order = new DatabaseOrder($pdo);
+                $order = $db_order->get_order($id);
+
+                if (isset($_POST['action'])) {
+                    if ($_POST['action'] == 'update-status') {
+                        $status = $_POST['status'];
+                        $db_order->update_status($id, $status);
+                        header('Location: /admin/order/?id=' . $id);
+                        die();
+                    } elseif ($_POST['action'] == 'delete') {
+                        $db_order->delete_order($id);
+                        header('Location: /admin/?status=order-deleted');
+                        die();
+                    }
+                }
 
                 $db_cart = new DatabaseCart($pdo);
-                $cart = $db_cart->get_cart($order['session_id']);
+                $cart = $db_cart->get_cart($order->get_session_id());
 
                 $params['order'] = $order;
                 $params['cart'] = $cart;

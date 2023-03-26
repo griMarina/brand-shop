@@ -16,7 +16,7 @@ class DatabaseImage
         );
 
         $stmt->execute([
-            ':id' => (string) $id,
+            ':id' => (string) $id
         ]);
 
         return $stmt->fetchALL(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Image')[0] ?? null;
@@ -33,7 +33,7 @@ class DatabaseImage
             ':id' => (string) $image->get_id(),
             ':title' => (string) $image->get_title(),
             ':product_id' => (string) $image->get_product_id(),
-            ':number' => (int) $image->get_number(),
+            ':number' => (int) $image->get_number()
         ]);
     }
 }

@@ -13,12 +13,14 @@ class OrderController
             die();
         }
 
-        $id = (int)$_GET['id'];
+        $id = $_GET['id'];
+        $id = intval($id);
+
         $db_orders = new DatabaseOrder($pdo);
         $order = $db_orders->get_order($id);
 
         $db_cart = new DatabaseCart($pdo);
-        $cart = $db_cart->get_cart($order['session_id']);
+        $cart = $db_cart->get_cart($order->get_session_id());
 
         $params['title'] = 'Order';
         $params['user'] = $user;

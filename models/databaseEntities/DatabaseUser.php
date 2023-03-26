@@ -14,7 +14,7 @@ class DatabaseUser
         );
 
         $stmt->execute([
-            ':username' => (string) $username,
+            ':username' => (string) $username
         ]);
 
         return $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'User')[0] ?? null;
@@ -27,7 +27,7 @@ class DatabaseUser
         );
 
         $stmt->execute([
-            ':id' => (string) $id,
+            ':id' => (string) $id
         ]);
 
         return $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'User')[0] ?? null;
@@ -60,7 +60,7 @@ class DatabaseUser
             ':first_name' => (string) $user->get_first_name(),
             ':last_name' => (string) $user->get_last_name(),
             ':phone' => (string) $user->get_phone(),
-            ':address' => (string) $user->get_address(),
+            ':address' => (string) $user->get_address()
         ]);
     }
 
@@ -80,7 +80,7 @@ class DatabaseUser
             ':first_name' => (string) $user->get_first_name(),
             ':last_name' => (string) $user->get_last_name(),
             ':phone' => (string) $user->get_phone(),
-            ':address' => (string) $user->get_address(),
+            ':address' => (string) $user->get_address()
         ]);
     }
 
@@ -91,7 +91,7 @@ class DatabaseUser
         );
 
         $stmt->execute([
-            ':id' => (string) $id,
+            ':id' => (string) $id
         ]);
     }
 }

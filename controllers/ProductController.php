@@ -9,9 +9,16 @@ class ProductController
         $db_crumbs = new DatabaseCrumbs($pdo);
         $db_image = new DatabaseImage($pdo);
 
-        $id = (string)$_GET['id'];
-        $product = $db_product->get_product($id);
-        $image = $db_image->get_image($product->get_main_img_id());
+        $id = $_GET['id'];
+
+        if (preg_match('/^product_[a-f0-9]{13}$/', $id)) {
+            $product = $db_product->get_product($id);
+            $image = $db_image->get_image($product->get_main_img_id());
+        } else {
+            header('Location: /oops');
+            die();
+        }
+
         $_SESSION['products'][$id] = $product;
         $_SESSION['images'][$id] = $image;
 

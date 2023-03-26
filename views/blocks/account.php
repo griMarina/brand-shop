@@ -2,7 +2,7 @@
     <section class="breadcrumb">
         <div class="container account-nav">
             <div class="account-nav-top">
-                <p class="account-nav-top-heading">Hi, <?= $user->get_first_name() ?></p>
+                <a class="account-nav-top-heading" href="/account">Hi, <?= $user->get_first_name() ?></a>
                 <a class="account-nav-logout logout-mob" href="/"><span>Log out</span></a>
             </div>
             <ul class="account-nav-categories">

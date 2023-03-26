@@ -2,17 +2,25 @@
 
 class Order
 {
+    private int $id = 0;
+    private string $date = '';
+
     public function __construct(
-        private string $first_name,
-        private string $last_name,
-        private string $phone,
-        private string $email,
-        private string $address,
-        private float $total,
-        private ?string $user_id,
-        private string $session_id,
+        private string $first_name = '',
+        private string $last_name = '',
+        private string $phone = '',
+        private string $email = '',
+        private string $address = '',
+        private float $total = 0.0,
+        private ?string $user_id = '',
+        private string $session_id = '',
         private string $status = 'pending'
     ) {
+    }
+
+    public function get_id(): int
+    {
+        return $this->id;
     }
 
     public function get_first_name(): string
@@ -58,5 +66,10 @@ class Order
     public function get_status(): string
     {
         return $this->status;
+    }
+
+    public function get_date(): string
+    {
+        return $this->date;
     }
 }

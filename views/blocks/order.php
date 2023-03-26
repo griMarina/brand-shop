@@ -2,7 +2,7 @@
     <section class="breadcrumb">
         <div class="container account-nav">
             <div class="account-nav-top">
-                <p class="account-nav-top-heading">Hi, <?= $user->get_first_name() ?>!</p>
+                <a class="account-nav-top-heading" href="/account">Hi, <?= $user->get_first_name() ?>!</a>
                 <a class="account-nav-logout logout-mob" href="/account/?action=logout"><span>Logout</span></a>
             </div>
             <ul class="account-nav-categories">
@@ -17,12 +17,12 @@
     </section>
     <section class="account container">
         <div class="account-order">
-            <h2 class="account-header">Order <?= $order['id'] ?></h2>
+            <h2 class="account-header">Order: <?= $order->get_id() ?></h2>
             <div class="order-summary">
-                <p>Ordered: <?= $order['date'] ?></p>
-                <p>Delivered:</p>
-                <p>Status: <?= $order['status'] ?></p>
-                <p>Total: $<?= $order['total'] ?></p>
+                <p>Ordered: <?= $order->get_date() ?></p>
+                <!-- <p>Delivered:</p> -->
+                <p>Status: <?= $order->get_status() ?></p>
+                <p>Total: $<?= $order->get_total() ?></p>
             </div>
             <section class="order-items">
                 <?php foreach ($cart as $item) : ?>

@@ -1692,6 +1692,12 @@ main {
   color: inherit;
   font-weight: 400;
   font-size: 16px;
+  color: #222224;
+  text-decoration: none;
+  transition-duration: 0.3s;
+}
+.account-nav-top-heading:hover {
+  color: #f16d7f;
 }
 .account-nav-top .logout-mob {
   display: none;
@@ -1913,6 +1919,7 @@ main {
   color: #222222;
   flex-grow: 1;
   text-decoration: none;
+  margin-right: 100px;
 }
 .order-item-title :hover {
   color: #f16d7f;
@@ -1947,6 +1954,12 @@ main {
 .admin-nav-top-heading {
   font-weight: 400;
   font-size: 16px;
+  text-decoration: none;
+  color: #222224;
+  transition-duration: 0.3s;
+}
+.admin-nav-top-heading:hover {
+  color: #f16d7f;
 }
 .admin-nav-top .logout-mob {
   display: none;
@@ -1982,7 +1995,7 @@ main {
 .admin-top {
   display: flex;
   justify-content: space-between;
-  margin: 30px 0;
+  margin-top: 30px;
 }
 .admin-top-btn {
   display: inline-block;
@@ -2029,6 +2042,7 @@ main {
   fill: #ffffff;
 }
 .admin-table-wrapper {
+  margin-top: 30px;
   margin-bottom: 50px;
   box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
 }
@@ -2196,10 +2210,14 @@ main {
 .admin-order-summary span {
   font-weight: bold;
 }
+.admin-order-form {
+  display: flex;
+}
 .admin-order-form-input {
   min-width: 200px;
   border: 1px solid #a4a4a4;
   padding: 7px;
+  margin-right: 5px;
   font-family: inherit;
   outline: none;
   transition-duration: 0.2s;
@@ -2207,9 +2225,10 @@ main {
 .admin-order-form-input:focus {
   border: 1px solid #555;
 }
-.admin-order-form-btn {
-  width: 80px;
-  padding: 8px;
+.admin-order-form-join {
+  width: 100px;
+  padding: 10px 10px;
+  margin-right: 10px;
   background-color: #f16d7f;
   color: #ffffff;
   fill: #ffffff;
@@ -2218,12 +2237,13 @@ main {
   transition-duration: 0.4s;
   font-family: inherit;
 }
-.admin-order-form-btn:hover {
+.admin-order-form-join:hover {
   background-color: #ffffff;
   color: #f16d7f;
   border: 1px solid #f16d7f;
 }
 .admin-order-items {
+  align-self: center;
   margin: 50px;
 }
 
