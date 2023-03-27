@@ -37,13 +37,14 @@ class AdminController
                         header('Location: /admin/?status=product-updated');
                         die();
                     } elseif ($_POST['action'] == 'delete') {
-                        $db_product->delete_product($_POST['id']);
+                        $id = htmlspecialchars(strip_tags($_POST['id']));
+                        $db_product->delete_product($id);
                         header('Location: /admin/?status=product-deleted');
                         die();
                     }
                 }
 
-                $id = $_GET['id'] ?? $_POST['id'];
+                $id = htmlspecialchars(strip_tags($_GET['id'] ?? $_POST['id']));
                 $product = $db_product->get_product($id);
                 $image = $db_image->get_image($product->get_main_img_id());
 
@@ -94,7 +95,7 @@ class AdminController
                 break;
 
             case 'user':
-                $id = $_GET['user_id'] ?? $_POST['user_id'];
+                $id = htmlspecialchars(strip_tags($_GET['user_id'] ?? $_POST['user_id']));
 
                 if (preg_match('/^user_[a-f0-9]{13}$/', $id)) {
                     $db_user = new DatabaseUser($pdo);

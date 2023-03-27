@@ -4,7 +4,6 @@ class AccountController
 {
     public static function prepare_variables(array $params): array
     {
-
         $pdo = connection();
         $auth = new Auth($pdo);
         $user = $auth->user_exists();
@@ -30,7 +29,6 @@ class AccountController
             }
 
             $db_user->update_info($user);
-
             header('Location: /account');
             die();
         }

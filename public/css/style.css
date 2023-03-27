@@ -1151,6 +1151,10 @@ main {
   font-size: 24px;
   line-height: 29px;
   color: #222222;
+  text-decoration: none;
+}
+.cart-item-title:hover {
+  color: #f16d7f;
 }
 .cart-item-delete {
   fill: #575757;

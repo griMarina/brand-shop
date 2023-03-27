@@ -10,7 +10,6 @@ class CheckoutController
 
         if (isset($_POST['action']) == 'submit_order') {
             $session_id = session_id();
-
             $cart = unserialize($_SESSION['cart']);
             $db_cart = new DatabaseCart($pdo);
             $user_id = ($user) ? $user->get_id() : null;

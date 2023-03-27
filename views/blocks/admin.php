@@ -47,7 +47,7 @@
                     <table class="admin-table sortable">
                         <thead>
                             <tr>
-                                <th></th>
+                                <!-- <th></th> -->
                                 <th>Id</th>
                                 <th>Name</th>
                                 <th>Price</th>
@@ -57,7 +57,7 @@
                         </thead>
                         <?php foreach ($products as $product) : ?>
                             <tr>
-                                <td class="admin-table-checkbox"><input type="checkbox" name="" id=""></td>
+                                <!-- <td class="admin-table-checkbox"><input type="checkbox" name="" id=""></td> -->
                                 <td><a class="admin-table-view" href="/admin/product/?id=<?= $product['id'] ?>"><?= $product['id'] ?></a></td>
                                 <td><a class="admin-table-view" href="/admin/product/?id=<?= $product['id'] ?>"><?= $product['title'] ?></a></td>
                                 <td>$<?= $product['price'] ?></td>
@@ -158,7 +158,7 @@
                     <table class="admin-table sortable">
                         <thead>
                             <tr>
-                                <th></th>
+                                <!-- <th></th> -->
                                 <th>Id</th>
                                 <th>Email / Username</th>
                                 <th>Name</th>
@@ -166,7 +166,7 @@
                         </thead>
                         <?php foreach ($users as $user) : ?>
                             <tr>
-                                <td class="admin-table-checkbox"><input type="checkbox" name="" id=""></td>
+                                <!-- <td class="admin-table-checkbox"><input type="checkbox" name="" id=""></td> -->
                                 <td><a class="admin-table-view" href="/admin/user/?user_id=<?= $user['id'] ?>"><?= $user['id'] ?></a></td>
                                 <td><?= $user['username'] ?></td>
                                 <td><?= $user['first_name'] . ' ' . $user['last_name'] ?></td>
@@ -247,7 +247,7 @@
                     <table class="admin-table sortable">
                         <thead>
                             <tr>
-                                <th></th>
+                                <!-- <th></th> -->
                                 <th>Id</th>
                                 <th>Email</th>
                                 <th>Date</th>
@@ -257,7 +257,7 @@
                         </thead>
                         <?php foreach ($orders as $order) : ?>
                             <tr>
-                                <td class="admin-table-checkbox"><input type="checkbox" name="" id=""></td>
+                                <!-- <td class="admin-table-checkbox"><input type="checkbox" name="" id=""></td> -->
                                 <td><a class="admin-table-view" href="/admin/order/?id=<?= $order['id'] ?>"><?= $order['id'] ?></a></td>
                                 <td><?= $order['email'] ?></td>
                                 <td><?= $order['date'] ?></td>

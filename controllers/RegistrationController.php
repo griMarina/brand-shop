@@ -12,6 +12,7 @@ class RegistrationController
 
             $db_user = new DatabaseUser($pdo);
             $user = $db_user->get_user_by_username($_POST['email']);
+
             if (isset($user)) {
                 header('Location: /registration/?status=error');
                 die();
