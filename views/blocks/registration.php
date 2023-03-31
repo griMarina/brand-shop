@@ -16,7 +16,7 @@
                         <input hidden name="action" value="join">
                         Your Name
                         <input class="reg-form-info" name="first_name" type="text" placeholder="First Name" required>
-                        <input class="reg-form-info" name="last_name" type="text" placeholder="Last Name">
+                        <input class="reg-form-info" name="last_name" type="text" placeholder="Last Name" required>
                     </fieldset>
                     <!-- <fieldset class="reg-form-gender">
                         <input type="radio" id="male" name="gender" value="male">
@@ -28,7 +28,7 @@
                     </fieldset> -->
                     <fieldset class="reg-form-heading">
                         Contact details
-                        <input class="reg-form-info" name="phone" type="phone" placeholder="Phone" required>
+                        <input class="reg-form-info" name="phone" type="tel" pattern="[0-9]{3,10}" placeholder="Phone" required>
                         <input class="reg-form-info" name="address" type="text" placeholder="Address" required>
                     </fieldset>
                     <fieldset class="reg-form-heading">

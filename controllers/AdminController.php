@@ -58,8 +58,8 @@ class AdminController
 
                 if (isset($_POST['action']) == 'add') {
                     $image_title = !empty($_FILES['new_img']['name']) ? $_FILES['new_img']['name'] : 'no-img';
-                    $image_id = uniqid('image_');
-                    $product_id = uniqid('product_');
+                    $image_id = UUID::get_uuid();
+                    $product_id = UUID::get_uuid();
 
                     $image = new Image(
                         $image_id,
@@ -97,7 +97,7 @@ class AdminController
             case 'user':
                 $id = htmlspecialchars(strip_tags($_GET['user_id'] ?? $_POST['user_id']));
 
-                if (preg_match('/^user_[a-f0-9]{13}$/', $id)) {
+                if (preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[8|9|aA|bB][0-9a-f]{3}-[0-9a-f]{12}$/i', $id)) {
                     $db_user = new DatabaseUser($pdo);
                     $user = $db_user->get_user_by_id($id);
                 } else {
@@ -126,9 +126,6 @@ class AdminController
                 }
 
                 $params['user'] = $user;
-                break;
-
-            case 'add-user':
                 break;
 
             case 'orders':

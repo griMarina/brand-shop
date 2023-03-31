@@ -49,7 +49,7 @@
                             <tr>
                                 <!-- <th></th> -->
                                 <th>Id</th>
-                                <th>Name</th>
+                                <th>Title</th>
                                 <th>Price</th>
                                 <th>Section</th>
                                 <th>Category</th>
@@ -59,7 +59,7 @@
                             <tr>
                                 <!-- <td class="admin-table-checkbox"><input type="checkbox" name="" id=""></td> -->
                                 <td><a class="admin-table-view" href="/admin/product/?id=<?= $product['id'] ?>"><?= $product['id'] ?></a></td>
-                                <td><a class="admin-table-view" href="/admin/product/?id=<?= $product['id'] ?>"><?= $product['title'] ?></a></td>
+                                <td><?= $product['title'] ?></td>
                                 <td>$<?= $product['price'] ?></td>
                                 <td><?= $product['section'] ?></td>
                                 <td><?= $product['category'] ?></td>
@@ -80,11 +80,11 @@
                         <label for="id">Id</label>
                         <input id="id" class="admin-product-form-input" name="id" type="text" value="<?= $product->get_id() ?>" disabled>
                         <label for="title">Title</label>
-                        <input id="title" class="admin-product-form-input" name="title" type="text" value="<?= $product->get_title() ?>">
+                        <input id="title" class="admin-product-form-input" name="title" type="text" value="<?= $product->get_title() ?>" required>
                         <label for="price">Price, $</label>
-                        <input id="price" class="admin-product-form-input" name="price" type="number" value="<?= $product->get_price() ?>">
+                        <input id="price" class="admin-product-form-input" name="price" type="number" value="<?= $product->get_price() ?>" required>
                         <label for="desc">Description</label>
-                        <textarea id="desc" class="admin-product-form-input" name="desc" rows="4" cols="50"><?= $product->get_desc() ?></textarea>
+                        <textarea id="desc" class="admin-product-form-input" name="desc" rows="4" cols="50" required><?= $product->get_desc() ?></textarea>
                         <div class="admin-product-form-btn">
                             <button class="admin-product-form-join" type="submit" name="action" value="edit">EDIT</button>
                             <button class="admin-product-form-join" type="submit" name="action" value="delete">DELETE</button>
@@ -102,21 +102,21 @@
                     </fieldset>
                     <fieldset class="admin-product-form-field">
                         <label for="title">Title</label>
-                        <input id="title" class="admin-product-form-input" name="title" type="text" value="">
+                        <input id="title" class="admin-product-form-input" name="title" type="text" value="" required>
                         <label for="desc">Description</label>
-                        <textarea id="desc" class="admin-product-form-input" name="desc" rows="4" cols="50"></textarea>
+                        <textarea id="desc" class="admin-product-form-input" name="desc" rows="4" cols="50" required></textarea>
                         <label for="price">Price, $</label>
-                        <input id="price" class="admin-product-form-input" name="price" type="number" value="">
+                        <input id="price" class="admin-product-form-input" name="price" type="number" value="" required>
                         <label for="colour">Colour</label>
-                        <input id="colour" class="admin-product-form-input" name="colour" type="text" value="">
+                        <input id="colour" class="admin-product-form-input" name="colour" type="text" value="" required>
                         <label for="section_id">Section</label>
-                        <select class="admin-product-form-input" name="section_id" id="section_id">
+                        <select class="admin-product-form-input" name="section_id" id="section_id" required>
                             <option value="1">Women</option>
                             <option value="2">Men </option>
                             <option value="3">Kids</option>
                         </select>
                         <label for="section_id">Category</label>
-                        <select class="admin-product-form-input" name="category_id" id="category_id">
+                        <select class="admin-product-form-input" name="category_id" id="category_id" required>
                             <?php foreach ($categories as $category) : ?>
                                 <option value="<?= $category['id'] ?>"><?= ucfirst($category['title']) . ' (' . $category['section'] . ')' ?></option>
                             <?php endforeach; ?>
@@ -184,34 +184,17 @@
                     <label for="emal">Email</label>
                     <input id="email" class="admin-user-form-input" name="email" type="email" value="<?= $user->get_username() ?>" disabled>
                     <label for="first_name">First Name</label>
-                    <input id="first_name" class="admin-user-form-input" name="first_name" type="text" placeholder="First Name" value="<?= $user->get_first_name() ?>">
+                    <input id="first_name" class="admin-user-form-input" name="first_name" type="text" placeholder="First Name" value="<?= $user->get_first_name() ?>" required>
                     <label for="last_name">Last Name</label>
-                    <input id="last_name" class="admin-user-form-input" name="last_name" type="text" placeholder="Last Name" value="<?= $user->get_last_name() ?>">
+                    <input id="last_name" class="admin-user-form-input" name="last_name" type="text" placeholder="Last Name" value="<?= $user->get_last_name() ?>" required>
                     <label for="phone">Phone</label>
-                    <input id="phone" class="admin-user-form-input" name="phone" type="phone" placeholder="Phone" value="<?= $user->get_phone() ?>">
+                    <input id="phone" class="admin-user-form-input" name="phone" type="tel" pattern="[0-9]{3,10}" placeholder="Phone" value="<?= $user->get_phone() ?>" required>
                     <label for="address">Address</label>
-                    <input id="address" class="admin-user-form-input" name="address" type="address" placeholder="Address" value="<?= $user->get_address() ?>">
+                    <input id="address" class="admin-user-form-input" name="address" type="text" placeholder="Address" value="<?= $user->get_address() ?>" required>
                     <div class="admin-user-form-btn">
                         <button class="admin-user-form-join" type="submit" name="action" value="edit">EDIT</button>
                         <button class="admin-user-form-join" type="submit" name="action" value="delete">DELETE</button>
                     </div>
-                </form>
-            </div>
-        <?php elseif ($tab == 'add-user') : ?>
-            <div class="admin-user">
-                <form class="admin-user-form" method="POST" action="/admin/add-user">
-                    <input type="hidden" name="action" value="add">
-                    <label for="emal">Email</label>
-                    <input id="email" class="admin-user-form-input" name="email" type="email" placeholder="Email" value="">
-                    <label for="first_name">First Name</label>
-                    <input id="first_name" class="admin-user-form-input" name="first_name" type="text" placeholder="First Name" value="">
-                    <label for="last_name">Last Name</label>
-                    <input id="last_name" class="admin-user-form-input" name="last_name" type="text" placeholder="Last Name" value="">
-                    <label for="phone">Phone</label>
-                    <input id="phone" class="admin-user-form-input" name="phone" type="phone" placeholder="Phone" value="">
-                    <label for="address">Address</label>
-                    <input id="address" class="admin-user-form-input" name="address" type="address" placeholder="Address" value="">
-                    <button class="admin-user-form-join" type="submit" name="action" value="edit">ADD</button>
                 </form>
             </div>
         <?php elseif ($tab == 'orders') : ?>

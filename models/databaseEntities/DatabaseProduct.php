@@ -158,16 +158,4 @@ class DatabaseProduct
             ':id' => (string) $id
         ]);
     }
-
-    // public function add_img(string $product_id): void
-    // {
-    //     $stmt = $this->pdo->prepare(
-    //         "UPDATE `product` SET main_img_id = :img_id WHERE id = :product_id"
-    //     );
-
-    //     $stmt->execute([
-    //         ':img_id' => (int) $iamge_id,
-    //         ':product_id' => (string) $product_id
-    //     ]);
-    // }
 }

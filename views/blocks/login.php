@@ -10,7 +10,7 @@
                 <form class="checkout-option-login-form" method="POST" action="/login">
                     <h2 class="checkout-option-login-form-heading">Welcome back!</h2>
                     <input hidden name="action" value="login_checkout">
-                    <input class="checkout-option-login-form-info" name="username" type="text" placeholder="Username" required>
+                    <input class="checkout-option-login-form-info" name="username" type="email" placeholder="Username" required>
                     <input class="checkout-option-login-form-info" name="password" type="password" placeholder="Password" required>
                     <input class="checkout-option-login-form-submit" type="submit" value="Log in">
                 </form>
@@ -28,7 +28,7 @@
                 <form class="checkout-option-login-form" method="POST" action="/login">
                     <h2 class="checkout-option-login-form-heading">Welcome back!</h2>
                     <input hidden name="action" value="login">
-                    <input class="checkout-option-login-form-info" name="username" type="text" placeholder="Username" required>
+                    <input class="checkout-option-login-form-info" name="username" type="email" placeholder="Username" required>
                     <input class="checkout-option-login-form-info" name="password" type="password" placeholder="Password" required>
                     <input class="checkout-option-login-form-submit" type="submit" value="Log in">
                 </form>
