@@ -10,6 +10,9 @@ include ROOT . '/src/autoloader.php';
 include ROOT . '/src/render.php';
 include ROOT . '/src/db.php';
 
+// Development only. Remove before production.
+setcookie('XDEBUGG_SESSION', 'xdebug');
+
 spl_autoload_register('autoload');
-ini_set('session.cookie_samesite', 'Lax'); // session_set_cookie_params(['samesite' => 'Lax']);
+ini_set('session.cookie_samesite', 'Lax');
 session_start();

@@ -7,6 +7,7 @@ class DatabaseProduct
     ) {
     }
 
+    // get an object of the Product class from the database by an ID. If no results are found, the method returns null
     public function get_product(string $id): ?Product
     {
         $stmt = $this->pdo->prepare(
@@ -22,6 +23,7 @@ class DatabaseProduct
         return $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Product')[0] ?? null;
     }
 
+    // get an array of all products from the database
     public function get_products(): array
     {
         $stmt = $this->pdo->prepare(
@@ -38,6 +40,7 @@ class DatabaseProduct
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    // get an array of products with a specified limit from the database
     public function get_products_by_limit(int $limit): array
     {
         $stmt = $this->pdo->prepare(
@@ -56,6 +59,7 @@ class DatabaseProduct
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    // get an array of products from the database for a given section
     public function get_products_by_section(string $section): array
     {
         $stmt = $this->pdo->prepare(
@@ -75,6 +79,7 @@ class DatabaseProduct
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    // get an array of products from the database for a given category
     public function get_products_by_category(string $section, string $category): array
     {
         $stmt = $this->pdo->prepare(
@@ -97,6 +102,7 @@ class DatabaseProduct
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    // get an array of all categories from the database
     public function get_categories(): array
     {
         $stmt = $this->pdo->prepare(
@@ -111,6 +117,7 @@ class DatabaseProduct
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    // add a new product to the database
     public function add_product(Product $product): void
     {
         $stmt = $this->pdo->prepare(
@@ -130,6 +137,7 @@ class DatabaseProduct
         ]);
     }
 
+    // update the title, price and description of a product with a given ID in the database
     public function update_product(string $id, string $title, float $price, string $desc): void
     {
         $stmt = $this->pdo->prepare(
@@ -148,6 +156,7 @@ class DatabaseProduct
         ]);
     }
 
+    // delete a product with the given ID from the database
     public function delete_product(string $id): void
     {
         $stmt = $this->pdo->prepare(

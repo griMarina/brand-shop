@@ -7,7 +7,7 @@ class UUID
     }
 
     // function generates RFC 4122 compliant Version 4 UUIDs
-    public static function get_uuid(): string
+    public static function uuid(): string
     {
         try {
             $data = PHP_MAJOR_VERSION < 7 ? openssl_random_pseudo_bytes(16) : random_bytes(16);
