@@ -5,11 +5,13 @@ class RegistrationController
     public static function prepare_variables(array $params): array
     {
         if (isset($_POST['action']) == 'join') {
+            // if user is registered, create a unique id and hash password
             $pdo = connection();
             $user_id = UUID::uuid();
             $password = $_POST['password'];
             $pass_hash = password_hash($password, PASSWORD_DEFAULT);
 
+            // check if user with the same email already exists in the db
             $db_user = new DatabaseUser($pdo);
             $user = $db_user->get_user_by_username($_POST['email']);
 
@@ -18,6 +20,7 @@ class RegistrationController
                 die();
             }
 
+            // create a new user and add it to the db
             $user = new User(
                 $user_id,
                 $_POST['email'],

@@ -7,6 +7,7 @@ class Auth
     ) {
     }
 
+    // check if user exists in the db and return it as an object if found, or null if not
     public function user_exists(): ?User
     {
         if (isset($_SESSION['username'])) {
@@ -23,6 +24,7 @@ class Auth
         return $_SESSION['username'] == 'admin@admin.com';
     }
 
+    // authenticate user by verifying credentials against db record
     public function auth(string $username, string $password): bool
     {
         $db_user = new DatabaseUser($this->pdo);

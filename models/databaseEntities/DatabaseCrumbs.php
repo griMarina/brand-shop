@@ -28,6 +28,7 @@ class DatabaseCrumbs
         return $this->get_crumbs($array);
     }
 
+    // generate an array of breadcrumb links
     public function get_crumbs(array $array): array
     {
         $link = '';

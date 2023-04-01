@@ -58,7 +58,7 @@ class CartController
                     break;
 
                 case 'delete':
-                    // delete a product from the cart
+                    // delete a produt from the cart
                     $cart->remove_product($product_id);
                     $params['json'] = $cart;
                     break;
@@ -77,7 +77,7 @@ class CartController
         // serialize the $cart object and store it in the 'cart' key of the $_SESSION array
         $_SESSION['cart'] = serialize($cart);
         $params['title'] = 'Cart';
-        // assign $cart object to the key 'cart' of the $params array
+        // add $cart object to the $params array
         $params['cart'] = $cart;
 
         return $params;

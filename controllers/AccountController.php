@@ -7,7 +7,7 @@ class AccountController
         // create PDO connection and an Auth object
         $pdo = connection();
         $auth = new Auth($pdo);
-        // check if user is logged in, and return their User object if found
+        // check if username exists in the db and return User object if found
         $user = $auth->user_exists();
 
         // redirect to the login page if user is not authenticated
@@ -29,14 +29,13 @@ class AccountController
                 }
             }
 
-            // create a DatabaseUser object and update user info in the database
+            // create a DatabaseUser object and update user info in the database and redirect to the account page
             $db_user = new DatabaseUser($pdo);
             $db_user->update_info($user);
-            // redirect to the account page and terminate the script execution
             header('Location: /account');
             die();
         }
-        // if user clicked on the logout button, regenerate the session id, destroy the session data and redirect to the login page 
+        // if the user is logged out, regenerate the session id, destroy the session data and redirect to the login page 
         if (isset($_GET['action']) == 'logout') {
             session_regenerate_id();
             session_destroy();
@@ -44,7 +43,7 @@ class AccountController
             die();
         }
 
-        // get an array of orders with the given user's ID from the database
+        // get an array of orders with the given user's id from the db
         $db_orders = new DatabaseOrder($pdo);
         $orders = $db_orders->get_orders_by_user_id($user->get_id());
 

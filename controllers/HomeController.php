@@ -9,7 +9,7 @@ class HomeController
         $product = new DatabaseProduct($pdo);
 
         $params['title'] = 'Home';
-        // get an array of products with a specified limit from the database and assign it to the 'products' key of the $params array
+        // get an array of products with a specified limit from the db and assign it to the 'products' key of the $params array
         $params['products'] = $product->get_products_by_limit(6);
 
         return $params;
