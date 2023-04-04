@@ -21,7 +21,7 @@ class Auth
 
     public function is_admin(): bool
     {
-        return $_SESSION['username'] == 'admin@admin.com';
+        return isset($_SESSION['username']) == 'admin@admin.com';
     }
 
     // authenticate user by verifying credentials against db record

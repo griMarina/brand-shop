@@ -69,9 +69,7 @@ class DatabaseOrder
     public function update_status(int $id, string $status): void
     {
         $stmt = $this->pdo->prepare(
-            'UPDATE `order` SET
-                `status` = :status
-            WHERE id = :id'
+            'UPDATE `order` SET `status` = :status WHERE id = :id'
         );
 
         $stmt->execute([
