@@ -70,7 +70,7 @@ class CartController
                     break;
 
                 default:
-                    die();
+                    exit();
             }
         }
 

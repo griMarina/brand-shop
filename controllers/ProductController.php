@@ -17,7 +17,7 @@ class ProductController
             $image = $db_image->get_image($product->get_main_img_id());
         } else {
             header('Location: /oops');
-            die();
+            exit();
         }
 
         // store Product and Image objects in the $_SESSION array

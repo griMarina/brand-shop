@@ -11,7 +11,8 @@ class AdminController
         // if user is not the admin, redirect to the login page and terminate the script execution
         if (!$auth->is_admin()) {
             header('Location: /login');
-            die();
+            http_response_code(403);
+            exit();
         }
 
         // get the current tab name
@@ -41,13 +42,13 @@ class AdminController
                             $_POST['desc']
                         );
                         header('Location: /admin/?status=product-updated');
-                        die();
+                        exit();
                     } elseif ($_POST['action'] == 'delete') {
                         // if admin deleted the product, remove the product with the given ID from the db and redirect to the admin page with an appropriate message
                         $id = htmlspecialchars(strip_tags($_POST['id']));
                         $db_product->delete_product($id);
                         header('Location: /admin/?status=product-deleted');
-                        die();
+                        exit();
                     }
                 }
 
@@ -66,7 +67,7 @@ class AdminController
                 $db_product = new DatabaseProduct($pdo);
                 $db_image = new DatabaseImage($pdo);
 
-                if (isset($_POST['action']) == 'add') {
+                if (isset($_POST['action']) && $_POST['action'] == 'add') {
                     // if admin adds a new product, retrieve the image title from the $_FILES array. If no image is uploaded, set 'no-img' as the default
                     $image_title = !empty($_FILES['new_img']['name']) ? $_FILES['new_img']['name'] : 'no-img';
                     // generate unique ids for an image and a product
@@ -119,7 +120,7 @@ class AdminController
                 } else {
                     // redirect to the error page if user's id isn't correct
                     header('Location: /oops');
-                    die();
+                    exit();
                 }
 
                 if (isset($_POST['action'])) {
@@ -136,12 +137,12 @@ class AdminController
                         // update user's info in the db and redirect to the admin page with an appropriate message
                         $db_user->update_info($user);
                         header('Location: /admin/?status=user-updated');
-                        die();
+                        exit();
                     } elseif ($_POST['action'] == 'delete') {
                         //delete the user from the db and redirect to a page with an appropriate message
                         $db_user->delete_user($id);
                         header('Location: /admin/?status=user-deleted');
-                        die();
+                        exit();
                     }
                 }
 
@@ -169,12 +170,12 @@ class AdminController
                         $status = $_POST['status'];
                         $db_order->update_status($id, $status);
                         header('Location: /admin/order/?id=' . $id);
-                        die();
+                        exit();
                     } elseif ($_POST['action'] == 'delete') {
                         //delete the order from the db and redirect to a page with an appropriate message
                         $db_order->delete_order($id);
                         header('Location: /admin/?status=order-deleted');
-                        die();
+                        exit();
                     }
                 }
                 // get an Order object from the db and add it to the $params array
@@ -188,12 +189,12 @@ class AdminController
                 break;
         }
 
-        if (isset($_GET['action']) == 'logout') {
+        if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             // if admin is logged out, regenerate the session id, destroy the session data and redirect to the login page 
             session_regenerate_id();
             session_destroy();
             header('Location: /login');
-            die();
+            exit();
         }
 
         $params['title'] = 'Admin panel';

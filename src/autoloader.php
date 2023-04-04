@@ -1,16 +1,20 @@
 <?php
 
-function autoload($class)
+function autoload(string $class): bool
 {
-    $sources = array(
-        CONTROLLERS_DIR . $class . '.php',
-        MODELS_DIR . 'entities/' . $class . '.php',
-        MODELS_DIR . 'databaseEntities/' . $class . '.php'
-    );
+    $dirs = [
+        CONTROLLERS_DIR,
+        MODELS_DIR . 'entities/',
+        MODELS_DIR . 'databaseEntities/',
+    ];
 
-    foreach ($sources as $source) {
-        if (file_exists($source)) {
-            require_once $source;
+    foreach ($dirs as $dir) {
+        $file = $dir . $class . '.php';
+        if (file_exists($file)) {
+            require $file;
+            return true;
         }
     }
+
+    return false;
 }

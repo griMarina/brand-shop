@@ -19,7 +19,6 @@ class DatabaseOrderTest extends TestCase
 
     public function testGetOrderReturnsNullIfNoOrderFound()
     {
-
         $this->mock_stmt->expects($this->once())
             ->method('fetchALL')
             ->with(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Order')

@@ -4,7 +4,7 @@ class RegistrationController
 {
     public static function prepare_variables(array $params): array
     {
-        if (isset($_POST['action']) == 'join') {
+        if (isset($_POST['action']) && $_POST['action'] == 'join') {
             // if user is registered, create a unique id and hash password
             $pdo = connection();
             $user_id = UUID::uuid();
@@ -17,7 +17,7 @@ class RegistrationController
 
             if (isset($user)) {
                 header('Location: /registration/?status=error');
-                die();
+                exit();
             }
 
             // create a new user and add it to the db
@@ -33,7 +33,7 @@ class RegistrationController
             $db_user->add_user($user);
 
             header('Location: /registration/?status=ok');
-            die();
+            exit();
         }
 
         $params['status'] = $_GET['status'] ?? '';

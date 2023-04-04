@@ -8,7 +8,7 @@ class CheckoutController
         $auth = new Auth($pdo);
         $user = $auth->user_exists();
 
-        if (isset($_POST['action']) == 'submit_order') {
+        if (isset($_POST['action']) && $_POST['action'] == 'submit_order') {
             // create an Order object with user details, cart price, and session id and add the order to the db
             $session_id = session_id();
             $cart = unserialize($_SESSION['cart']);
@@ -35,7 +35,7 @@ class CheckoutController
             unset($_SESSION['cart']);
             session_regenerate_id();
             header('Location: /checkout/?status=ok');
-            die();
+            exit();
         }
 
         $params['status'] = $_GET['status'] ?? '';

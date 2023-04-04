@@ -11,7 +11,7 @@ class OrderController
         // check if user is logged in and order id exists
         if (!isset($user) || !isset($_GET['id'])) {
             header('Location: /login');
-            die();
+            exit();
         }
 
         // get order id from $_GET and cast it to an integer

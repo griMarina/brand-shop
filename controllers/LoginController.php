@@ -12,21 +12,21 @@ class LoginController
             // if user is the admin, redirect to the admin page
             if ($auth->is_admin()) {
                 header('Location: /admin');
-                die();
+                exit();
             }
             // 
-            if (isset($_GET['action']) == 'checkout') {
+            if (isset($_GET['action']) && $_GET['action'] == 'checkout') {
                 // if the order has been checked out, redirect to the page with delivery details 
                 header('Location: /checkout');
             } else {
                 // if user is logged in, redirect to the account page
                 header('Location: /account');
             }
-            die();
+            exit();
         }
 
         // check if user has logged in
-        if (isset($_POST['action']) == 'login' || isset($_POST['action']) == 'login_checkout') {
+        if (isset($_POST['action']) && ($_POST['action'] == 'login' || $_POST['action'] == 'login_checkout')) {
             $username = $_POST['username'];
             $password = $_POST['password'];
 
@@ -35,7 +35,7 @@ class LoginController
 
                 if ($auth->is_admin()) {
                     header('Location: /admin');
-                    die();
+                    exit();
                 }
 
                 if ($_POST['action'] == 'login_checkout') {
@@ -48,7 +48,7 @@ class LoginController
             } else {
                 header('Location: /login/?status=login_error');
             }
-            die();
+            exit();
         }
 
         $params['action'] = $_GET['action'] ?? '';
