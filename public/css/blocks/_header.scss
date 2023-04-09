@@ -39,16 +39,17 @@
     &-menu {
         position: absolute;
         background-color: #ffffff;
-        min-height: 764px;
+        height: 650px;
         width: 232px;
         right: 0;
-        top: 74px;
+        top: 72px;
         padding: 35px;
         box-sizing: border-box;
         box-shadow: $shadow;
         transform: scale(0);
         transform-origin: top right;
         transition: 0.4s;
+        overflow-y: scroll;
 
         &-overlay {
             position: relative;

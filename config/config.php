@@ -6,6 +6,11 @@ define('CONTROLLERS_DIR', ROOT . '/controllers/');
 define('MODELS_DIR', ROOT . '/models/');
 define('LAYOUTS_DIR', 'layouts/');
 
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'online_shop');
+define('DB_USER', 'admin');
+define('DB_PASS', 'asennus');
+
 include ROOT . '/src/autoloader.php';
 include ROOT . '/src/render.php';
 include ROOT . '/src/db.php';

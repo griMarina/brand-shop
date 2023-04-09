@@ -16,7 +16,33 @@ The Online Fashion Shop is a web-based application that allows users to browse a
 It follows the Model-View-Controller (MVC) architecture to separate the presentation logic from the business logic.
 
 ### Installing
-* 
+To run the Taitotalo Fashion Shop project on your local machine, you need to have the following software installed:
+
+* MAMP or XAMPP for running a local web server
+* PHP version 7.2 or higher
+* MySQL database
+
+#### Steps
+1. Clone the repository to your local machine:
+ ```bash
+   git clone https://github.com/griMarina/Taitotalo-project.git
+   ```
+2. Start your local web server (e.g., MAMP or XAMPP).
+3. Create a new database in your MySQL server for the project.
+4. Import the database schema and initial data from the database.sql file in the project's root directory. You can do this by running the following command from the project directory:
+```bash
+   mysql -u your_mysql_username -p your_database_name < database.sql
+   ```
+Replace your_mysql_username with your MySQL username and your_database_name with the name of the database you created in step 3. You will be prompted to enter your MySQL password.
+5. Configure the database connection settings in the config.php file located in the app directory. Replace the DB_HOST, DB_NAME, DB_USER, and DB_PASS values with your MySQL server details.
+```php
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'your_database_name');
+define('DB_USER', 'your_mysql_username');
+define('DB_PASS', 'your_mysql_password');
+   ```
+6. Start your local web server and open the project in your web browser by navigating to http://localhost/Taitotalo-project/. You should see the Taitotalo Fashion Shop homepage.
+
 ### Features
 * **User authentication**: users can sign up, log in, and log out of the platform.
 * **Product catalog**: users can browse the catalog of clothing items and accessories, view product details, and add items to their cart.

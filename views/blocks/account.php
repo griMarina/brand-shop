@@ -3,7 +3,7 @@
         <div class="container account-nav">
             <div class="account-nav-top">
                 <a class="account-nav-top-heading" href="/account">Hi, <?= $user->get_first_name() ?></a>
-                <a class="account-nav-logout logout-mob" href="/"><span>Log out</span></a>
+                <a class="account-nav-logout logout-mob" href="/account/?action=logout"><span>Log out</span></a>
             </div>
             <ul class="account-nav-categories">
                 <li class="account-nav-category <?= ($tab == 'orders') ? 'active' : '' ?>"><a href="/account/orders"><span>ORDERS</span></a></li>
