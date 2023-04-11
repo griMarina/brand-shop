@@ -1,10 +1,7 @@
 # Online Fashion Shop
-
 This project was created as a study project during my internship at Taitotalo.
 
-<img src="https://github.com/griMarina/Taitotalo-project/blob/main/documentation/index.png" alt="index">
-
-
+<img src="https://github.com/griMarina/Taitotalo-project/blob/main/documentation/logo.png" alt="index page">
 
 ## Description
 
