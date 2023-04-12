@@ -1,7 +1,7 @@
 # Online Fashion Shop
 This project was created as a study project during my internship at Taitotalo.
 
-<img src="https://github.com/griMarina/Taitotalo-project/blob/main/documentation/logo.png" alt="index page">
+<img src="https://github.com/griMarina/Taitotalo-project/blob/main/documentation/home.png" alt="home page">
 
 ## Description
 
@@ -30,9 +30,9 @@ To run the Taitotalo Fashion Shop project on your local machine, you need to hav
    ```
 2. Start your local web server (e.g., MAMP or XAMPP).
 3. Create a new database in your MySQL server for the project.
-4. Import the database schema and initial data from the database.sql file in the project's root directory. You can do this by running the following command from the project directory:
+4. Import the database from the data-dump.sql file in the project's root/data directory. You can do this by running the following command from the project directory:
 ```bash
-   mysql -u your_mysql_username -p your_database_name < database.sql
+   mysql -u your_mysql_username -p your_database_name < data-dump.sql
    ```
 Replace your_mysql_username with your MySQL username and your_database_name with the name of the database you created in step 3. You will be prompted to enter your MySQL password.
 
@@ -43,7 +43,14 @@ define('DB_NAME', 'your_database_name');
 define('DB_USER', 'your_mysql_username');
 define('DB_PASS', 'your_mysql_password');
    ```
-6. Start your local web server and open the project in your web browser by navigating to http://localhost/Taitotalo-project/. You should see the Taitotalo Fashion Shop homepage.
+6. Start your local web server and open the project in your web browser by navigating to http://localhost/.
+
+### Testing
+1. Make sure that Composer is installed on your system by running the command ```composer --version```. If Composer is installed, it will output the version, otherwise, you'll need to install it on your system.
+2. Open the CLI and navigate to the folder containing your project, which you cloned from the GitHub repository.
+3. Run the command ```composer install``` to install all the dependencies listed in the composer.json file, including PHPUnit.
+4. After installing the dependencies, run the command ```composer test``` to run the tests.
+5. If the tests pass successfully, you'll see a message indicating that the tests passed, otherwise, you'll see error messages indicating the test failures.
 
 ### Features
 * **User authentication**: users can sign up, log in, and log out of the platform.

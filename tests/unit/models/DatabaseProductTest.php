@@ -62,18 +62,28 @@ class DatabaseProductTest extends TestCase
             ->method('fetchAll')
             ->with(PDO::FETCH_ASSOC)
             ->willReturn([
-                ['1', 'Product 1', 10.0, 'Men', 'Jeans'],
-                ['2', 'Product 2', 20.0, 'Women', 'Jeans']
+                ['1', 'Product 1', 'desc 1', 10.0, 'Men', 'Jeans', 'image 1'],
+                ['2', 'Product 2', 'desc 2', 20.0, 'Women', 'Jeans', 'image 2']
             ]);
 
         $this->pdo->expects($this->once())
             ->method('prepare')
-            ->with('SELECT product.id, product.title, product.price, section.title AS section, category.title AS category
+            ->with('SELECT 
+                product.id,
+                product.title,
+                product.desc,
+                product.price,
+                section.title AS section,
+                category.title AS category,
+                image.title AS main_img
             FROM `product`
             LEFT JOIN `section`
             ON product.section_id = section.id
             LEFT JOIN `category`
-            ON product.category_id = category.id')
+            ON product.category_id = category.id
+            LEFT JOIN `image`
+            ON product.main_img_id = image.id
+            WHERE image.number = 0')
             ->willReturn($this->mock_stmt);
 
         $result = $this->db_product->get_products();

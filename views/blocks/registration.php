@@ -18,14 +18,6 @@
                         <input class="reg-form-info" name="first_name" type="text" placeholder="First Name" required>
                         <input class="reg-form-info" name="last_name" type="text" placeholder="Last Name" required>
                     </fieldset>
-                    <!-- <fieldset class="reg-form-gender">
-                        <input type="radio" id="male" name="gender" value="male">
-                        <label for="male">Male</label>
-                        <input type="radio" id="female" name="gender" value="female">
-                        <label for="female">Female</label>
-                        <input type="radio" id="other" name="gender" value="other">
-                        <label for="other">Other</label>
-                    </fieldset> -->
                     <fieldset class="reg-form-heading">
                         Contact details
                         <input class="reg-form-info" name="phone" type="tel" pattern="[0-9]{3,10}" placeholder="Phone" required>

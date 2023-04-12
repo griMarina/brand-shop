@@ -27,12 +27,22 @@ class DatabaseProduct
     public function get_products(): array
     {
         $stmt = $this->pdo->prepare(
-            'SELECT product.id, product.title, product.price, section.title AS section, category.title AS category
+            'SELECT 
+                product.id,
+                product.title,
+                product.desc,
+                product.price,
+                section.title AS section,
+                category.title AS category,
+                image.title AS main_img
             FROM `product`
             LEFT JOIN `section`
             ON product.section_id = section.id
             LEFT JOIN `category`
-            ON product.category_id = category.id'
+            ON product.category_id = category.id
+            LEFT JOIN `image`
+            ON product.main_img_id = image.id
+            WHERE image.number = 0'
         );
 
         $stmt->execute();

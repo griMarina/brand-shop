@@ -125,7 +125,7 @@
                 </figure>
             <?php endforeach; ?>
         </section>
-        <section class="pagination">
+        <!-- <section class="pagination">
             <h2 class="hidden">page selection</h2>
             <a href="#">
                 <svg class="pagination-icon" width="9" height="14" viewBox="0 0 9 14" xmlns="http://www.w3.org/2000/svg">
@@ -145,7 +145,7 @@
                     <path d="M0.994995 12L5.995 7L0.994995 2L1.995 0L8.995 7L1.995 14L0.994995 12Z" />
                 </svg>
             </a>
-        </section>
+        </section> -->
     </section>
     <section class="benefits">
         <h2 class="hidden">company's advantages</h2>

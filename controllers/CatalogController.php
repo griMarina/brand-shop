@@ -29,7 +29,7 @@ class CatalogController
             }
         } else {
             // retrieve products with a specified limit
-            $products = $db_product->get_products_by_limit(12);
+            $products = $db_product->get_products();
         }
 
         // redirect to the error page if no row is returned from the db

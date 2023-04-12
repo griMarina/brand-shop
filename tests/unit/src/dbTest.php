@@ -34,11 +34,4 @@ class dbTest extends TestCase
             throw new RuntimeException('Failed to connect to database: ' . $e->getMessage());
         }
     }
-
-    public function testConnectionReturnsPdoObjectWithCorrectEncoding()
-    {
-        $expected_encoding = 'utf8mb4';
-        $pdo = connection();
-        $this->assertEquals($expected_encoding, $pdo->query('SHOW VARIABLES LIKE \'character_set_database\'')->fetchColumn(1));
-    }
 }

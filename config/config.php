@@ -16,7 +16,7 @@ include ROOT . '/src/render.php';
 include ROOT . '/src/db.php';
 
 // Development only. Remove before production.
-setcookie('XDEBUGG_SESSION', 'xdebug');
+setcookie('XDEBUGG_SESSION', 'xdebug', ['SameSite' => 'Lax']);
 
 spl_autoload_register('autoload');
 ini_set('session.cookie_samesite', 'Lax');

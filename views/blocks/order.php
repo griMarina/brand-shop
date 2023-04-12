@@ -20,7 +20,6 @@
             <h2 class="account-header">Order: <?= $order->get_id() ?></h2>
             <div class="order-summary">
                 <p>Ordered: <?= $order->get_date() ?></p>
-                <!-- <p>Delivered:</p> -->
                 <p>Status: <?= $order->get_status() ?></p>
                 <p>Total: $<?= $order->get_total() ?></p>
             </div>
