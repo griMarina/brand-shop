@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://checkmywebsite.online">
+  <a href="https://checkmywebsite.online" target="_blank">
    <img src="https://github.com/griMarina/Taitotalo-project/blob/main/public/img/favicon/apple-touch-icon.png" alt="logo">  
   </a>
 
@@ -7,7 +7,7 @@
   <p align="center">
 This project was created as a study project during an internship at Taitotalo.    <br />
     <br />
-    <a href=""https://checkmywebsite.online"">View website</a>
+    <a href="https://checkmywebsite.online" target="_blank">View website</a>
     ·
     <a href="#description">Description</a>
     ·
@@ -78,7 +78,7 @@ define('DB_PASS', 'mysql_password');
 * **Shopping cart**: users can view their cart, modify the quantity of items, and remove items from the cart.
 * **Checkout process**: users can proceed to checkout, enter their shipping and payment information, and place their order.
 * **Order history**: users can view their order history and track the status of their orders.
-* **Admin panel**: administrators can log in (username: `admin@admin.com`; password: `dVYTRrT7tnkp8BP`) and access the admin panel, where they can manage the product catalog, orders, and users.
+* **Admin panel**: administrators can log in (username: `admin@admin.com` password: `dVYTRrT7tnkp8BP`) and access the admin panel, where they can manage the product catalog, orders, and users.
 
 
 ### Project Wiki
