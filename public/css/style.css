@@ -1333,27 +1333,34 @@ main {
     margin-bottom: 32px;
   }
   .cart-item-description {
-    padding: 15px 17px;
+    padding: 7px;
+  }
+  .cart-item-image {
+    width: 230px;
+    height: 240px;
   }
   .cart-item-title {
     max-width: 140px;
-    font-size: 16px;
+    font-size: 12px;
     line-height: 19px;
   }
   .cart-item-delete svg {
-    width: 11px;
-    height: 11px;
+    width: 10px;
+    height: 10px;
   }
   .cart-item-text {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 18px;
     margin-top: 24px;
   }
   .cart-item-text li {
     padding: 1px 0;
   }
+  .cart-item-text li span {
+    min-width: 20px;
+  }
   .cart-item-change_quantity {
-    font-size: 20px;
+    font-size: 16px;
   }
   .cart-actions {
     margin-top: 30px;

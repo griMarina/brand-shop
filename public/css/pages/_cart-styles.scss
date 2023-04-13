@@ -245,32 +245,41 @@
             margin-bottom: 32px;
 
             &-description {
-                padding: 15px 17px;
+                padding: 7px;
+            }
+
+            &-image {
+                width: 230px;
+                height: 240px;
             }
 
             &-title {
                 max-width: 140px;
-                font-size: 16px;
+                font-size: 12px;
                 line-height: 19px;
             }
 
             &-delete svg {
-                width: 11px;
-                height: 11px;
+                width: 10px;
+                height: 10px;
             }
 
             &-text {
-                font-size: 14px;
+                font-size: 12px;
                 line-height: 18px;
                 margin-top: 24px;
 
                 & li {
                     padding: 1px 0;
+
+                    span {
+                        min-width: 20px;
+                    }
                 }
             }
 
             &-change_quantity {
-                font-size: 20px;
+                font-size: 16px;
             }
         }
 
@@ -297,17 +306,5 @@
             margin-top: 48px;
             flex-direction: column;
         }
-
-        // &-form {
-        //     margin-right: 0;
-
-        //     &-submit {
-        //         text-transform: none;
-        //     }
-        // }
-
-        // &-sum {
-        //     margin-top: 48px;
-        // }
     }
 }
