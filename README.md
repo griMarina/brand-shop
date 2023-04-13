@@ -1,11 +1,31 @@
-# Online Fashion Shop
-This project was created as a study project during an internship at Taitotalo.
-<a href="https://checkmywebsite.online">
-   <img src="https://github.com/griMarina/Taitotalo-project/blob/main/documentation/home.png" alt="home page">
-</a>
-## Description
+<div align="center">
+  <a href="https://checkmywebsite.online">
+   <img src="https://github.com/griMarina/Taitotalo-project/blob/main/public/img/favicon/apple-touch-icon.png" alt="logo">  
+  </a>
 
-The Online Fashion Shop is a web-based application that allows users to browse and purchase fashion items online. The system is designed to provide a user-friendly interface that is easy to navigate and provides an intuitive shopping experience. The platform is fully responsive and optimized for different screen sizes. 
+<h3 align="center">Brand Shop</h3>
+  <p align="center">
+This project was created as a study project during an internship at Taitotalo.    <br />
+    <br />
+    <a href=""https://checkmywebsite.online"">View website</a>
+    ·
+    <a href="#description">Description</a>
+    ·
+    <a href="#built-with">Built with</a>
+    ·
+    <a href="#installing">Installing</a>
+     ·
+    <a href="#testing">Testing</a>
+    ·
+    <a href="#features">Features</a>
+    ·
+    <a href="https://github.com/griMarina/Taitotalo-project/wiki">Wiki</a>
+  </p>
+</div>
+
+### Description
+
+The Brand Shop is a web-based application that allows users to browse and purchase fashion items online. The system is designed to provide a user-friendly interface that is easy to navigate and provides an intuitive shopping experience. The platform is fully responsive and optimized for different screen sizes. 
 
 ### Built with 
 * PHP
@@ -58,7 +78,8 @@ define('DB_PASS', 'mysql_password');
 * **Shopping cart**: users can view their cart, modify the quantity of items, and remove items from the cart.
 * **Checkout process**: users can proceed to checkout, enter their shipping and payment information, and place their order.
 * **Order history**: users can view their order history and track the status of their orders.
-* **Admin panel**: administrators can log in and access the admin panel, where they can manage the product catalog, orders, and users.
+* **Admin panel**: administrators can log in (username: `admin@admin.com`; password: `dVYTRrT7tnkp8BP`) and access the admin panel, where they can manage the product catalog, orders, and users.
+
 
 ### Project Wiki
 More information about the project, including its goals, requirements, architecture, and development process:  [wiki](https://github.com/griMarina/Taitotalo-project/wiki)
