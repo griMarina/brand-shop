@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://checkmywebsite.online" target="_blank">
+  <a href="https://checkmywebsite.online">
    <img src="https://github.com/griMarina/Taitotalo-project/blob/main/public/img/favicon/apple-touch-icon.png" alt="logo">  
   </a>
 
@@ -7,7 +7,7 @@
   <p align="center">
 This project was created as a study project during an internship at Taitotalo.    <br />
     <br />
-    <a href="https://checkmywebsite.online" target="_blank">View website</a>
+    <a href="https://checkmywebsite.online">View website</a>
     ·
     <a href="#description">Description</a>
     ·
@@ -82,7 +82,7 @@ define('DB_PASS', 'mysql_password');
 
 
 ### Project Wiki
-More information about the project, including its goals, requirements, architecture, and development process:  [wiki](https://github.com/griMarina/Taitotalo-project/wiki)
+More information about the project, including its goals, requirements, architecture, and development process: [wiki](https://github.com/griMarina/Taitotalo-project/wiki)
 
 ### Contributors
 * [griMarina](https://github.com/griMarina)
