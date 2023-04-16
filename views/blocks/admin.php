@@ -3,7 +3,7 @@
         <div class="container admin-nav">
             <div class="admin-nav-top">
                 <a class="admin-nav-top-heading" href="/admin">ADMIN PANEL</a>
-                <a class="admin-nav-logout logout-mob" href="/"><span>Log out</span></a>
+                <a class="admin-nav-logout logout-mob" href="/admin/?action=logout"><span>Log out</span></a>
             </div>
             <ul class="admin-nav-categories">
                 <li class="admin-nav-category <?= ($tab == 'products') ? 'active' : '' ?> "><a href="/admin/products"><span>PRODUCTS</span></a></li>

@@ -1357,7 +1357,7 @@ main {
     padding: 1px 0;
   }
   .cart-item-text li span {
-    min-width: 20px;
+    min-width: 1px;
   }
   .cart-item-change_quantity {
     font-size: 16px;
