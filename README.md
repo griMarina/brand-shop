@@ -5,7 +5,7 @@
 
 <h3 align="center">Brand Shop</h3>
   <p align="center">
-This project was created as a study project during an internship at Taitotalo.    <br />
+This project was created as a study project during my internship at Taitotalo.    <br />
     <br />
     <a href="https://checkmywebsite.online">View website</a>
     ·
@@ -83,7 +83,3 @@ define('DB_PASS', 'mysql_password');
 
 ### Project Wiki
 More information about the project, including its goals, requirements, architecture, and development process: [wiki](https://github.com/griMarina/Taitotalo-project/wiki)
-
-### Contributors
-* [griMarina](https://github.com/griMarina)
-* [kot-alex](https://github.com/kot-alex)
