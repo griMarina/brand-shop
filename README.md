@@ -25,7 +25,7 @@ This project was created as a study project during my internship at Taitotalo.  
 
 ### Description
 
-The Brand Shop is a web-based application that allows users to browse and purchase fashion items online. The system is designed to provide a user-friendly interface that is easy to navigate and provides an intuitive shopping experience. The platform is fully responsive and optimized for different screen sizes. 
+The Brand Shop is a web application that allows users to browse and purchase fashion items online. It is designed to provide a user-friendly interface that is easy to navigate and provides an intuitive shopping experience. The app is fully responsive and optimized for different screen sizes. 
 
 ### Built with 
 * PHP
