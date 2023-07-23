@@ -3,7 +3,7 @@
    <img src="https://github.com/griMarina/Taitotalo-project/blob/main/public/img/favicon/apple-touch-icon.png" alt="logo">  
   </a>
 
-<h3 align="center">Brand Shop</h3>
+<h3 align="center">The Brand Shop</h3>
   <p align="center">
 This project was created as a study project during my internship at Taitotalo.    <br />
     <br />
