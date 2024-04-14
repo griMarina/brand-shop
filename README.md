@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://checkmywebsite.online">
+  <a href="https://brandshop.icu">
    <img src="https://github.com/griMarina/Taitotalo-project/blob/main/public/img/favicon/apple-touch-icon.png" alt="logo">  
   </a>
 
@@ -7,7 +7,7 @@
   <p align="center">
 This project was created as a study project during my internship at Taitotalo.    <br />
     <br />
-    <a href="https://checkmywebsite.online">View website</a>
+    <a href="https://brandshop.icu">View website</a>
     ·
     <a href="#description">Description</a>
     ·
